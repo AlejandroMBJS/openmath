@@ -1,0 +1,17 @@
+{
+  "name": "real-analysis-guide",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "docs:check-math": "sh scripts/check-math-delimiters.sh",
+    "docs:dev": "sh scripts/run-vitepress.sh dev docs",
+    "docs:dev:docker": "sh scripts/run-vitepress.sh dev docs --host 0.0.0.0 --port 31416",
+    "docs:build": "sh scripts/run-vitepress.sh build docs",
+    "docs:preview": "sh scripts/run-vitepress.sh preview docs"
+  },
+  "devDependencies": {
+    "markdown-it-mathjax3": "^4.3.2",
+    "vitepress": "^1.6.3"
+  }
+}

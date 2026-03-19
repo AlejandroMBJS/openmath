@@ -1,0 +1,9 @@
+services:
+  guia-analisis-real:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: guia-analisis-real:latest
+    ports:
+      - "31416:31416"
+    restart: unless-stopped
