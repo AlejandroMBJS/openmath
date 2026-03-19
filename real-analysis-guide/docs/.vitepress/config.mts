@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import clientMathPlugin from "./math-plugin.mjs";
 
 const githubRepository = process.env.GITHUB_REPOSITORY;
 const githubRepositoryName = githubRepository?.split("/")[1];
@@ -887,5 +888,10 @@ export default defineConfig({
         }
       : undefined,
     socialLinks: []
+  },
+  markdown: {
+    config(md) {
+      md.use(clientMathPlugin);
+    }
   }
 });

@@ -7,3 +7,13 @@
 .vp-doc mjx-container[jax="CHTML"] {
   max-width: 100%;
 }
+
+.vp-doc .math-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+}
+
+.vp-doc .math-inline {
+  white-space: normal;
+}
