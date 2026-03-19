@@ -1,0 +1,9 @@
+.vp-doc mjx-container[jax="CHTML"][display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5rem 0;
+}
+
+.vp-doc mjx-container[jax="CHTML"] {
+  max-width: 100%;
+}

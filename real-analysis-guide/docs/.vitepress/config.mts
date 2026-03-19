@@ -1,5 +1,4 @@
 import { defineConfig } from "vitepress";
-import mathjax3 from "markdown-it-mathjax3";
 
 const githubRepository = process.env.GITHUB_REPOSITORY;
 const githubRepositoryName = githubRepository?.split("/")[1];
@@ -11,6 +10,44 @@ const docsBase =
 const enableLocalSearch =
   process.env.DOCS_LOCAL_SEARCH === "true" ||
   (process.env.DOCS_LOCAL_SEARCH !== "false" && process.env.GITHUB_ACTIONS !== "true");
+
+const clientMathHead = [
+  [
+    "script",
+    {},
+    String.raw`window.MathJax = {
+  tex: {
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    processEscapes: true,
+    processEnvironments: true
+  },
+  options: {
+    skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
+  },
+  chtml: {
+    scale: 1,
+    displayAlign: "center",
+    displayIndent: "0"
+  },
+  startup: {
+    ready: () => {
+      MathJax.startup.defaultReady();
+      window.dispatchEvent(new Event("mathjax-ready"));
+    }
+  }
+};`
+  ],
+  [
+    "script",
+    {
+      id: "MathJax-script",
+      async: "",
+      src: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+    }
+  ]
+] as const;
+
 
 const realAnalysisItems = [
   { text: "Principio del supremo", link: "/analisis-real/principio-del-supremo" },
@@ -730,6 +767,7 @@ export default defineConfig({
   title: "Guia de Matematicas",
   description: "Ruta rigurosa de autoestudio desde fundamentos de nivel master hasta bloques puente hacia trabajo doctoral en matematica y fisica matematica.",
   cleanUrls: true,
+  head: clientMathHead,
   themeConfig: {
     nav: [
       { text: "Inicio", link: "/" },
@@ -849,10 +887,5 @@ export default defineConfig({
         }
       : undefined,
     socialLinks: []
-  },
-  markdown: {
-    config(md) {
-      md.use(mathjax3);
-    }
   }
 });
