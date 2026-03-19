@@ -8,9 +8,15 @@
     "docs:dev": "sh scripts/run-vitepress.sh dev docs",
     "docs:dev:docker": "sh scripts/run-vitepress.sh dev docs --host 0.0.0.0 --port 31416",
     "docs:build": "sh scripts/run-vitepress.sh build docs",
-    "docs:preview": "sh scripts/run-vitepress.sh preview docs"
+    "docs:preview": "sh scripts/run-vitepress.sh preview docs",
+    "predocs:dev": "node scripts/sync-mathjax-assets.mjs",
+    "predocs:dev:docker": "node scripts/sync-mathjax-assets.mjs",
+    "predocs:build": "node scripts/sync-mathjax-assets.mjs",
+    "predocs:preview": "node scripts/sync-mathjax-assets.mjs",
+    "postdocs:build": "node scripts/generate-offline-sw.mjs"
   },
   "devDependencies": {
+    "mathjax-full": "^3.2.1",
     "vitepress": "^1.6.3"
   }
 }

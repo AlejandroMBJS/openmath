@@ -53,10 +53,11 @@ No volver a poner el workflow dentro de `real-analysis-guide/.github/workflows/`
 
 ### Publico
 
-- La publicacion objetivo es GitHub Pages:
+- La publicacion publica es GitHub Pages:
   - `https://alejandrombjs.github.io/openmath/`
-- El workflow de Pages compila desde `real-analysis-guide/`
-- El `base` de VitePress ya se calcula automaticamente desde `GITHUB_REPOSITORY`
+- El workflow de Pages compila desde `real-analysis-guide/`.
+- El `base` de VitePress se calcula automaticamente desde `GITHUB_REPOSITORY`.
+- Cada `push` a `main` recompila y publica el sitio.
 
 ## Estado de despliegue
 
@@ -72,16 +73,33 @@ Archivos clave:
 
 ### GitHub Pages
 
-El flujo correcto ya no debe depender de builds locales pesados.
+El build publico ya no depende del viejo render matematico pesado en build.
 
 Reglas:
 
-- El build de Pages debe correr en GitHub Actions, no en la maquina local salvo necesidad real.
+- El build de Pages corre en GitHub Actions, no en la maquina local salvo necesidad real.
 - El workflow usa:
   - `working-directory: real-analysis-guide`
   - `DOCS_NODE_HEAP_MB=12288`
   - `DOCS_LOCAL_SEARCH=false`
 - La busqueda local de VitePress queda desactivada en CI para bajar consumo de memoria.
+- Las formulas ya no se renderizan en build con `markdown-it-mathjax3`.
+- Ahora se usa:
+  - MathJax en cliente inyectado desde `config.mts`
+  - hook de tema para re-typeset al navegar
+  - tokenizer ligero en `docs/.vitepress/math-plugin.mjs` para proteger sintaxis matematica durante el parseo de Markdown y Vue
+- El build estatico ya pasa localmente y en GitHub Actions.
+
+## Flujo real para seguir creciendo la guia
+
+- El contenido del curso se sigue escribiendo en archivos `.md`.
+- Casi todo vive bajo:
+  - `real-analysis-guide/docs/`
+- Si se agrega un tema nuevo:
+  - crear o editar el `.md`
+  - enlazarlo en `real-analysis-guide/docs/.vitepress/config.mts` si debe aparecer en navbar o sidebar
+  - hacer `git add`, `git commit` y `git push origin main`
+- GitHub Pages recompila y publica automaticamente despues del `push`.
 
 ## Estado editorial real
 
@@ -123,6 +141,10 @@ La regla vigente es:
 ## Ultimos avances importantes
 
 - Se amplio el navbar, sidebar, portada y mapa para el programa completo.
+- Se resolvio el cuello de build estatico:
+  - ya no falla por RAM
+  - ya no choca con notacion matematica tipo conjuntos, `\omega`, etc.
+  - GitHub Pages ya puede compilar el sitio completo
 - Se reescribio buena parte de `probabilidad y estadistica` con mas rigor teorico.
 - `ecuaciones diferenciales` dejo de ser solo clasico y ya incluye:
   - Lyapunov no lineal
@@ -172,6 +194,9 @@ La regla vigente es:
 - `real-analysis-guide/package.json`
 - `real-analysis-guide/scripts/run-vitepress.sh`
 - `real-analysis-guide/scripts/check-math-delimiters.sh`
+- `real-analysis-guide/docs/.vitepress/theme/index.ts`
+- `real-analysis-guide/docs/.vitepress/theme/custom.css`
+- `real-analysis-guide/docs/.vitepress/math-plugin.mjs`
 
 ### Despliegue
 
@@ -195,6 +220,13 @@ cd /home/iamx/math/real-analysis-guide
 npm run docs:dev
 ```
 
+### Build estatico
+
+```bash
+cd /home/iamx/math/real-analysis-guide
+npm run docs:build
+```
+
 ### Docker local
 
 ```bash
@@ -204,10 +236,12 @@ docker rm -f guia-analisis-real || true
 docker run -d --name guia-analisis-real -p 31416:31416 guia-analisis-real
 ```
 
-### Push correcto del repo
+### Publicar cambios normales
 
 ```bash
 cd /home/iamx/math
+git add .
+git commit -m "Describe el cambio"
 git push origin main
 ```
 
@@ -215,7 +249,8 @@ git push origin main
 
 - No volver a asumir que el repo root es `real-analysis-guide/`; el root real es `/home/iamx/math`.
 - No volver a poner workflows dentro de `real-analysis-guide/.github/`.
-- No lanzar `npm run docs:build` localmente por costumbre: puede pegar fuerte a RAM.
+- No volver al plugin `markdown-it-mathjax3` para render en build.
+- `npm run docs:build` ya pasa, pero no hace falta correrlo localmente por costumbre para publicar.
 - No meter formulas en backticks.
 - No marcar un bloque como doctoral o completo si aun esta desparejo.
 - No bajar el nivel del texto a resumen superficial.
@@ -229,4 +264,4 @@ Un bloque solo se considera realmente cerrado cuando:
 - las rutas del sidebar existen de verdad;
 - el contenido tiene definiciones, pruebas y ejemplos suficientes;
 - el nivel del bloque es homogeneo y no solo unas pocas paginas fuertes;
-- el despliegue local sigue funcionando y el flujo publico no depende de builds locales improvisados.
+- el despliegue local sigue funcionando y el flujo publico ya puede publicarse con `push` a `main` sin maniobras manuales raras.

@@ -13,23 +13,24 @@ const enableLocalSearch =
   (process.env.DOCS_LOCAL_SEARCH !== "false" && process.env.GITHUB_ACTIONS !== "true");
 
 const clientMathHead = [
+  ["link", { rel: "manifest", href: `${docsBase}manifest.webmanifest` }],
+  ["link", { rel: "icon", href: `${docsBase}icons/icon.svg`, type: "image/svg+xml" }],
+  ["meta", { name: "theme-color", content: "#0f172a" }],
   [
     "script",
     {},
     String.raw`window.MathJax = {
   tex: {
-    inlineMath: [["$", "$"], ["\\(", "\\)"]],
-    displayMath: [["$$", "$$"], ["\\[", "\\]"]],
+    inlineMath: [["$", "$"], ["\(", "\)"]],
+    displayMath: [["$$", "$$"], ["\[", "\]"]],
     processEscapes: true,
     processEnvironments: true
   },
   options: {
     skipHtmlTags: ["script", "noscript", "style", "textarea", "pre", "code"]
   },
-  chtml: {
-    scale: 1,
-    displayAlign: "center",
-    displayIndent: "0"
+  svg: {
+    fontCache: "local"
   },
   startup: {
     ready: () => {
@@ -44,7 +45,7 @@ const clientMathHead = [
     {
       id: "MathJax-script",
       async: "",
-      src: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+      src: `${docsBase}mathjax/tex-svg-full.js`
     }
   ]
 ] as const;

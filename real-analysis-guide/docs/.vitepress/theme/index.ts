@@ -1,5 +1,5 @@
 import DefaultTheme from "vitepress/theme";
-import { inBrowser, useRoute } from "vitepress";
+import { inBrowser, useRoute, withBase } from "vitepress";
 import { nextTick, onMounted, onUnmounted, watch } from "vue";
 import "./custom.css";
 
@@ -29,6 +29,34 @@ const typesetMath = async () => {
   }
 };
 
+const registerOfflineSupport = () => {
+  if (!inBrowser || import.meta.env.DEV || !("serviceWorker" in navigator)) return;
+
+  const register = async () => {
+    try {
+      await navigator.serviceWorker.register(withBase("/sw.js"));
+      if (navigator.storage?.persist) {
+        await navigator.storage.persist();
+      }
+    } catch (error) {
+      console.warn("Offline support registration failed", error);
+    }
+  };
+
+  if (document.readyState === "complete") {
+    void register();
+    return;
+  }
+
+  window.addEventListener(
+    "load",
+    () => {
+      void register();
+    },
+    { once: true }
+  );
+};
+
 export default {
   extends: DefaultTheme,
   setup() {
@@ -43,6 +71,7 @@ export default {
 
     onMounted(() => {
       window.addEventListener("mathjax-ready", queueTypeset);
+      registerOfflineSupport();
     });
 
     onUnmounted(() => {
