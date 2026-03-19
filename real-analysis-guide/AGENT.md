@@ -1,269 +1,232 @@
 # AGENT.md
 
-## Objetivo del proyecto
+## Objetivo real del proyecto
 
-Construir una guia web de **Analisis Real** y, a continuacion, de **Analisis Matematico** en espanol tecnico claro, con rigor formal guiado, publicada con `VitePress` y servida en Docker.
+Construir una guia web abierta de matematicas en espanol, con nivel que vaya desde fundamentos fuertes hasta bloques puente hacia trabajo doctoral en matematica y fisica matematica.
 
-La prioridad inmediata sigue siendo **cerrar por completo Analisis Real**. Una vez hecho eso, la expansion natural es `Analisis Matematico` con espacios metricos, normados y teoremas estructurales.
+Ya no es solo una guia de Analisis Real. El proyecto activo cubre y seguira cubriendo:
 
-## Estado actual
+- Analisis real
+- Analisis matematico
+- Algebra superior
+- Topologia
+- Calculo vectorial y multivariado
+- Probabilidad y estadistica
+- Ecuaciones diferenciales
+- Ecuaciones diferenciales parciales
+- Metodos numericos
+- Analisis de Fourier
+- Variable compleja
+- Geometria diferencial
+- Metodos matematicos para la fisica
+- Calculo tensorial
 
-### Ya implementado
+## Estructura real del repo
 
-- Sitio `VitePress` funcional en `docs/`.
-- Publicacion en Docker con `Dockerfile`, `nginx.conf` y `compose.yaml`.
-- Soporte de matematicas con `markdown-it-mathjax3`.
-- Regla automatica para detectar LaTeX mal metido en backticks:
-  - `npm run docs:check-math`
-- Navegacion web y sidebar para todo el bloque de Analisis Real.
-- Pagina de metodologia publicada en `docs/metodologia.md`.
-- Tema completo:
-  - `docs/analisis-real/principio-del-supremo.md`
-- Tema completo:
-  - `docs/analisis-real/sucesiones.md`
-- Tema completo:
-  - `docs/analisis-real/convergencia-de-sucesiones.md`
-- Tema completo:
-  - `docs/analisis-real/sucesiones-acotadas.md`
-- Tema completo:
-  - `docs/analisis-real/operaciones-con-sucesiones.md`
-- Tema completo:
-  - `docs/analisis-real/subsucesiones.md`
-- Tema completo:
-  - `docs/analisis-real/sucesiones-de-cauchy.md`
-- Tema completo:
-  - `docs/analisis-real/bolzano-weierstrass.md`
-- Tema completo:
-  - `docs/analisis-real/series.md`
-- Tema completo:
-  - `docs/analisis-real/series-geometricas.md`
-- Tema completo:
-  - `docs/analisis-real/criterios-comparacion-condensacion.md`
-- Tema completo:
-  - `docs/analisis-real/criterios-cauchy-raiz.md`
-- Tema completo:
-  - `docs/analisis-real/topologia-recta-real.md`
-- Tema completo:
-  - `docs/analisis-real/compacidad.md`
-- Tema completo:
-  - `docs/analisis-real/conexidad.md`
-- Tema completo:
-  - `docs/analisis-real/limites-epsilon-delta.md`
-- Tema completo:
-  - `docs/analisis-real/limites-laterales.md`
-- Tema completo:
-  - `docs/analisis-real/continuidad.md`
-- Tema completo:
-  - `docs/analisis-real/continuidad-uniforme.md`
-- Tema completo:
-  - `docs/analisis-real/derivada.md`
-- Tema completo:
-  - `docs/analisis-real/reglas-de-derivacion.md`
-- Tema completo:
-  - `docs/analisis-real/regla-de-la-cadena.md`
-- Tema completo:
-  - `docs/analisis-real/regla-de-lhopital.md`
-- Tema completo:
-  - `docs/analisis-real/integral-de-riemann.md`
-- Tema completo:
-  - `docs/analisis-real/funciones-riemann-integrables.md`
-- Tema completo:
-  - `docs/analisis-real/integral-definida.md`
-- Mapa inicial del siguiente bloque:
-  - `docs/analisis-matematico/index.md`
-- Tema completo:
-  - `docs/analisis-matematico/espacios-metricos.md`
+Hay una trampa importante: el repositorio git real esta en:
 
-### Publicacion actual
+- `/home/iamx/math`
 
-- Contenedor: `guia-analisis-real`
-- Puerto: `31416`
-- El sitio debe servir la version mas reciente reconstruyendo la imagen y relanzando el contenedor cuando haya cambios.
+Pero el proyecto del sitio vive en:
 
-## Regla editorial obligatoria
+- `/home/iamx/math/real-analysis-guide`
 
-### Escritura matematica
+Por eso:
 
-- Usar `$...$` para matematica inline.
-- Usar `$$...$$` para matematicas en bloque.
-- No usar backticks para formulas.
-- Reservar backticks para comandos, nombres de archivos y rutas.
+- el contenido, `package.json`, `docs/`, `Dockerfile` y `README.md` viven en `real-analysis-guide/`
+- el workflow valido de GitHub Actions debe vivir en la raiz real del repo:
+  - `/home/iamx/math/.github/workflows/deploy-pages.yml`
 
-### Dos tipos de temas
+No volver a poner el workflow dentro de `real-analysis-guide/.github/workflows/`, porque GitHub no lo detecta ahi.
 
-#### 1. Temas operativos
+## Estado actual del sitio
 
-Llevan:
+### Local
 
-1. motivacion e intuicion;
-2. prerrequisitos;
-3. definiciones formales;
-4. interpretacion en lenguaje natural;
-5. ejemplos basicos;
-6. ejemplos finos y contraejemplos;
-7. proposiciones y teoremas;
-8. demostraciones completas;
-9. errores comunes;
-10. resumen operativo;
-11. 15 ejercicios;
-12. soluciones completas.
+- El sitio local de estudio se sirve con VitePress `dev` dentro de Docker.
+- Contenedor esperado:
+  - `guia-analisis-real`
+- Puerto local:
+  - `31416`
+- URL local:
+  - `http://localhost:31416`
 
-#### 2. Temas teoricos
+### Publico
 
-Llevan:
+- La publicacion objetivo es GitHub Pages:
+  - `https://alejandrombjs.github.io/openmath/`
+- El workflow de Pages compila desde `real-analysis-guide/`
+- El `base` de VitePress ya se calcula automaticamente desde `GITHUB_REPOSITORY`
 
-1. motivacion e intuicion;
-2. prerrequisitos;
-3. definiciones formales;
-4. interpretacion en lenguaje natural;
-5. ejemplos basicos;
-6. ejemplos finos y contraejemplos;
-7. teoremas y demostraciones;
-8. errores comunes;
-9. resumen conceptual;
-10. ejemplos guiados finales.
+## Estado de despliegue
 
-Los temas teoricos **no** llevan ejercicios. Deben incluir suficientes ejemplos trabajados.
+### Docker
 
-## Clasificacion fija de temas
+El flujo local correcto es VitePress `dev`, no `nginx` con sitio estatico.
 
-### Temas operativos
+Archivos clave:
 
-- Principio del supremo
-- Sucesiones
-- Convergencia de sucesiones
-- Sucesiones acotadas
-- Operaciones con sucesiones
-- Subsucesiones
-- Sucesiones de Cauchy
-- Series
-- Series geometricas
-- Criterios de comparacion y condensacion
-- Criterios de Cauchy y de la raiz
-- Limites epsilon-delta
-- Continuidad
-- Continuidad uniforme
-- Limites laterales
-- Integral definida
-- Derivada
-- Reglas de derivacion
-- Regla de la cadena
-- Regla de L'Hopital
+- `real-analysis-guide/Dockerfile`
+- `real-analysis-guide/compose.yaml`
+- `real-analysis-guide/scripts/run-vitepress.sh`
 
-### Temas teoricos
+### GitHub Pages
 
-- Bolzano-Weierstrass
-- Topologia de la recta real
-- Compacidad
-- Conexidad
-- Integral de Riemann
-- Funciones Riemann integrables
+El flujo correcto ya no debe depender de builds locales pesados.
 
-## Secuencia de trabajo restante
+Reglas:
 
-Trabajar **tema por tema** y no avanzar al siguiente sin cerrar el actual.
+- El build de Pages debe correr en GitHub Actions, no en la maquina local salvo necesidad real.
+- El workflow usa:
+  - `working-directory: real-analysis-guide`
+  - `DOCS_NODE_HEAP_MB=12288`
+  - `DOCS_LOCAL_SEARCH=false`
+- La busqueda local de VitePress queda desactivada en CI para bajar consumo de memoria.
 
-Orden pendiente:
+## Estado editorial real
 
-1. ~~Bolzano-Weierstrass~~ (completo)
-2. ~~Series~~ (completo)
-3. ~~Series geometricas~~ (completo)
-4. ~~Criterios de comparacion y condensacion~~ (completo)
-5. ~~Criterios de Cauchy y de la raiz~~ (completo)
-6. ~~Topologia de la recta real~~ (completo)
-7. ~~Compacidad~~ (completo)
-8. ~~Conexidad~~ (completo)
-9. ~~Limites epsilon-delta~~ (completo)
-10. ~~Continuidad~~ (completo)
-11. ~~Continuidad uniforme~~ (completo)
-12. ~~Limites laterales~~ (completo)
-13. ~~Integral de Riemann~~ (completo)
-14. ~~Funciones Riemann integrables~~ (completo)
-15. ~~Integral definida~~ (completo)
-16. ~~Derivada~~ (completo)
-17. ~~Reglas de derivacion~~ (completo)
-18. ~~Regla de la cadena~~ (completo)
-19. ~~Regla de L'Hopital~~ (completo)
+El criterio viejo de "15 ejercicios exactos por tema operativo" ya no debe usarse como regla universal.
 
-## Mapa futuro de Analisis Matematico
+La regla vigente es:
 
-Una vez cerrado Analisis Real, abrir el siguiente bloque en este orden:
+- no forzar `15` ejercicios si no hacen falta;
+- priorizar desarrollo matematico real;
+- incluir definiciones, intuicion, teoremas, pruebas, ejemplos finos y contraejemplos;
+- cuando un tema pide practica, agregar ejercicios y soluciones con criterio, no por cuota mecanica.
 
-1. Espacios metricos.
-2. Convergencia de sucesiones en metricos.
-3. Sucesiones y criterios de Cauchy en metricos.
-4. Completitud y ejemplos clasicos como $\ell^1$.
-5. Bolas abiertas, abiertos, cerrados, clausura y frontera.
-6. Topologia de espacios metricos y puntos de acumulacion.
-7. Teorema de Baire en sus versiones basicas.
-8. Espacios separables y teorema de Lindelof.
-9. Continuidad, continuidad uniforme, homeomorfismos e isometrias.
-10. Teoremas de Bolzano-Weierstrass, Heine-Borel y variantes segun el contexto.
+## Bloques que ya quedaron fuertes
 
-## Criterio de cierre por tema
+### Muy maduros
 
-Un tema solo se considera terminado si cumple todo esto:
+- Analisis real
+- Analisis matematico
+- Topologia
 
-- no queda texto placeholder;
-- todas las formulas renderizan bien;
-- `npm run docs:check-math` pasa;
-- las definiciones son consistentes;
-- las demostraciones son logicamente correctas;
-- los ejemplos y contraejemplos son correctos;
-- si es operativo, tiene exactamente 15 ejercicios y soluciones completas;
-- si es teorico, tiene suficientes ejemplos trabajados y no incluye seccion de ejercicios.
+### Fuertes y ya no solo introductorios
+
+- Algebra superior
+- Calculo vectorial y multivariado
+- Probabilidad y estadistica
+- Ecuaciones diferenciales
+- Ecuaciones diferenciales parciales
+- Analisis de Fourier
+- Variable compleja
+
+### Pendientes de seguir elevando o completar de forma pareja
+
+- Metodos numericos
+- Matematicas discretas
+- Geometria diferencial
+- Metodos matematicos para la fisica
+- Calculo tensorial
+
+## Ultimos avances importantes
+
+- Se amplio el navbar, sidebar, portada y mapa para el programa completo.
+- Se reescribio buena parte de `probabilidad y estadistica` con mas rigor teorico.
+- `ecuaciones diferenciales` dejo de ser solo clasico y ya incluye:
+  - Lyapunov no lineal
+  - Hartman-Grobman
+  - Poincare-Bendixson
+  - bifurcaciones
+  - Sturm-Liouville
+  - semigrupos en Banach
+- `ecuaciones diferenciales parciales` ya incluye una espina doctoral reconocible:
+  - regularidad
+  - semilineales y quasilineales
+  - sistemas hiperbolicos
+  - Navier-Stokes
+  - microlocal y pseudodiferenciales
+  - EDP estocasticas
+  - problemas inversos
+- `analisis de Fourier` ya incluye:
+  - Schwartz y distribuciones temperadas
+  - Plancherel
+  - Paley-Wiener
+  - multiplicadores
+  - wavelets
+  - Littlewood-Paley
+  - Hardy/Hilbert
+- `variable compleja` ya incluye:
+  - Laurent y meromorfas
+  - principio del argumento y Rouche
+  - transformaciones conformes
+  - esfera de Riemann
+  - potencial logaritmico
+  - continuation analitica y monodromia
+  - Runge, Mittag-Leffler y Weierstrass
+  - Montel y Picard
+  - aplicacion de Riemann y frontera
 
 ## Archivos clave
 
-- `docs/.vitepress/config.mts`
-- `docs/index.md`
-- `docs/metodologia.md`
-- `docs/analisis-real/*.md`
-- `scripts/check-math-delimiters.sh`
-- `Dockerfile`
-- `compose.yaml`
+### Sitio
+
+- `real-analysis-guide/docs/.vitepress/config.mts`
+- `real-analysis-guide/docs/index.md`
+- `real-analysis-guide/docs/mapa.md`
+- `real-analysis-guide/docs/metodologia.md`
+
+### Tooling
+
+- `real-analysis-guide/package.json`
+- `real-analysis-guide/scripts/run-vitepress.sh`
+- `real-analysis-guide/scripts/check-math-delimiters.sh`
+
+### Despliegue
+
+- `real-analysis-guide/Dockerfile`
+- `real-analysis-guide/compose.yaml`
+- `/home/iamx/math/.github/workflows/deploy-pages.yml`
 
 ## Comandos utiles
 
-### Validacion
+### Validacion matematica
 
 ```bash
+cd /home/iamx/math/real-analysis-guide
 npm run docs:check-math
 ```
 
-### Build local del sitio
+### Desarrollo local
 
 ```bash
-npm run docs:build
+cd /home/iamx/math/real-analysis-guide
+npm run docs:dev
 ```
 
-### Reconstruir imagen Docker
+### Docker local
 
 ```bash
+cd /home/iamx/math/real-analysis-guide
 docker build -t guia-analisis-real .
+docker rm -f guia-analisis-real || true
+docker run -d --name guia-analisis-real -p 31416:31416 guia-analisis-real
 ```
 
-### Reemplazar contenedor en 31416
+### Push correcto del repo
 
 ```bash
-docker rm -f guia-analisis-real || true
-docker run -d --name guia-analisis-real -p 31416:80 guia-analisis-real
+cd /home/iamx/math
+git push origin main
 ```
 
 ## Restricciones importantes
 
-- No empezar `Analisis Matematico` antes de terminar Analisis Real.
+- No volver a asumir que el repo root es `real-analysis-guide/`; el root real es `/home/iamx/math`.
+- No volver a poner workflows dentro de `real-analysis-guide/.github/`.
+- No lanzar `npm run docs:build` localmente por costumbre: puede pegar fuerte a RAM.
 - No meter formulas en backticks.
-- No dejar temas a medio escribir si se anuncian como completos.
-- No cambiar el rigor a un estilo superficial o de resumen.
-- No quitar contenido correcto ya validado salvo para corregir errores reales o unificar metodologia.
+- No marcar un bloque como doctoral o completo si aun esta desparejo.
+- No bajar el nivel del texto a resumen superficial.
 
-## Proxima accion recomendada
+## Criterio de cierre actual
 
-Continuar con:
+Un bloque solo se considera realmente cerrado cuando:
 
-**Analisis Real completado.** Fase 2: Analisis Matematico en curso.
-
-El siguiente tema es `docs/analisis-matematico/bolas-abiertas-metricos.md`
-
-siguiendo la plantilla operativa (15 ejercicios con soluciones completas).
+- ya no tiene placeholders ni paginas-esquema vacias;
+- `npm run docs:check-math` pasa;
+- las rutas del sidebar existen de verdad;
+- el contenido tiene definiciones, pruebas y ejemplos suficientes;
+- el nivel del bloque es homogeneo y no solo unas pocas paginas fuertes;
+- el despliegue local sigue funcionando y el flujo publico no depende de builds locales improvisados.
