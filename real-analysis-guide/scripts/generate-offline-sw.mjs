@@ -1,11 +1,15 @@
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const repoRoot = "/home/iamx/math/real-analysis-guide";
+const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(scriptDir, "..");
 const distDir = path.join(repoRoot, "docs", ".vitepress", "dist");
 const githubRepository = process.env.GITHUB_REPOSITORY;
 const githubRepositoryName = githubRepository?.split("/")[1];
-const docsBase = process.env.DOCS_BASE ?? (process.env.GITHUB_ACTIONS === "true" && githubRepositoryName ? `/${githubRepositoryName}/` : "/");
+const docsBase =
+  process.env.DOCS_BASE ??
+  (process.env.GITHUB_ACTIONS === "true" && githubRepositoryName ? `/${githubRepositoryName}/` : "/");
 const base = docsBase.endsWith("/") ? docsBase : `${docsBase}/`;
 const version = process.env.GITHUB_SHA?.slice(0, 8) ?? `${Date.now()}`;
 
