@@ -21,8 +21,8 @@ const clientMathHead = [
     {},
     String.raw`window.MathJax = {
   tex: {
-    inlineMath: [["$", "$"], ["\(", "\)"]],
-    displayMath: [["$$", "$$"], ["\[", "\]"]],
+    inlineMath: [["$", "$"], ["\\(", "\\)"]],
+    displayMath: [["$$", "$$"], ["\\[", "\\]"]],
     processEscapes: true,
     processEnvironments: true
   },
