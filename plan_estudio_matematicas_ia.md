@@ -79,8 +79,12 @@
 - Factorización de matrices (NMF, ICA)
 - Normas matriciales
 - Desigualdad de Cauchy-Schwarz
-- Espacios de Hilbert
+- Espacios de Hilbert (finito-dimensionales)
 - Análisis de componentes principales (PCA)
+
+::: warning Nota importante
+Los espacios de Hilbert tratados aquí son finito-dimensionales (espacios euclidianos con producto interno). Los espacios de Hilbert infinito-dimensionales, fundamentales para kernels, métodos espectrales y teoría de operadores, se estudian en Análisis Funcional (Nivel 3).
+:::
 
 **Aplicaciones en IA**:
 - Redes neuronales (operaciones tensoriales)
@@ -102,6 +106,14 @@
 - Métodos de optimización: Newton, BFGS, Adam
 - Gradientes estocásticos
 - Convergencia y tasas de convergencia
+
+::: warning Nota sobre condiciones KKT
+Las condiciones KKT son condiciones necesarias solo bajo **constraint qualifications** (calificaciones de restricciones). Las más comunes son:
+- **LICQ** (Linear Independence Constraint Qualification): los gradientes de las restricciones activas son linealmente independientes.
+- **MFCQ** (Mangasarian-Fromovitz Constraint Qualification): condición más débil que LICQ.
+
+Siempre verificar estas hipótesis antes de aplicar KKT, pues sin ellas las condiciones pueden no ser necesarias para optimalidad.
+:::
 
 **Aplicaciones en IA**:
 - Backpropagation
@@ -143,7 +155,9 @@
 - Información mutua
 - Divergencia de Kullback-Leibler (KL divergence)
 - Codificación y compresión
-- Teorema de Shannon
+- Teorema de Codificación de Fuente (source coding theorem)
+- Teorema del Canal con Ruido (noisy channel coding theorem)
+- Teorema de Capacidad de Canal
 
 **Aplicaciones en IA**:
 - Función de pérdida cross-entropy
@@ -154,6 +168,31 @@
 - Calcular entropía de distribuciones
 - Implementar cross-entropy loss
 - Analizar información mutua en datasets
+
+### 8. Análisis Funcional
+**Duración**: 4 semanas
+
+**Temas**:
+- Espacios de Banach y espacios de Hilbert infinito-dimensionales
+- Operadores lineales acotados
+- Teorema de Hahn-Banach
+- Teorema de la aplicación abierta y grafo cerrado
+- Teoría espectral básica
+- Espacios L^p y su dual
+
+**Aplicaciones en IA**:
+::: tip Justificación
+Los espacios de Hilbert infinito-dimensionales son la base matemática de **kernels en SVM**, **PCA en espacios de funciones** (kernel PCA), y **métodos espectrales** en ML. La teoría de operadores es fundamental para entender convergencia de algoritmos en espacios de funciones.
+:::
+- Kernel methods (RKHS - Reproducing Kernel Hilbert Spaces)
+- GP (Gaussian Processes)
+- Análisis espectral de grafos para GNN
+- Regularización funcional
+
+**Ejercicios**:
+- Verificar que L^2 es espacio de Hilbert
+- Demostrar propiedades de operadores compactos
+- Calcular espectro de operadores simples
 
 ---
 
@@ -241,17 +280,33 @@
 
 ## Nivel 4: Especialización (Opcional)
 
-### 12. Teoría de la Medida (para ML teórico)
+### 12. Análisis Complejo
+**Duración**: 4 semanas
+
+**Temas**:
+- Funciones holomorfas y ecuaciones de Cauchy-Riemann
+- Teorema integral de Cauchy y consecuencias
+- Series de Laurent y clasificación de singularidades
+- Teorema de los residuos y aplicaciones a integrales
+- Transformadas de Fourier desde perspectiva compleja
+- Métodos espectrales y analiticidad
+
+**Aplicaciones en IA**:
+- Transformada de Fourier y procesamiento de señales
+- Métodos espectrales en ML
+- Funciones deGreen y kernels en RKHS
+- Análisis de estabilidad en sistemas dinámicos
+
+**Ejercicios**:
+- Calcular integrales con residuos
+- Demostrar teoremas de analiticidad
+- Relacionar series de Fourier con funciones holomorfas
+
+### 13. Teoría de la Medida (para ML teórico)
 **Temas**:
 - Espacios medibles
 - Teorema de Radon-Nikodym
 - Integral de Lebesgue
-
-### 13. Análisis Funcional (para Deep Learning teórico)
-**Temas**:
-- Espacios de Banach y Hilbert
-- Operadores lineales
-- Teoría espectral
 
 ### 14. Lógica y Teoría de Conjuntos (para IA simbólica)
 **Temas**:
@@ -308,12 +363,15 @@
 | 17-20 | Cálculo Avanzado | 12-18 |
 | 21-24 | Probabilidad Avanzada | 12-18 |
 | 25-26 | Teoría de la Información | 12-18 |
-| 27-32 | Optimización Avanzada | 15-20 |
-| 33-36 | Teoría de Grafos | 12-18 |
-| 37-40 | Geometría Diferencial | 12-18 |
-| 41-42 | Topología Algebraica | 12-18 |
+| 27-30 | Análisis Funcional | 15-20 |
+| 31-34 | Optimización Avanzada | 15-20 |
+| 35-38 | Teoría de Grafos | 12-18 |
+| 39-42 | Geometría Diferencial | 12-18 |
+| 43-44 | Topología Algebraica | 12-18 |
 
-**Tiempo total**: ~40-48 semanas (9-11 meses) con dedicación consistente
+**Tiempo total**: ~44-48 semanas (10-11 meses) con dedicación consistente
+
+**Ruta opcional (Nivel 4)**: Análisis Complejo (4 semanas adicionales)
 
 ---
 

@@ -82,26 +82,28 @@ const realAnalysisItems = [
 
 const mathematicalAnalysisItems = [
   { text: "Mapa del bloque", link: "/analisis-matematico/" },
-  { text: "Espacios metricos", link: "/analisis-matematico/espacios-metricos" },
+  { text: "Espacios metricos: definicion", link: "/analisis-matematico/espacios-metricos-definicion" },
   { text: "Bolas abiertas en metricos", link: "/analisis-matematico/bolas-abiertas-metricos" },
   { text: "Conjuntos abiertos en metricos", link: "/analisis-matematico/conjuntos-abiertos-metricos" },
-  { text: "Topologia de espacios metricos", link: "/analisis-matematico/topologia-espacios-metricos" },
   { text: "Convergencia en metricos", link: "/analisis-matematico/convergencia-sucesiones-metricas" },
   { text: "Puntos de acumulacion y clausura", link: "/analisis-matematico/puntos-acumulacion-clausura" },
   { text: "Frontera en metricos", link: "/analisis-matematico/frontera-conjuntos-metricos" },
   { text: "Sucesiones de Cauchy en metricos", link: "/analisis-matematico/sucesiones-cauchy-metricos" },
   { text: "Completitud", link: "/analisis-matematico/completitud-espacios-metricos" },
-  { text: "Espacios separables", link: "/analisis-matematico/espacios-separables" },
   { text: "Teorema de Baire", link: "/analisis-matematico/teorema-baire" },
+  { text: "Compacidad en metricos", link: "/analisis-matematico/compacidad-metricos" },
+  { text: "Topologia de espacios metricos", link: "/analisis-matematico/topologia-espacios-metricos" },
+  { text: "Espacios separables", link: "/analisis-matematico/espacios-separables" },
   { text: "Teorema de Lindelof", link: "/analisis-matematico/teorema-lindelof" },
+  { text: "Conexidad", link: "/analisis-matematico/conexidad" },
+  { text: "Convergencia uniforme de funciones", link: "/analisis-matematico/convergencia-uniforme-funciones" },
+  { text: "Continuidad en metricos", link: "/analisis-matematico/continuidad-epsilon-delta-metricos" },
+  { text: "Continuidad uniforme", link: "/analisis-matematico/continuidad-uniforme" },
+  { text: "Funciones separadoras", link: "/analisis-matematico/funciones-separadoras-puntos" },
+  { text: "Homeomorfismos e isometrias", link: "/analisis-matematico/homeomorfismos-isometrias" },
   { text: "Espacios normados", link: "/analisis-matematico/espacios-normados" },
   { text: "Sucesiones en normados", link: "/analisis-matematico/sucesiones-espacios-normados" },
   { text: "Convexidad en normados", link: "/analisis-matematico/convexidad-espacios-normados" },
-  { text: "Continuidad en metricos", link: "/analisis-matematico/continuidad-epsilon-delta-metricos" },
-  { text: "Funciones separadoras", link: "/analisis-matematico/funciones-separadoras-puntos" },
-  { text: "Homeomorfismos e isometrias", link: "/analisis-matematico/homeomorfismos-isometrias" },
-  { text: "Continuidad uniforme en metricos", link: "/analisis-matematico/continuidad-uniforme-metricos" },
-  { text: "Compacidad en metricos", link: "/analisis-matematico/compacidad-espacios-metricos" },
   { text: "Bolzano-Weierstrass en metricos", link: "/analisis-matematico/bolzano-weierstrass-metricos" },
   { text: "Heine-Borel en metricos", link: "/analisis-matematico/heine-borel-metrico" },
   { text: "Borel-Lebesgue completo", link: "/analisis-matematico/borel-lebesgue-completo" }
@@ -706,8 +708,80 @@ const complexVariableItems = [
   { text: "Familias normales, Montel y teoremas de Picard", link: "/variable-compleja/familias-normales-montel-y-teoremas-de-picard" },
   { text: "Aplicacion de Riemann y comportamiento en la frontera", link: "/variable-compleja/aplicacion-de-riemann-y-fronteras" }
 ];
-const differentialGeometryItems = blockItems("/geometria-diferencial/", differentialGeometryTopics);
-const mathematicalMethodsPhysicsItems = blockItems("/metodos-matematicos-para-la-fisica/", mathematicalMethodsPhysicsTopics);
+const differentialGeometryRouteOverrides: Record<string, string> = {
+  "introduccion-a-las-curvas-derivables": "/geometria-diferencial/introduccion-a-las-curvas-derivables",
+  "curvas-regulares-parametrizadas": "/geometria-diferencial/curvas-regulares-parametrizadas",
+  "longitud-de-arco-y-angulo-entre-curvas": "/geometria-diferencial/longitud-de-arco-y-angulo-entre-curvas",
+  "curvatura-de-curvas-planas": "/geometria-diferencial/curvatura-de-curvas-planas",
+  "el-triedro-de-serret-frenet": "/geometria-diferencial/el-triedro-de-serret-frenet",
+  "superficies-topologicas-cartas-y-atlas": "/geometria-diferencial/superficies-topologicas-cartas-y-atlas",
+  "superficie-diferenciable": "/geometria-diferencial/superficie-diferenciable",
+  "el-espacio-tangente": "/geometria-diferencial/el-espacio-tangente",
+  "primera-forma-fundamental": "/geometria-diferencial/primera-forma-fundamental",
+  "el-teorema-egregio-de-gauss": "/geometria-diferencial/el-teorema-egregio-de-gauss",
+  "coeficientes-de-christoffel": "/geometria-diferencial/coeficientes-de-christoffel",
+  "ecuaciones-de-weingarten": "/geometria-diferencial/ecuaciones-de-weingarten",
+  "curvatura-gaussiana": "/geometria-diferencial/curvatura-gaussiana",
+  "curvatura-normal": "/geometria-diferencial/curvatura-normal",
+  "el-teorema-de-euler": "/geometria-diferencial/el-teorema-de-euler",
+  "aplicacion-de-gauss": "/geometria-diferencial/aplicacion-de-gauss",
+  "la-segunda-forma-fundamental": "/geometria-diferencial/la-segunda-forma-fundamental",
+  "plano-normal-osculador-y-rectificador": "/geometria-diferencial/plano-normal-osculador-y-rectificador",
+  "curvatura-y-torsion": "/geometria-diferencial/curvatura-y-torsion",
+  "curvatura-con-signo": "/geometria-diferencial/curvatura-con-signo",
+  "curvatura-y-circunferencia-osculatriz": "/geometria-diferencial/curvatura-y-circunferencia-osculatriz"
+};
+const differentialGeometryItems = [
+  { text: "Mapa del bloque", link: "/geometria-diferencial/" },
+  ...differentialGeometryTopics.map(([text, hash]) => ({
+    text,
+    link: differentialGeometryRouteOverrides[hash] ?? "/geometria-diferencial/" + hash
+  }))
+];
+const mathematicalMethodsPhysicsRouteOverrides: Record<string, string> = {
+  "sistemas-coordenados": "/metodos-matematicos-para-la-fisica/sistemas-coordenados",
+  "coordenadas-curvilineas": "/metodos-matematicos-para-la-fisica/coordenadas-curvilineas",
+  "vectores-diferenciales": "/metodos-matematicos-para-la-fisica/vectores-diferenciales",
+  "cosenos-de-direccion": "/metodos-matematicos-para-la-fisica/cosenos-de-direccion",
+  "matriz-de-cosenos-de-direccion": "/metodos-matematicos-para-la-fisica/matriz-de-cosenos-de-direccion",
+  "matrices-hermitianas-y-unitarias": "/metodos-matematicos-para-la-fisica/matrices-hermitianas-y-unitarias",
+  "matrices-de-pauli-y-dirac": "/metodos-matematicos-para-la-fisica/matrices-de-pauli-y-dirac",
+  "definicion-de-grupo": "/metodos-matematicos-para-la-fisica/definicion-de-grupo",
+  "el-grupo-de-klein": "/metodos-matematicos-para-la-fisica/el-grupo-de-klein",
+  "isomorfismo-y-homomorfismo": "/metodos-matematicos-para-la-fisica/isomorfismo-y-homomorfismo",
+  "matrices-reducibles-e-irreducibles": "/metodos-matematicos-para-la-fisica/matrices-reducibles-e-irreducibles",
+  "traza-y-subgrupo": "/metodos-matematicos-para-la-fisica/traza-y-subgrupo",
+  "rotacion-con-doble-simetria": "/metodos-matematicos-para-la-fisica/rotacion-con-doble-simetria",
+  "rotaciones-con-triple-simetria": "/metodos-matematicos-para-la-fisica/rotaciones-con-triple-simetria",
+  "grupos-dihedrales": "/metodos-matematicos-para-la-fisica/grupos-dihedrales",
+  "grupos-y-puntos-cristalograficos": "/metodos-matematicos-para-la-fisica/grupos-y-puntos-cristalograficos",
+  "grupos-de-lie-continuos": "/metodos-matematicos-para-la-fisica/grupos-de-lie-continuos",
+  "grupo-ortogonal": "/metodos-matematicos-para-la-fisica/grupo-ortogonal",
+  "grupo-unitario-especial": "/metodos-matematicos-para-la-fisica/grupo-unitario-especial",
+  "desarrollo-de-taylor": "/metodos-matematicos-para-la-fisica/desarrollo-de-taylor",
+  "teorema-de-maclaurin": "/metodos-matematicos-para-la-fisica/teorema-de-maclaurin",
+  "teorema-binomial": "/metodos-matematicos-para-la-fisica/teorema-binomial",
+  "series-y-la-energia-relativista": "/metodos-matematicos-para-la-fisica/series-y-la-energia-relativista",
+  "taylor-en-varias-variables": "/metodos-matematicos-para-la-fisica/taylor-en-varias-variables",
+  "pendulo-e-integrales-elipticas": "/metodos-matematicos-para-la-fisica/pendulo-e-integrales-elipticas",
+  "integral-eliptica-de-primera-y-segunda-clase": "/metodos-matematicos-para-la-fisica/integral-eliptica-de-primera-y-segunda-clase",
+  "numeros-de-bernoulli": "/metodos-matematicos-para-la-fisica/numeros-de-bernoulli",
+  "funciones-de-bernoulli": "/metodos-matematicos-para-la-fisica/funciones-de-bernoulli",
+  "formula-de-integracion-euler-maclaurin": "/metodos-matematicos-para-la-fisica/formula-de-integracion-euler-maclaurin",
+  "funcion-zeta-de-riemann": "/metodos-matematicos-para-la-fisica/funcion-zeta-de-riemann",
+  "productos-infinitos-de-funciones": "/metodos-matematicos-para-la-fisica/productos-infinitos-de-funciones",
+  "funcion-gamma-con-senos-y-cosenos": "/metodos-matematicos-para-la-fisica/funcion-gamma-con-senos-y-cosenos",
+  "funcion-gamma-representaciones": "/metodos-matematicos-para-la-fisica/funcion-gamma-representaciones",
+  "notacion-factorial-de-la-funcion-gamma": "/metodos-matematicos-para-la-fisica/notacion-factorial-de-la-funcion-gamma",
+  "representacion-integral-funcion-gamma": "/metodos-matematicos-para-la-fisica/representacion-integral-funcion-gamma"
+};
+const mathematicalMethodsPhysicsItems = [
+  { text: "Mapa del bloque", link: "/metodos-matematicos-para-la-fisica/" },
+  ...mathematicalMethodsPhysicsTopics.map(([text, hash]) => ({
+    text,
+    link: mathematicalMethodsPhysicsRouteOverrides[hash] ?? "/metodos-matematicos-para-la-fisica/#" + hash
+  }))
+];
 const tensorCalculusItems = blockItems("/calculo-tensorial/", tensorCalculusTopics);
 const partialDifferentialEquationsItems = [
   { text: "Mapa del bloque", link: "/ecuaciones-diferenciales-parciales/" },
