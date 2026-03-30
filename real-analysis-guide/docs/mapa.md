@@ -65,6 +65,16 @@ Estos bloques recogen el lenguaje y las herramientas que aparecen continuamente 
 - [Calculo tensorial](/calculo-tensorial/)
   Notacion tensorial, tensores metricos, conexiones, curvatura de Riemann y tensor de Einstein.
 
+## Mathematical Physics (Hassani)
+
+Este bloque organiza la ruta siguiendo la estructura de **Sadri Hassani (Mathematical Physics)**, vinculando los capítulos del libro con las secciones desarrolladas en esta guía.
+
+1. **Espacios Vectoriales y Hilbert** (Caps 1-8): [Matrices](/metodos-matematicos-para-la-fisica/matrices-hermitianas-y-unitarias), [Analisis Matematico](/analisis-matematico/espacios-normados), [Distribuciones](/analisis-de-fourier/espacios-de-schwartz-y-distribuciones-temperadas) y [Fourier](/analisis-de-fourier/).
+2. **Variable Compleja** (Caps 9-11): [Bloque completo de Variable Compleja](/variable-compleja/).
+3. **Ecuaciones Diferenciales y Green** (Caps 12-18): [EDO](/ecuaciones-diferenciales/), [Sturm-Liouville](/ecuaciones-diferenciales/problemas-de-frontera-y-sturm-liouville) y [EDP](/ecuaciones-diferenciales-parciales/).
+4. **Grupos y Lie** (Caps 20-25): [Teoria de Grupos](/metodos-matematicos-para-la-fisica/definicion-de-grupo) y [Grupos de Lie](/metodos-matematicos-para-la-fisica/grupos-de-lie-continuos).
+5. **Geometria y Tensores** (Caps 26-28): [Geometria Diferencial](/geometria-diferencial/) (incluyendo [Formas y de Rham](/geometria-diferencial/cohomologia-de-rham)) y [Calculo Tensorial](/calculo-tensorial/) (incluyendo [Tensores de Energía](/calculo-tensorial/tensores-de-energia-y-conservacion)).
+
 ## Ruta recomendada
 
 Si el objetivo es una progresion seria y acumulativa, la lectura recomendada es:

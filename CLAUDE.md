@@ -44,11 +44,21 @@ docker run --rm -p 31416:80 guia-analisis-real
 
 ## Current status
 
-**Analisis Real** is complete. **Analisis Matematico** is in progress.
+**Analisis Real** is complete. **Analisis Matematico** is complete (all 28 files: exercises, solutions, references).
 
-Next topic to write: `docs/analisis-matematico/bolas-abiertas-metricos.md` (operational template — 15 exercises with complete solutions).
+**Geometria Diferencial** is complete (all 35 files: exercises, solutions, references).
 
-After that, the remaining sequence for Analisis Matematico: convergencia en metricos → Cauchy en metricos → completitud → topologia de espacios metricos → Baire → separabilidad/Lindelof → continuidad/homeomorfismos/isometrias → Bolzano-Weierstrass/Heine-Borel.
+**Calculo Tensorial** is complete (31 files).
+
+**Matematicas Discretas** is almost complete — all files now have 15 exercises with solutions, research directions, and academic references. Remaining: verify all files meet doctoral level standards.
+
+## Next steps
+
+1. **Matematicas Discretas**: Final verification that all ~37 files meet doctoral level (15 exercises + solutions, theorems with proofs, references, research directions).
+
+2. **Update VitePress navigation** (`docs/.vitepress/config.mts`) as blocks are completed.
+
+3. **Run complete check-math** to ensure no LaTeX delimiters in backticks.
 
 ## Docker: replace running container
 

@@ -232,8 +232,135 @@ $$
 
 ## Ejercicios
 
-1. Demuestra que todo compacto metrico es totalmente acotado.
-2. Prueba que un subconjunto infinito de un discreto no es compacto.
-3. Completa la prueba de que un conjunto acotado de $\mathbb{R}^n$ es totalmente acotado.
-4. Demuestra que la bola unitaria cerrada de $\ell^2$ no es compacta.
-5. Explica con precision por que Heine-Borel falla en espacios normados infinito-dimensionales.
+### Ejercicio 1
+
+Demuestra que todo compacto metrico es totalmente acotado.
+
+### Ejercicio 2
+
+Prueba que un subconjunto infinito de un espacio discreto no es compacto.
+
+### Ejercicio 3
+
+Completa la prueba de que un conjunto acotado de $\mathbb{R}^n$ es totalmente acotado.
+
+### Ejercicio 4
+
+Demuestra que la bola unitaria cerrada de $\ell^2$ no es compacta.
+
+### Ejercicio 5
+
+Explica con precision por que Heine-Borel falla en espacios normados infinito-dimensionales.
+
+### Ejercicio 6
+
+Prueba que en $\mathbb{R}^n$, cerrado + acotado equivale a totalmente acotado + completo.
+
+### Ejercicio 7
+
+Sea $K$ totalmente acotado en un espacio metrico. Demuestre que toda sucesion en $K$ admite una subsucesion de Cauchy.
+
+### Ejercicio 8
+
+Demuestre que la imagen de un compacto por una aplicacion continua es compacta.
+
+### Ejercicio 9
+
+Pruebe que si $K$ es compacto y $f : K \to \mathbb{R}$ es continua, entonces $f$ alcanza maximo y minimo.
+
+### Ejercicio 10
+
+Demuestre que un espacio metrico es compacto si y solo si toda familia de cerrados con la propiedad de interseccion finita tiene interseccion no vacia.
+
+### Ejercicio 11
+
+Sea $K$ compacto y $F_1 \supseteq F_2 \supseteq \cdots$ cadena decreciente de cerrados no vacios. Pruebe que $\bigcap_n F_n \ne \varnothing$.
+
+### Ejercicio 12
+
+Prueba que la bola unitaria cerrada de $c_0$ no es compacta.
+
+### Ejercicio 13
+
+Demuestre que $[0,1]$ es compacto en $\mathbb{R}$ usando el teorema de Heine-Borel.
+
+### Ejercicio 14
+
+Sea $A \subseteq \mathbb{R}^n$. Pruebe que $A$ es compacto si y solo si toda sucesion en $A$ tiene subsucesion convergente en $A$.
+
+### Ejercicio 15
+
+Pruebe que el producto finito de compactos metricos es compacto con la metrica producto.
+
+## Soluciones
+
+### Solucion 1
+
+Dado $\varepsilon > 0$, la familia $\{B(x, \varepsilon) : x \in K\}$ recubre $K$. Por compacidad, existe subrecubrimiento finito $K \subseteq \bigcup_{j=1}^N B(x_j, \varepsilon)$. $\blacksquare$
+
+### Solucion 2
+
+Si $X$ es discreto e infinito, cada punto es abierto. La cobertura $\{ \{x\} : x \in X \}$ no admite subrecubrimiento finito. $\blacksquare$
+
+### Solucion 3
+
+Sea $A \subseteq \mathbb{R}^n$ acotado. Existe $M > 0$ con $\|x\| \le M$ para todo $x \in A$. La bola $\overline{B}(0,M)$ es compacta en $\mathbb{R}^n$. Para $\varepsilon > 0$, $\overline{B}(0,M) \subseteq \bigcup_{z \in \mathbb{Z}^n \cap \overline{B}(0,M)} B(z, \varepsilon)$, que es una cubierta finita. Restringida a $A$, obtenemos cubierta finita por bolas de radio $\varepsilon$. $\blacksquare$
+
+### Solucion 4
+
+La sucesion de vectores canonicos $e_n$ pertenece a $\overline{B}(0,1)$ en $\ell^2$. Si $n \ne m$, $\|e_n - e_m\|_2 = \sqrt{2}$. Ninguna subsucesion puede ser de Cauchy, luego $\overline{B}(0,1)$ no es secuencialmente compacta, hence no es compacta. $\blacksquare$
+
+### Solucion 5
+
+En dimension infinita, la bola unidad cerrada no es necesariamente compacta (contraejemplo $\ell^2$). La razon es que la total acotacion falla: existen conjuntos acotados que no son totalmente acotados porque la dimension infinita permite empaquetar infinitos puntos a distancia fija. $\blacksquare$
+
+### Solucion 6
+
+En $\mathbb{R}^n$, cerrado implica completo y acotado implica totalmente acotado. Asi cerrado + acotado = completo + totalmente acotado = compacto. $\blacksquare$
+
+### Solucion 7
+
+Sea $(x_n)$ en $K$. Como $K$ es totalmente acotado, para $\varepsilon = 1$ existe cubierta finita $K \subseteq \bigcup_{j=1}^{N_1} B(a_j^{(1)}, 1)$. Hay infinitos puntos en alguna bola $B(a_{j_1}^{(1)}, 1)$. Repitiendo con $\varepsilon = 1/2$, obtenemos subsucesion en $B(a_{j_2}^{(2)}, 1/2)$, etc. Por construccion, la subsucesion es de Cauchy. $\blacksquare$
+
+### Solucion 8
+
+Sea $\{U_i\}$ recubrimiento abierto de $f(K)$. Para cada $x \in K$, existe $i(x)$ con $f(x) \in U_{i(x)}$, luego $x \in f^{-1}(U_{i(x)})$. La familia $\{f^{-1}(U_i)\}$ recubre $K$, tiene subrecubrimiento finito, y sus imagenes cubren $f(K)$. $\blacksquare$
+
+### Solucion 9
+
+$f(K)$ es compacto en $\mathbb{R}$, hence cerrado y acotado. Por Weierstrass, $f$ alcanza maximo y mnimo en $K$. $\blacksquare$
+
+### Solucion 10
+
+$\Rightarrow$: Si $K$ es compacto y $\bigcap F_i = \varnothing$, entonces $\{K \setminus F_i\}$ recubre $K$; por compacidad existe subrecubrimiento finito $K \setminus F_{i_1}, \ldots, K \setminus F_{i_m}$, luego $F_{i_1} \cap \cdots \cap F_{i_m} = \varnothing$, contradiccion. $\Leftarrow$: Si la propiedad de interseccion finita vale, supongamos que $K$ no es compacto. Entonces existe una familia abierta sin subrecubrimiento finito. Construir una sucesion de cerrados encajados sin interseccion y obtener contradiccion. $\blacksquare$
+
+### Solucion 11
+
+Si $\bigcap_n F_n = \varnothing$, entonces $\{K \setminus F_n\}$ recubre $K$. Por compacidad existe subrecubrimiento finito $K \setminus F_{n_1}, \ldots, K \setminus F_{n_m}$. Si $N = \max\{n_j\}$, entonces $K \setminus F_N = \bigcup_{j=1}^m (K \setminus F_{n_j})$, luego $F_N = \varnothing$, contradiccion. $\blacksquare$
+
+### Solucion 12
+
+En $c_0$, los vectores canonicos $e_n$ tienden a $0$ pero $\|e_n - e_m\|_\infty = 1$ para $n \ne m$. Asi $\overline{B}(0,1)$ en $c_0$ no es totally acotada, hence no compacta. $\blacksquare$
+
+### Solucion 13
+
+$[0,1]$ es cerrado y acotado en $\mathbb{R}$, hence completo y totalmente acotado. Por el teorema de Heine-Borel (o equivalentemente, completo + totalmente acotado = compacto), $[0,1]$ es compacto. $\blacksquare$
+
+### Solucion 14
+
+En $\mathbb{R}^n$, compacto $\iff$ secuencialmente compacto $\iff$ completo + totalmente acotado $\iff$ cerrado + acotado (por Heine-Borel). La equivalencia con subsucesiones convergentes es la definicion de compacidad secuencial, que coincide con compacidad en espacios metricos. $\blacksquare$
+
+### Solucion 15
+
+Sea $(x_n, y_n)$ sucesion en $K_1 \times K_2$. Por compacidad secuencial, $(x_n)$ tiene subsucesion convergente $x_{n_k} \to x$ en $K_1$, y $(y_{n_k})$ tiene subsucesion $y_{n_{k_j}} \to y$ en $K_2$. Entonces $(x_{n_{k_j}}, y_{n_{k_j}}) \to (x,y)$ en el producto. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+4. Willard, S. (2004). *General Topology*. Dover.
+5. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+6. Dieudonne, J. (1960). *Foundations of Modern Analysis*. Academic Press.

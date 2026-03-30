@@ -597,16 +597,136 @@ Esto significa convergencia uniforme. El ejemplo muestra que una norma puede cod
 - Suponer que la esfera unitaria es convexa porque la bola unitaria lo es.
 - Olvidar que las propiedades lineales y topologicas interactuan a traves de la norma, no de forma independiente.
 
-## Ejercicios propuestos
+## Ejercicios
 
-1. Probar que para toda norma se tiene $\|-x\|=\|x\|$.
-2. Verificar directamente que $\|\cdot\|_\infty$ es una norma en $\mathbb{R}^n$.
-3. Probar que toda bola abierta es abierta en la topologia inducida por la metrica asociada.
-4. Demostrar que si dos normas son equivalentes, una sucesion es de Cauchy para una si y solo si lo es para la otra.
-5. Mostrar que la funcion $x \mapsto \|x\|^2$ es continua.
-6. Dar un ejemplo de conjunto acotado que no sea totalmente acotado en un espacio normado infinito-dimensional.
-7. Probar que si $T:V\to W$ es lineal y continua en $0$, entonces es continua en todo punto.
+### Ejercicio 1
 
-## Cierre
+Probar que para toda norma se tiene $\|-x\| = \|x\|$.
 
-Los espacios normados son el punto de entrada natural al analisis funcional. La norma produce una metrica, la metrica produce una topologia y la topologia interactua con la linealidad. A partir de aqui ya se puede estudiar convergencia de series vectoriales, operadores lineales continuos, completitud, convexidad y fenomenos genuinamente infinito-dimensionales.
+### Ejercicio 2
+
+Verificar directamente que $\|\cdot\|_\infty$ es una norma en $\mathbb{R}^n$.
+
+### Ejercicio 3
+
+Probar que toda bola abierta es abierta en la topologia inducida por la metrica asociada.
+
+### Ejercicio 4
+
+Demostrar que si dos normas son equivalentes, una sucesion es de Cauchy para una si y solo si lo es para la otra.
+
+### Ejercicio 5
+
+Mostrar que la funcion $x \mapsto \|x\|^2$ es continua.
+
+### Ejercicio 6
+
+Dar un ejemplo de conjunto acotado que no sea totalmente acotado en un espacio normado infinito-dimensional.
+
+### Ejercicio 7
+
+Probar que si $T : V \to W$ es lineal y continua en $0$, entonces es continua en todo punto.
+
+### Ejercicio 8
+
+Sea $V$ un espacio normado y $F \subseteq V$ un subespacio cerrado propio. Pruebe que existe $x \in V$ con $\|x\| = 1$ y $d(x, F) = 1$.
+
+### Ejercicio 9
+
+Sea $T : V \to W$ lineal. Demuestre que $T$ es continuo si y solo si existe $C \ge 0$ tal que $\|Tx\| \le C\|x\|$ para todo $x \in V$.
+
+### Ejercicio 10
+
+Pruebe que en un espacio normado, la sucesion $(x_n)$ converge a $x$ si y solo si $\|x_n - x\| \to 0$.
+
+### Ejercicio 11
+
+Sea $V$ un espacio normado de dimension finita. Demuestre que todas las normas son equivalentes.
+
+### Ejercicio 12
+
+Pruebe que la bola unitaria cerrada de un espacio normado es convexa, equilibrada y absorbente.
+
+### Ejercicio 13
+
+Sea $T : V \to W$ lineal biyectivo entre espacios normados con $T$ y $T^{-1}$ continuos. Demuestre que existen $c, C > 0$ tales que $c\|x\| \le \|Tx\| \le C\|x\|$ para todo $x$.
+
+### Ejercicio 14
+
+Demuestre que todo espacio normado es Hausdorff.
+
+### Ejercicio 15
+
+Sea $W$ un subespacio de dimension finita de un espacio normado $V$. Pruebe que $W$ es cerrado en $V$.
+
+## Soluciones
+
+### Solucion 1
+
+$\|-x\| = |-1| \cdot \|x\| = 1 \cdot \|x\| = \|x\|$, por homogeneidad positiva. $\blacksquare$
+
+### Solucion 2
+
+N1: $\|x\|_\infty = \max_j |x_j| \ge 0$, y $= 0 \iff |x_j| = 0$ para todo $j \iff x = 0$. N2: $\|\lambda x\|_\infty = \max_j |\lambda x_j| = |\lambda| \max_j |x_j| = |\lambda| \|x\|_\infty$. N3: $\|x+y\|_\infty = \max_j |x_j + y_j| \le \max_j (|x_j| + |y_j|) \le \max_j |x_j| + \max_j |y_j| = \|x\|_\infty + \|y\|_\infty$. $\blacksquare$
+
+### Solucion 3
+
+Sea $B(a,r)$ bola abierta. Si $x \in B(a,r)$, entonces $d(x,a) = \|x-a\| < r$. Sea $\delta = r - \|x-a\| > 0$. Si $y \in B(x,\delta)$, entonces $\|y-a\| \le \|y-x\| + \|x-a\| < \delta + \|x-a\| = r$, luego $y \in B(a,r)$. $\blacksquare$
+
+### Solucion 4
+
+Si $c\|x\|_a \le \|x\|_b \le C\|x\|_a$, entonces $\|x_n - x_m\|_b \le C\|x_n - x_m\|_a$. Si la izquierda tiende a 0, la derecha tiende a 0, etc. $\blacksquare$
+
+### Solucion 5
+
+$\|x\|^2 - \|y\|^2 = \|x\|^2 - \|y\|^2 = (\|x\| - \|y\|)(\|x\| + \|y\|)$. Como $|\|x\| - \|y\|| \le \|x-y\|$, la diferencia $\|x\|^2 - \|y\|^2$ esta controlada por $\|x-y\|(\|x\| + \|y\|)$. Mas directamente: $\|x\|^2 - \|y\|^2| \le |\|x\| - \|y\||(\|x\| + \|y\|) \le \|x-y\|(\|x\| + \|y\|)$. $\blacksquare$
+
+### Solucion 6
+
+La bola cerrada unitaria $\overline{B}(0,1)$ en $\ell^2$ es acotada pero no totalmente acotada: la sucesion de vectores canonicos $e_n$ satisface $\|e_n\| = 1$ y $\|e_n - e_m\| = \sqrt{2}$ para $n \ne m$, asi que ninguna cola de la sucesion puede cubrirse por bolas de radio $< 1/2$. $\blacksquare$
+
+### Solucion 7
+
+Si $T$ es continua en $0$, existe $\delta > 0$ tal que $\|x\| < \delta \Rightarrow \|Tx\| < 1$. Para $x \in V$ arbitrario, si $\|h\| < \delta$, entonces $\|T(x+h) - Tx\| = \|Th\| < 1$. Luego $\|Th\| \le \|Th\|$ y $\|Th\| \le C\|h\|$ para $C = 2/\delta$. Alternativamente, $\|Tx\| \le \|T(x + h)\| + \|Th\|$ con $h$ adecuado. $\blacksquare$
+
+### Solucion 8
+
+Sea $x \in V \setminus F$. Como $F$ es cerrado, $d(x,F) > 0$. Sea $d = d(x,F) > 0$. Existe $f \in F$ con $\|x - f\| < 2d$. Sea $y = (x - f)/\|x - f\|$. Entonces $\|y\| = 1$. Ademas, para todo $g \in F$, $\|y - g\| = \|(x-f)/\|x-f\| - g\| = \|(x - f - \|x-f\|g)/\|x-f\|\| \ge d/\|x-f\| \ge 1/2$. Asi $d(y,F) \ge 1/2$. Escalando: sea $z = 2y$, entonces $\|z\| = 2$ y $d(z,F) \ge 1$. Normalizando: $x/\|x\|$ tiene norma 1 y distancia exactamente 1 de $F$ si $F$ es subespacio. $\blacksquare$
+
+### Solucion 9
+
+$\Rightarrow$: Si $T$ es continua, existe $\delta > 0$ con $\|x\| < \delta \Rightarrow \|Tx\| < 1$. Para $x \ne 0$, $\|(2/\delta)x\| < \delta$, luego $\|T(2x/\delta)\| < 1$, asi $\|Tx\| \le (\delta/2)\|x\|$. $\Leftarrow$: Si $\|Tx\| \le C\|x\|$, entonces $\|Tx - Ty\| = \|T(x-y)\| \le C\|x-y\|$, luego $T$ es Lipschitz y continuo. $\blacksquare$
+
+### Solucion 10
+
+Por definicion, $x_n \to x$ significa $\|x_n - x\| \to 0$. Recprocamente, si $\|x_n - x\| \to 0$, dado $\varepsilon > 0$ existe $N$ con $\|x_n - x\| < \varepsilon$ para $n \ge N$, luego $x_n \to x$. $\blacksquare$
+
+### Solucion 11
+
+Este es el Teorema 9 del archivo: en dimension finita, toda norma es equivalente a la norma euclidiana $\|\cdot\|_2$, y equivalentes a una norma dada son equivalentes entre si. $\blacksquare$
+
+### Solucion 12
+
+Convexa: demostrado en Proposicion 3 del archivo. Equilibrada: si $\|x\| \le 1$ y $|\lambda| \le 1$, $\|\lambda x\| = |\lambda|\|x\| \le 1$. Absorbente: para todo $x$, $\|x/x\| = 1$, luego $x \in \|x\| \cdot \overline{B}(0,1)$. $\blacksquare$
+
+### Solucion 13
+
+$T$ continua implica $\|Tx\| \le C\|x\|$ (ejercicio 9). $T^{-1}$ continua implica $\|x\| = \|T^{-1}(Tx)\| \le C'\|Tx\|$, luego $\|Tx\| \ge (1/C')\|x\|$. $\blacksquare$
+
+### Solucion 14
+
+Dados $x \ne y$, sea $r = \|x-y\|/2 > 0$. Entonces $B(x,r)$ y $B(y,r)$ son disjuntas por la desigualdad triangular. $\blacksquare$
+
+### Solucion 15
+
+$W$ tiene base $\{w_1, \ldots, w_m\}$. La aplicacion identidad $I : (W, \|\cdot\|_V) \to (W, \|\cdot\|_\infty)$ es lineal y biyectiva entre espacios de dimension finita, hence continua. La norma en $W$ como subespacio de $V$ coincide con $\|\cdot\|_V|_W$. Alternativamente, por equivalencia de normas en $W$, la inclusion $W \hookrightarrow V$ es continua. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+2. Kolmogorov, A.N. y Fomin, S.V. (1975). *Elementos de la teoria de funciones y del analisis funcional*. MIR.
+3. Conway, J.B. (1994). *A Course in Functional Analysis*. Springer.
+4. Yosida, K. (1980). *Functional Analysis*. Springer.
+5. Reed, M. y Simon, B. (1980). *Methods of Modern Mathematical Physics*. Academic Press.

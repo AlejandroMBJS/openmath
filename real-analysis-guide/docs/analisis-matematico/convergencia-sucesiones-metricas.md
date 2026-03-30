@@ -827,3 +827,259 @@ Entonces $(y_n)$ converge al mismo limite. Esto explica por que la convergencia 
 ## Cierre
 
 La convergencia en metricos es la primera nocion secuencial verdaderamente universal del bloque. A partir de ella se formula la idea de Cauchy, se entiende la completitud y se conectan las propiedades topologicas con sucesiones concretas.
+
+## Ejercicios
+
+### Ejercicio 1
+
+Sea $(X,d)$ un espacio metrico y $(x_n)$ una sucesion en $X$. Demuestre que si $x_n \to x$ y $x_n \to y$, entonces $x = y$.
+
+### Ejercicio 2
+
+Demuestre que si $x_n \to x$ en $(X,d)$, entonces toda subsucesion de $(x_n)$ tambien converge a $x$.
+
+### Ejercicio 3
+
+Sea $(X,d)$ un espacio metrico con la metrica discreta. Caracterice todas las sucesiones convergentes en $X$.
+
+### Ejercicio 4
+
+Demuestre que la suma de una cantidad finita de terminos no afecta la convergencia ni el limite. Formalmente: si $x_n \to x$, y definimos $y_n = x_{n+k}$ para alguna constante $k \geq 0$, entonces $y_n \to x$.
+
+### Ejercicio 5
+
+Sea $(X,d_X)$ y $(Y,d_Y)$ espacios metricos. Demuestre que si $x_n \to x$ en $X$ y $y_n \to y$ en $Y$, entonces $(x_n, y_n) \to (x,y)$ en el producto $X \times Y$ con la metrica producto.
+
+### Ejercicio 6
+
+En $\mathbb{R}$ con la metrica usual, demuestre que $x_n \to x$ si y solo si $|x_n - x| \to 0$.
+
+### Ejercicio 7
+
+Sea $X = \mathbb{R}^2$ con la metrica euclidea. Demuestre que $(x_n, y_n) \to (a,b)$ si y solo si $x_n \to a$ y $y_n \to b$.
+
+### Ejercicio 8
+
+En $C[0,1]$ con la metrica del supremo, demuestre que $f_n \to f$ si y solo si $f_n$ converge uniformemente a $f$ en $[0,1]$.
+
+### Ejercicio 9
+
+Demuestre que si $x_n \to x$ en $(X,d)$, entonces el conjunto $\{x_n : n \in \mathbb{N}\} \cup \{x\}$ es compacto en $X$.
+
+### Ejercicio 10
+
+Sea $d_1$ y $d_2$ dos metricas en $X$ tales que existen constantes $c, C > 0$ con $c \cdot d_1(x,y) \leq d_2(x,y) \leq C \cdot d_1(x,y)$ para todo $x,y \in X$. Demuestre que una sucesion converge en $(X,d_1)$ si y solo si converge en $(X,d_2)$.
+
+### Ejercicio 11
+
+En $\ell^2$, considere la sucesion $x_n = e_n$ (el vector con 1 en la posicion $n$ y 0 en las demas). Demuestre que $(x_n)$ no tiene subsucesion convergente.
+
+### Ejercicio 12
+
+Demuestre que la aplicacion distancia $d\colon X \times X \to [0,\infty)$ es continua respecto de la topologia producto.
+
+### Ejercicio 13
+
+Sea $A \subseteq X$. Demuestre que $x \in \overline{A}$ si y solo si existe una sucesion $(a_n)$ en $A$ tal que $a_n \to x$.
+
+### Ejercicio 14
+
+Demuestre que si $f\colon X \to Y$ es continua en $x_0$ y $x_n \to x_0$, entonces $f(x_n) \to f(x_0)$.
+
+### Ejercicio 15
+
+En $\mathbb{Q}$ con la metrica usual heredada de $\mathbb{R}$, construya una sucesion de Cauchy que no converja en $\mathbb{Q}$.
+
+## Soluciones
+
+### Solucion 1
+
+Por definicion de convergencia: para todo $\varepsilon > 0$, existen $N_1, N_2$ tales que para todo $n \geq N_1$: $d(x_n, x) < \varepsilon$, y para todo $n \geq N_2$: $d(x_n, y) < \varepsilon$.
+
+Tomando $N = \max(N_1, N_2)$, para todo $n \geq N$ se cumple:
+
+$$
+d(x,y) \leq d(x,x_n) + d(x_n,y) < \varepsilon + \varepsilon = 2\varepsilon.
+$$
+
+Como esto vale para todo $\varepsilon > 0$, tenemos $d(x,y) = 0$, y por la propiedad de identidad de indiscernibles, $x = y$. $\blacksquare$
+
+### Solucion 2
+
+Sea $(x_{n_k})$ una subsucesion de $(x_n)$ donde $x_n \to x$. Dado $\varepsilon > 0$, existe $N$ tal que para todo $n \geq N$: $d(x_n, x) < \varepsilon$.
+
+Como $n_k \geq k$ (los indices de una subsucesion son crecientes), para todo $k \geq N$: $n_k \geq N$, y por tanto $d(x_{n_k}, x) < \varepsilon$.
+
+Esto demuestra que $(x_{n_k})$ converge a $x$. $\blacksquare$
+
+### Solucion 3
+
+En la metrica discreta, $d(x,y) = 0$ si $x = y$, y $d(x,y) = 1$ si $x \neq y$.
+
+Si $x_n \to x$, entonces existe $N$ tal que para todo $n \geq N$: $d(x_n, x) < 1/2 = 0.5$.
+
+Como la distancia solo puede ser $0$ o $1$, esto implica $d(x_n, x) = 0$, es decir, $x_n = x$ para todo $n \geq N$.
+
+Por tanto, las unicas sucesiones convergentes en la metrica discreta son las eventualmente constantes. $\blacksquare$
+
+### Solucion 4
+
+Si $x_n \to x$, dado $\varepsilon > 0$, existe $N$ tal que para todo $n \geq N$: $d(x_n, x) < \varepsilon$.
+
+Para $y_n = x_{n+k}$ con $k \geq 0$ fijo, dado $\varepsilon > 0$, tomamos $M = N$: para todo $n \geq M$:
+
+$$
+d(y_n, x) = d(x_{n+k}, x) < \varepsilon,
+$$
+
+ya que $n + k \geq N + k \geq N$.
+
+Por tanto $y_n \to x$. $\blacksquare$
+
+### Solucion 5
+
+La metrica producto es $d((a,b), (a',b')) = d_X(a,a') + d_Y(b,b')$.
+
+$\Rightarrow)$ Supongamos $(x_n, y_n) \to (x,y)$. Dado $\varepsilon > 0$, existe $N$ tal que para todo $n \geq N$: $d((x_n,y_n), (x,y)) < \varepsilon$.
+
+Entonces $d_X(x_n, x) \leq d_X(x_n, x) + d_Y(y_n, y) = d((x_n,y_n), (x,y)) < \varepsilon$.
+
+Similar para $d_Y(y_n, y) < \varepsilon$.
+
+$\Leftarrow)$ Si $x_n \to x$ y $y_n \to y$, dados $\varepsilon > 0$, existen $N_1, N_2$ tales que:
+
+- Para $n \geq N_1$: $d_X(x_n, x) < \varepsilon/2$.
+- Para $n \geq N_2$: $d_Y(y_n, y) < \varepsilon/2$.
+
+Tomando $N = \max(N_1, N_2)$:
+
+$$
+d((x_n,y_n), (x,y)) = d_X(x_n,x) + d_Y(y_n,y) < \varepsilon/2 + \varepsilon/2 = \varepsilon.
+$$
+
+Por tanto $(x_n, y_n) \to (x,y)$. $\blacksquare$
+
+### Solucion 6
+
+Los dos enunciados son identicos por definicion: $|x_n - x| \to 0$ significa exactamente que para todo $\varepsilon > 0$, eventualmente $|x_n - x| < \varepsilon$, que es la definicion de convergencia en $\mathbb{R}$. $\blacksquare$
+
+### Solucion 7
+
+Usando la metrica euclidea $d_2((a,b), (c,d)) = \sqrt{(a-c)^2 + (b-d)^2}$.
+
+$\Rightarrow)$ Si $(x_n, y_n) \to (a,b)$, entonces $d_2((x_n,y_n), (a,b)) \to 0$. Como $|x_n - a| \leq d_2((x_n,y_n), (a,b))$, se sigue que $|x_n - a| \to 0$, es decir, $x_n \to a$. Analogamente $y_n \to b$.
+
+$\Leftarrow)$ Si $x_n \to a$ y $y_n \to b$, entonces para todo $\varepsilon > 0$, existen $N_1, N_2$ tales que para $n \geq N_1$: $|x_n - a| < \varepsilon/\sqrt{2}$, y para $n \geq N_2$: $|y_n - b| < \varepsilon/\sqrt{2}$.
+
+Para $n \geq \max(N_1, N_2)$:
+
+$$
+d_2((x_n,y_n), (a,b)) = \sqrt{(x_n-a)^2 + (y_n-b)^2} < \sqrt{\varepsilon^2/2 + \varepsilon^2/2} = \varepsilon.
+$$
+
+$\blacksquare$
+
+### Solucion 8
+
+La metrica del supremo es $d_\infty(f,g) = \sup_{x \in [0,1]} |f(x) - g(x)|$.
+
+Por definicion, $d_\infty(f_n, f) \to 0$ significa que para todo $\varepsilon > 0$, existe $N$ tal que para todo $n \geq N$:
+
+$$
+d_\infty(f_n, f) < \varepsilon \iff \sup_{x \in [0,1]} |f_n(x) - f(x)| < \varepsilon.
+$$
+
+Esto equivale exactamente a que para todo $x \in [0,1]$ y todo $n \geq N$: $|f_n(x) - f(x)| < \varepsilon$, que es la definicion de convergencia uniforme. $\blacksquare$
+
+### Solucion 9
+
+Sea $K = \{x_n : n \in \mathbb{N}\} \cup \{x\}$. Queremos probar que $K$ es compacto.
+
+Sea $\{U_\alpha\}$ un recubrimiento abierto de $K$. Como $x \in K$, existe algun $U_{\alpha_0}$ con $x \in U_{\alpha_0}$.
+
+Como $U_{\alpha_0}$ es abierto, existe $\varepsilon > 0$ tal que $B(x, \varepsilon) \subseteq U_{\alpha_0}$.
+
+Como $x_n \to x$, existe $N$ tal que para todo $n \geq N$: $x_n \in B(x, \varepsilon) \subseteq U_{\alpha_0}$.
+
+Los terminos $x_1, \ldots, x_{N-1}$ son finitos. Para cada uno, elegimos un $U_{\alpha_i}$ que lo contiene.
+
+El conjunto finito $\{U_{\alpha_0}, U_{\alpha_1}, \ldots, U_{\alpha_{N-1}}\}$ cubre a $K$: $U_{\alpha_0}$ cubre a $\{x_n : n \geq N\} \cup \{x\}$, y los demas cubren los primeros $N-1$ terminos.
+
+Por tanto $K$ es compacto. $\blacksquare$
+
+### Solucion 10
+
+$\Rightarrow)$ Supongamos $x_n \to x$ en $(X, d_1)$. Dado $\varepsilon > 0$, existe $N$ tal que para $n \geq N$: $d_1(x_n, x) < \varepsilon/C$.
+
+Entonces $d_2(x_n, x) \leq C \cdot d_1(x_n, x) < C \cdot \varepsilon/C = \varepsilon$.
+
+Por tanto $x_n \to x$ en $(X, d_2)$.
+
+$\Leftarrow)$ Analogusamente, si $x_n \to x$ en $(X, d_2)$ y $d_2(x_n, x) < \varepsilon$, entonces $d_1(x_n, x) \leq d_2(x_n, x)/c < \varepsilon/c$.
+
+Ajustando el $\varepsilon$ inicial se obtiene la convergencia en $(X, d_1)$. $\blacksquare$
+
+### Solucion 11
+
+Recordemos que $e_n$ tiene 1 en la posicion $n$ y 0 en las demas. Para $n \neq m$:
+
+$$
+\|e_n - e_m\|_2 = \sqrt{\sum_{k=1}^\infty |(e_n - e_m)_k|^2} = \sqrt{1^2 + 1^2} = \sqrt{2}.
+$$
+
+Si existiera una subsucesion convergente $(e_{n_k}) \to x$ para algun $x \in \ell^2$, seria de Cauchy. Pero para cualquier $k \neq j$: $\|e_{n_k} - e_{n_j}\|_2 = \sqrt{2} \geq \sqrt{2}$.
+
+Esto contradice la propiedad de Cauchy con $\varepsilon = \sqrt{2}/2$. $\blacksquare$
+
+### Solucion 12
+
+Sea $(x_n, y_n) \to (x, y)$ en $X \times X$. Queremos probar que $d(x_n, y_n) \to d(x, y)$.
+
+Por la desigualdad triangular inversa:
+
+$$
+|d(x_n, y_n) - d(x, y)| \leq d(x_n, x) + d(y_n, y).
+$$
+
+Como $x_n \to x$ y $y_n \to y$, ambos terminos a la derecha tienden a 0. Por tanto $d(x_n, y_n) \to d(x, y)$. $\blacksquare$
+
+### Solucion 13
+
+$\Rightarrow)$ Si $x \in \overline{A}$, para cada $n \in \mathbb{N}$, consideramos $B(x, 1/n)$. Como $x \in \overline{A}$, existe $a_n \in A$ tal que $a_n \in B(x, 1/n)$, es decir, $d(a_n, x) < 1/n$.
+
+Entonces $a_n \to x$ y cada $a_n \in A$.
+
+$\Leftarrow)$ Si existe $(a_n)$ en $A$ con $a_n \to x$, todo abierto $U$ que contiene a $x$ contiene alguna bola $B(x, \varepsilon)$. Para $n$ suficientemente grande: $a_n \in B(x, \varepsilon) \subseteq U$. Por tanto $a_n \in U \cap A$, y $U$ corta a $A$.
+
+Como todo abierto que contiene a $x$ corta a $A$, tenemos $x \in \overline{A}$. $\blacksquare$
+
+### Solucion 14
+
+Dado $\varepsilon > 0$, como $f$ es continua en $x_0$, existe $\delta > 0$ tal que $d_X(x, x_0) < \delta$ implica $d_Y(f(x), f(x_0)) < \varepsilon$.
+
+Como $x_n \to x_0$, existe $N$ tal que para todo $n \geq N$: $d_X(x_n, x_0) < \delta$.
+
+Por continuidad, para todo $n \geq N$: $d_Y(f(x_n), f(x_0)) < \varepsilon$.
+
+Esto prueba que $f(x_n) \to f(x_0)$. $\blacksquare$
+
+### Solucion 15
+
+Tomamos la sucesion $x_n = (1 + 1/n)^n$ en $\mathbb{Q}$.
+
+Sabemos que $(1 + 1/n)^n \to e = 2.71828\ldots \notin \mathbb{Q}$.
+
+Como $e \notin \mathbb{Q}$, la sucesion $(x_n)$ no puede converger en $\mathbb{Q}$.
+
+Alternativamente: la sucesion $x_n = \sum_{k=0}^{n} \frac{1}{k!\cdot 2^n}$ en $\mathbb{Q}$ es de Cauchy (porque converge en $\mathbb{R}$) pero su limite no es racional.
+
+Un ejemplo mas simple: $x_n$ definido por los digitos de $\sqrt{2}$: $x_1 = 1$, $x_2 = 1.4$, $x_3 = 1.41$, etc. Esta sucesion de racionales es de Cauchy pero no converge en $\mathbb{Q}$. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+2. Apostol, T.M. (1974). *Mathematical Analysis*. Addison-Wesley.
+3. Bartle, R.G.; Sherbert, D.R. (2000). *Introduction to Real Analysis*. Wiley.
+4. Munkres, J.R. (2000). *Topology*. Prentice Hall.

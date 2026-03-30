@@ -327,3 +327,137 @@ $$
 $$
 
 Tomando raíz: $\|x+y\|_2 \leq \|x\|_2 + \|y\|_2$, que da $d_2(x,z) \leq d_2(x,y) + d_2(y,z)$ con $a = x - y$, $b = y - z$.
+
+## Ejercicios
+
+### Ejercicio 1
+
+Demuestre que la metrica $d(x,y) = |x-y|$ en $\mathbb{R}$ satisface los cuatro axiomas metricos.
+
+### Ejercicio 2
+
+Verifique que la metrica discreta $d(x,y) = 0$ si $x=y$, y $d(x,y)=1$ si $x\neq y$ es realmente una metrica.
+
+### Ejercicio 3
+
+En $\mathbb{R}^2$, demuestre que $d_1((x_1,y_1),(x_2,y_2)) = |x_1-x_2| + |y_1-y_2|$ es una metrica.
+
+### Ejercicio 4
+
+Demuestre que si $d$ es metrica, entonces $\rho(x,y) = \frac{d(x,y)}{1+d(x,y)}$ tambien es metrica.
+
+### Ejercicio 5
+
+Sea $(X,d)$ metrico y $A \subseteq X$ no vacio. Demuestre que $d|_A(x,y) = d(x,y)$ es metrica en $A$.
+
+### Ejercicio 6
+
+En $\mathbb{R}^2$, compare las bolas unitarias para $d_1$, $d_2$ y $d_\infty$.
+
+### Ejercicio 7
+
+Demuestre la desigualdad triangular inversa: $|d(x,z) - d(y,z)| \leq d(x,y)$.
+
+### Ejercicio 8
+
+Caracterice la convergencia en la metrica discreta.
+
+### Ejercicio 9
+
+Demuestre que $\ell^1$ con $d(x,y) = \sum |x_n - y_n|$ es un espacio metrico.
+
+### Ejercicio 10
+
+Sea $C[0,1]$ con $d_\infty(f,g) = \sup_{x \in [0,1]}|f(x)-g(x)|$. Demuestre que es metrico.
+
+### Ejercicio 11
+
+Determine si $d(x,y) = |x^2 - y^2|$ es metrica en $\mathbb{R}$.
+
+### Ejercicio 12
+
+Demuestre que si $d_1$ y $d_2$ son metricas, entonces $d(x,y) = d_1(x,y) + d_2(x,y)$ es metrica.
+
+### Ejercicio 13
+
+En $\mathbb{R}$, demuestre que las metricas usual y $d'(x,y) = \min\{1, |x-y|\}$ son Lipschitz-equivalentes.
+
+### Ejercicio 14
+
+Demuestre que todo espacio metrico es Hausdorff.
+
+### Ejercicio 15
+
+Sea $(X,d)$ un espacio metrico. Demuestre que la metrica es una funcion continua $d\colon X\times X \to [0,\infty)$.
+
+## Soluciones
+
+### Solucion 1
+
+M1: $d(x,x) = |x-x| = 0$. M2: $|x-y| = 0 \implies x = y$. M3: $|x-y| = |y-x|$. M4: por la desigualdad triangular en $\mathbb{R}$: $|x-z| \leq |x-y| + |y-z|$. $\blacksquare$
+
+### Solucion 2
+
+M1: $d(x,x) = 0$. M2: $d(x,y) = 1 \neq 0$ si $x \neq y$. M3: trivial. M4: si $x = z$, $d(x,z) = 0 \leq d(x,y) + d(y,z)$. Si $x \neq z$, entonces $d(x,z) = 1$ y al menos uno de $d(x,y)$, $d(y,z)$ es 1, luego $d(x,z) = 1 \leq 1 + 1$. $\blacksquare$
+
+### Solucion 3
+
+M1: $d_1((x,y),(x,y)) = |x-x| + |y-y| = 0$. M2: si $d_1((x_1,y_1),(x_2,y_2)) = 0$, entonces $|x_1-x_2| + |y_1-y_2| = 0$, luego $|x_1-x_2| = |y_1-y_2| = 0$, asi $(x_1,y_1) = (x_2,y_2)$. M3: trivial. M4: $|x_1-x_3| \leq |x_1-x_2| + |x_2-x_3|$ y analogamente para $y$, sumando: $d_1((x_1,y_1),(x_3,y_3)) \leq d_1((x_1,y_1),(x_2,y_2)) + d_1((x_2,y_2),(x_3,y_3))$. $\blacksquare$
+
+### Solucion 4
+
+La funcion $\varphi(t) = t/(1+t)$ es creciente en $[0,\infty)$ y concave. Verificamos M1-M4: $\rho(x,x) = 0$. Si $\rho(x,y) = 0$, entonces $d(x,y) = 0$, luego $x=y$. Simetria. Para M4, usar la concavidad: $\varphi(a+b) \leq \varphi(a) + \varphi(b)$. $\blacksquare$
+
+### Solucion 5
+
+La restriccion $d|_A$ a $A \times A$ hereda los axiomas: si se cumplen para todo par en $X$, en particular para todo par en $A$. $\blacksquare$
+
+### Solucion 6
+
+$B_{d_1}(0,1) = \{(x,y) : |x| + |y| < 1\}$ (rombo). $B_{d_2}(0,1) = \{(x,y) : x^2 + y^2 < 1\}$ (disco). $B_{d_\infty}(0,1) = \{(x,y) : \max(|x|,|y|) < 1\}$ (cuadrado). $\blacksquare$
+
+### Solucion 7
+
+Por la desigualdad triangular: $d(x,z) \leq d(x,y) + d(y,z)$, luego $d(x,z) - d(y,z) \leq d(x,y)$. Intercambiando roles: $d(y,z) - d(x,z) \leq d(x,y)$, luego $|d(x,z) - d(y,z)| \leq d(x,y)$. $\blacksquare$
+
+### Solucion 8
+
+En la metrica discreta, $(x_n) \to x$ si y solo si es eventualmente constante igual a $x$. Porque si $x_n \to x$, existe $N$ tal que para $n \geq N$: $d(x_n, x) < 1/2$, pero la unica posibilidad es $d(x_n, x) = 0$, i.e., $x_n = x$. $\blacksquare$
+
+### Solucion 9
+
+M1: $d(x,x) = \sum |x_n - x_n| = 0$. M2: si $\sum |x_n - y_n| = 0$, cada termino es 0, luego $x_n = y_n$ para todo $n$. M3: trivial. M4: $|x_n - z_n| \leq |x_n - y_n| + |y_n - z_n|$, sumando sobre $n$: $d(x,z) \leq d(x,y) + d(y,z)$. $\blacksquare$
+
+### Solucion 10
+
+Igual que en $\ell^\infty$ y otros espacios de funciones. M1-M3 son inmediatos. M4: para cada $x$, $|f(x) - h(x)| \leq |f(x) - g(x)| + |g(x) - h(x)|$, y el supremo de la izquierda es menor o igual a la suma de los supremos. $\blacksquare$
+
+### Solucion 11
+
+No es metrica. Sean $x = 0$, $y = 1$, $z = -1$. Entonces $d(0,-1) = |0^2 - (-1)^2| = |0 - 1| = 1$, pero $d(0,1) + d(1,-1) = |0^2 - 1^2| + |1^2 - (-1)^2| = |0-1| + |1-1| = 1 + 0 = 1$. En este caso funciona, pero falla M2: $d(1,-1) = 0$ aunque $1 \neq -1$. $\blacksquare$
+
+### Solucion 12
+
+M1: $d(x,x) = d_1(x,x) + d_2(x,x) = 0$. M2: si $d(x,y) = 0$, entonces $d_1(x,y) = d_2(x,y) = 0$, luego $x=y$. M3: trivial. M4: $d(x,z) = d_1(x,z) + d_2(x,z) \leq (d_1(x,y) + d_1(y,z)) + (d_2(x,y) + d_2(y,z)) = d(x,y) + d(y,z)$. $\blacksquare$
+
+### Solucion 13
+
+Para $x \neq y$: si $|x-y| \leq 1$, entonces $d'(x,y) = |x-y|$; si $|x-y| > 1$, entonces $d'(x,y) = 1$. Luego $\frac{1}{2}|x-y| \leq d'(x,y) \leq |x-y|$. Las metricas son Lipschitz-equivalentes. $\blacksquare$
+
+### Solucion 14
+
+Dados $x \neq y$, sea $r = d(x,y)/2$. Entonces $B(x,r) \cap B(y,r) = \emptyset$ por la desigualdad triangular. $\blacksquare$
+
+### Solucion 15
+
+Por la desigualdad triangular inversa: $|d(x_1,y_1) - d(x_2,y_2)| \leq d(x_1,x_2) + d(y_1,y_2)$. Esto prueba que $d$ es continua. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Willard, S. (2004). *General Topology*. Dover.
+4. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+5. Kelley, J.L. (1955). *General Topology*. Van Nostrand.

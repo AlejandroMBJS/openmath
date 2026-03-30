@@ -463,3 +463,253 @@ permanece en el intervalo $[-1,1]$, pero nunca logra que toda su cola tenga diam
 ## Cierre
 
 La nocion de Cauchy separa dos preguntas que en $\mathbb{R}$ solemos fusionar: si la sucesion tiene coherencia interna y si el espacio contiene el punto limite correspondiente. La completitud consistira en responder siempre afirmativamente a la segunda cuando la primera ya esta garantizada.
+
+## Ejercicios
+
+### Ejercicio 1
+
+Demuestre que toda sucesion convergente es de Cauchy.
+
+### Ejercicio 2
+
+De un ejemplo de una sucesion de Cauchy en $\mathbb{Q}$ que no converge en $\mathbb{Q}$.
+
+### Ejercicio 3
+
+Demuestre que si $(x_n)$ es de Cauchy, entonces $(x_n)$ es acotada.
+
+### Ejercicio 4
+
+Demuestre que dos sucesiones de Cauchy pueden estar a distancia finita sin compartir limite. Es decir, encuentre $(x_n)$ de Cauchy, $(y_n)$ de Cauchy, con $d(x_n, y_n) \to L > 0$.
+
+### Ejercicio 5
+
+Sea $(x_n)$ una sucesion de Cauchy con infinitos terminos distintos. Demuestre que los terminos distintos forman un conjunto infinito.
+
+### Ejercicio 6
+
+En un espacio discreto, caracterice todas las sucesiones de Cauchy.
+
+### Ejercicio 7
+
+Demuestre que si $(x_n)$ es de Cauchy y tiene una subsucesion convergente, entonces $(x_n)$ converge al mismo limite.
+
+### Ejercicio 8
+
+Sea $(X,d)$ un espacio metrico. Defina $d'(x,y) = \frac{d(x,y)}{1+d(x,y)}$. Demuestre que $(x_n)$ es de Cauchy en $(X,d)$ si y solo si es de Cauchy en $(X,d')$.
+
+### Ejercicio 9
+
+En $C[0,1]$ con la metrica $d_1(f,g) = \int_0^1 |f(x) - g(x)| dx$, demuestre que la sucesion $f_n(x) = x^n$ es de Cauchy.
+
+### Ejercicio 10
+
+Demuestre que la convergencia de Cauchy es equivalente a la convergencia en espacios completos.
+
+### Ejercicio 11
+
+Constructa una sucesion en $\mathbb{Q}$ que sea de Cauchy pero no converja en $\mathbb{Q}$.
+
+### Ejercicio 12
+
+Demuestre que si $(x_n)$ y $(y_n)$ son de Cauchy en $(X,d)$, entonces $(d(x_n, y_n))$ es de Cauchy en $\mathbb{R}$.
+
+### Ejercicio 13
+
+En $\ell^2$, demuestre que la sucesion de vectores canonicos $e_n = (0,\ldots,0,1,0,\ldots)$ no es de Cauchy.
+
+### Ejercicio 14
+
+Demuestre que toda subsucesion de una sucesion de Cauchy es de Cauchy.
+
+### Ejercicio 15
+
+Sea $(x_n)$ una sucesion tal que $d(x_{n+1}, x_n) \leq 2^{-n}$ para todo $n$. Demuestre que $(x_n)$ es de Cauchy.
+
+## Soluciones
+
+### Solucion 1
+
+Si $x_n \to x$, dado $\varepsilon > 0$, existe $N$ tal que para todo $n \geq N$: $d(x_n, x) < \varepsilon/2$.
+
+Para $n, m \geq N$:
+
+$$
+d(x_n, x_m) \leq d(x_n, x) + d(x, x_m) < \varepsilon/2 + \varepsilon/2 = \varepsilon.
+$$
+
+Por tanto $(x_n)$ es de Cauchy. $\blacksquare$
+
+### Solucion 2
+
+La sucesion $x_n = \sum_{k=1}^{n} \frac{1}{k!}$ es de Cauchy en $\mathbb{Q}$ (es creciente y acotada).
+
+Su limite en $\mathbb{R}$ es $e \approx 2.718\ldots$, que no es racional.
+
+Por tanto, la sucesion no converge en $\mathbb{Q}$. $\blacksquare$
+
+### Solucion 3
+
+Si $(x_n)$ es de Cauchy, para $\varepsilon = 1$ existe $N$ tal que $d(x_n, x_m) < 1$ para $n, m \geq N$.
+
+Entonces para todo $n \geq N$: $d(x_n, x_N) < 1$.
+
+Tomando $R = \max\{d(x_1, x_N), \ldots, d(x_{N-1}, x_N), 1\} + 1$, tenemos:
+
+$$
+\{x_n : n \in \mathbb{N}\} \subseteq B(x_N, R).
+$$
+
+Por tanto la sucesion es acotada. $\blacksquare$
+
+### Solucion 4
+
+En $\mathbb{R}$, considere $x_n = 0$ e $y_n = 1 + 1/n$.
+
+Ambas son de Cauchy (ambas convergen). Sin embargo $|x_n - y_n| = 1 + 1/n \to 1 > 0$. $\blacksquare$
+
+### Solucion 5
+
+Si $(x_n)$ es de Cauchy con infinitos terminos distintos, entonces la sucesion toma infinitos valores distintos.
+
+Si el conjunto de terminos fuera finito, algun valor $x^*$ se repetiria infinitas veces. Entonces podriamos construir subsucesiones convergentes a $x^*$ de manera trivial.
+
+La afirmacion es directa: infinitos terminos distintos implica un conjunto infinito de valores. $\blacksquare$
+
+### Solucion 6
+
+En un espacio discreto, $d(x,y) = 1$ para $x \neq y$.
+
+Si $(x_n)$ es de Cauchy, dado $\varepsilon < 1$, existe $N$ tal que $d(x_n, x_m) < \varepsilon < 1$ para $n, m \geq N$.
+
+Esto implica $d(x_n, x_m) = 0$, es decir, $x_n = x_m$.
+
+Por tanto, las unicas sucesiones de Cauchy son las eventualmente constantes. $\blacksquare$
+
+### Solucion 7
+
+Sea $(x_n)$ de Cauchy con subsucesion $(x_{n_k})$ que converge a $x$. Dado $\varepsilon > 0$:
+
+- Existe $N_1$ tal que $d(x_n, x_m) < \varepsilon/2$ para $n, m \geq N_1$.
+- Existe $K$ tal que $d(x_{n_k}, x) < \varepsilon/2$ para $k \geq K$.
+
+Tomamos $k$ tal que $n_k \geq N_1$. Para $n \geq N_1$:
+
+$$
+d(x_n, x) \leq d(x_n, x_{n_k}) + d(x_{n_k}, x) < \varepsilon/2 + \varepsilon/2 = \varepsilon.
+$$
+
+Por tanto $x_n \to x$. $\blacksquare$
+
+### Solucion 8
+
+La funcion $\varphi(t) = \frac{t}{1+t}$ es estrictamente creciente en $[0, \infty)$.
+
+$\Rightarrow)$ Si $(x_n)$ es de Cauchy en $(X,d)$, dado $\varepsilon > 0$ con $\varepsilon < 1$, existe $N$ tal que $d(x_n, x_m) < \varepsilon$ para $n, m \geq N$.
+
+Entonces $d'(x_n, x_m) \leq d(x_n, x_m) < \varepsilon$.
+
+$\Leftarrow)$ Si $(x_n)$ es de Cauchy en $(X,d')$, dado $\varepsilon > 0$, tomamos $\varepsilon' = \frac{\varepsilon}{1+\varepsilon}$.
+
+Existe $N$ tal que $d'(x_n, x_m) < \varepsilon'$. Entonces $d(x_n, x_m) < \varepsilon$ (usando que $d = \frac{d'}{1-d'}$ cuando $d' < 1$). $\blacksquare$
+
+### Solucion 9
+
+Para $n, m \geq N$, calculamos:
+
+$$
+d_1(f_n, f_m) = \int_0^1 |x^n - x^m| dx.
+$$
+
+Para $x \in [0,1]$ y $n, m \geq N$:
+
+$$
+|x^n - x^m| \leq x^N + x^N = 2x^N.
+$$
+
+Integrando: $d_1(f_n, f_m) \leq 2\int_0^1 x^N dx = \frac{2}{N+1} \to 0$ cuando $N \to \infty$.
+
+Por tanto $(f_n)$ es de Cauchy. $\blacksquare$
+
+### Solucion 10
+
+En espacios completos, si $(x_n)$ es de Cauchy, existe $x \in X$ tal que $x_n \to x$ (por definicion de completitud).
+
+Reciprocamente, si $x_n \to x$, entonces $(x_n)$ es de Cauchy (Ejercicio 1). $\blacksquare$
+
+### Solucion 11
+
+Definimos $x_n$ por los digitos de $\sqrt{2}$:
+
+- $x_1 = 1 = 1/1$
+- $x_2 = 1.4 = 14/10$
+- $x_3 = 1.41 = 141/100$
+- ...
+
+La sucesion $(x_n)$ es creciente y acotada, asi es de Cauchy. Su limite seria $\sqrt{2} \notin \mathbb{Q}$.
+
+Por tanto no converge en $\mathbb{Q}$. $\blacksquare$
+
+### Solucion 12
+
+Dado $\varepsilon > 0$, como $(x_n)$ y $(y_n)$ son de Cauchy, existen $N_1, N_2$ tales que:
+
+- Para $n, m \geq N_1$: $d(x_n, x_m) < \varepsilon/2$.
+- Para $n, m \geq N_2$: $d(y_n, y_m) < \varepsilon/2$.
+
+Tomando $N = \max(N_1, N_2)$:
+
+$$
+|d(x_n, y_n) - d(x_m, y_m)| \leq d(x_n, x_m) + d(y_n, y_m) < \varepsilon/2 + \varepsilon/2 = \varepsilon.
+$$
+
+Por tanto $(d(x_n, y_n))$ es de Cauchy en $\mathbb{R}$. $\blacksquare$
+
+### Solucion 13
+
+Para $n \neq m$:
+
+$$
+\|e_n - e_m\|_2 = \sqrt{0^2 + \cdots + 0^2 + 1^2 + 0^2 + \cdots + 0^2 + 1^2 + 0^2 + \cdots} = \sqrt{2}.
+$$
+
+Por tanto, para $\varepsilon < \sqrt{2}$, no existe $N$ tal que $d(e_n, e_m) < \varepsilon$ para $n, m \geq N$.
+
+La sucesion no es de Cauchy. $\blacksquare$
+
+### Solucion 14
+
+Si $(x_n)$ es de Cauchy, dado $\varepsilon > 0$, existe $N$ tal que $d(x_n, x_m) < \varepsilon$ para $n, m \geq N$.
+
+Sea $(x_{n_k})$ una subsucesion. Entonces $n_k \geq k$, asi para $k, j \geq N$:
+
+$$
+d(x_{n_k}, x_{n_j}) < \varepsilon.
+$$
+
+Por tanto $(x_{n_k})$ es de Cauchy. $\blacksquare$
+
+### Solucion 15
+
+Para $n < m$:
+
+$$
+d(x_n, x_m) \leq \sum_{k=n}^{m-1} d(x_{k+1}, x_k) \leq \sum_{k=n}^{m-1} 2^{-k} = 2^{-n+1} - 2^{-m+1} < 2^{-n+1}.
+$$
+
+Dado $\varepsilon > 0$, tomamos $N$ tal que $2^{-N+1} < \varepsilon$. Entonces para $n, m \geq N$:
+
+$$
+d(x_n, x_m) < 2^{-N+1} < \varepsilon.
+$$
+
+Por tanto $(x_n)$ es de Cauchy. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+2. Apostol, T.M. (1974). *Mathematical Analysis*. Addison-Wesley.
+3. Bartle, R.G.; Sherbert, D.R. (2000). *Introduction to Real Analysis*. Wiley.
+4. Munkres, J.R. (2000). *Topology*. Prentice Hall.

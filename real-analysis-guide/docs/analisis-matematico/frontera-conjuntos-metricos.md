@@ -545,3 +545,207 @@ En espacios euclideos si ocurre, pero el ejemplo discreto muestra que no es una 
 ## Cierre
 
 La frontera es la interfaz topologica entre un conjunto y su exterior. Comprenderla con precision evita errores intuitivos frecuentes y permite leer con claridad las relaciones entre interior, clausura, densidad y separacion local.
+
+## Ejercicios
+
+### Ejercicio 1
+
+Demuestre que $\partial A = \partial (X \setminus A)$ para todo $A \subseteq X$.
+
+### Ejercicio 2
+
+Demuestre que $\partial A = \overline{A} \cap \overline{X \setminus A}$.
+
+### Ejercicio 3
+
+Calcule $\partial \mathbb{Q}$ en $\mathbb{R}$ con la metrica usual.
+
+### Ejercicio 4
+
+Sea $A \subseteq X$. Demuestre que $\partial A$ es cerrado.
+
+### Ejercicio 5
+
+Demuestre que $A$ es abierto si y solo si $\partial A \cap A = \emptyset$.
+
+### Ejercicio 6
+
+En un espacio discreto, calcule $\partial A$ para cualquier $A \subseteq X$.
+
+### Ejercicio 7
+
+Demuestre que $\text{int}(A) = A \setminus \partial A$.
+
+### Ejercicio 8
+
+Demuestre que $\partial A = \emptyset$ si y solo si $A$ es abierto y cerrado.
+
+### Ejercicio 9
+
+En $\mathbb{R}^2$ con la metrica euclidea, calcule $\partial B(0,1)$.
+
+### Ejercicio 10
+
+Demuestre que $\partial(\partial A) \subseteq \partial A$.
+
+### Ejercicio 11
+
+Sea $A, B \subseteq X$. Demuestre que $\partial(A \cup B) \subseteq \partial A \cup \partial B$.
+
+### Ejercicio 12
+
+De un ejemplo donde $\partial(A \cap B) \neq \partial A \cap \partial B$.
+
+### Ejercicio 13
+
+Demuestre que un conjunto es denso si y solo si su frontera coincide con la clausura del complemento.
+
+### Ejercicio 14
+
+En $\mathbb{R}$, encuentre un conjunto $A$ tal que $\partial A$ tenga interior no vacio.
+
+### Ejercicio 15
+
+Demuestre que $\overline{A} = \text{int}(A) \cup \partial A$ y que $\text{int}(A) \cap \partial A = \emptyset$.
+
+## Soluciones
+
+### Solucion 1
+
+$\partial A = \overline{A} \setminus \text{int}(A) = \overline{A} \cap (X \setminus \text{int}(A)) = \overline{A} \cap \overline{X \setminus A} = \overline{X \setminus A} \setminus \text{int}(X \setminus A) = \partial(X \setminus A)$.
+
+La igualdad clave es $\overline{X \setminus A} = X \setminus \text{int}(A)$ y $\text{int}(X \setminus A) = X \setminus \overline{A}$. $\blacksquare$
+
+### Solucion 2
+
+$\partial A = \overline{A} \setminus \text{int}(A) = \overline{A} \cap (X \setminus \text{int}(A))$.
+
+Como $\text{int}(A) \subseteq A \subseteq \overline{A}$, tenemos $X \setminus \text{int}(A) = \overline{X \setminus A}$.
+
+Por tanto $\partial A = \overline{A} \cap \overline{X \setminus A}$. $\blacksquare$
+
+### Solucion 3
+
+Como $\mathbb{Q}$ es denso en $\mathbb{R}$ y $\mathbb{R} \setminus \mathbb{Q}$ tambien es denso:
+
+$$
+\overline{\mathbb{Q}} = \mathbb{R} \quad \text{y} \quad \overline{\mathbb{R} \setminus \mathbb{Q}} = \mathbb{R}.
+$$
+
+Como $\text{int}(\mathbb{Q}) = \emptyset$:
+
+$$
+\partial \mathbb{Q} = \overline{\mathbb{Q}} \cap \overline{\mathbb{R} \setminus \mathbb{Q}} = \mathbb{R} \cap \mathbb{R} = \mathbb{R}.
+$$
+
+Todo real es frontera de $\mathbb{Q}$. $\blacksquare$
+
+### Solucion 4
+
+$\partial A = \overline{A} \cap \overline{X \setminus A}$ es interseccion de dos cerrados, por tanto cerrado. $\blacksquare$
+
+### Solucion 5
+
+$\Rightarrow)$ Si $A$ es abierto, entonces $A = \text{int}(A)$. Por tanto $\partial A = \overline{A} \setminus A$.
+
+Si $x \in \partial A \cap A$, entonces $x \in A = \text{int}(A)$, pero $\partial A \cap \text{int}(A) = \emptyset$. Contradiccion.
+
+$\Leftarrow)$ Si $\partial A \cap A = \emptyset$, entonces $A \subseteq \text{int}(A)$ (pues $\overline{A} = A \cup \partial A$).
+
+Como $\text{int}(A) \subseteq A$, tenemos $A = \text{int}(A)$, asi $A$ es abierto. $\blacksquare$
+
+### Solucion 6
+
+En un espacio discreto, para todo $x$ y todo $A$:
+
+- Si $x \in A$: $B(x, 1/2) = \{x\} \subseteq A$, asi $x \notin \partial A$.
+- Si $x \notin A$: $B(x, 1/2) = \{x\} \subseteq X \setminus A$, asi $x \notin \partial A$.
+
+Por tanto $\partial A = \emptyset$ para todo $A$. $\blacksquare$
+
+### Solucion 7
+
+$\text{int}(A) = \overline{A} \setminus \partial A = A \cup \partial A \setminus \partial A = A \setminus \partial A$ (usando que $\overline{A} = A \cup \partial A$ y $A \cap \partial A = \emptyset$ si y solo si $A$ es abierto).
+
+Alternativamente: $x \in \text{int}(A) \iff$ existe $r > 0$ con $B(x,r) \subseteq A \iff x \in A$ y $x \notin \partial A$. $\blacksquare$
+
+### Solucion 8
+
+$\Rightarrow)$ Si $\partial A = \emptyset$:
+
+- $A = \overline{A} \setminus \partial A = \overline{A}$, asi $A$ es cerrado.
+- $\text{int}(A) = A \setminus \partial A = A$, asi $A$ es abierto.
+
+$\Leftarrow)$ Si $A$ es abierto y cerrado:
+
+- Como es abierto: $A = \text{int}(A)$.
+- Como es cerrado: $\overline{A} = A$.
+
+$\partial A = \overline{A} \setminus \text{int}(A) = A \setminus A = \emptyset$. $\blacksquare$
+
+### Solucion 9
+
+$\partial B(0,1) = \{x \in \mathbb{R}^2 : \|x\| = 1\} = S(0,1)$.
+
+Esto es la circunferencia unitaria: puntos exactamente a distancia 1 del origen. $\blacksquare$
+
+### Solucion 10
+
+Como $\partial A$ es cerrado y tiene interior vacio (porque $\partial A = \overline{A} \setminus \text{int}(A)$ y cualquier punto de $\partial A$ tiene puntos tanto de $A$ como de $X \setminus A$ arbitrariamente cerca):
+
+$\partial(\partial A) = \overline{\partial A} \setminus \text{int}(\partial A) = \partial A \setminus \emptyset = \partial A$.
+
+En general $\partial(\partial A) \subseteq \partial A$ (puede ser estricta). $\blacksquare$
+
+### Solucion 11
+
+$\partial(A \cup B) = \overline{A \cup B} \setminus \text{int}(A \cup B)$.
+
+Como $\overline{A \cup B} \subseteq \overline{A} \cup \overline{B}$ y $\text{int}(A \cup B) \supseteq \text{int}(A) \cup \text{int}(B)$:
+
+$\partial(A \cup B) \subseteq (\overline{A} \cup \overline{B}) \setminus (\text{int}(A) \cup \text{int}(B)) \subseteq \partial A \cup \partial B$. $\blacksquare$
+
+### Solucion 12
+
+En $\mathbb{R}$, sea $A = [0, 1]$ y $B = [1, 2]$.
+
+$\partial A = \{0, 1\}$, $\partial B = \{1, 2\}$, $\partial A \cap \partial B = \{1\}$.
+
+Pero $A \cap B = \{1\}$, y $\partial(A \cap B) = \partial(\{1\}) = \{1\}$.
+
+En este caso $\partial(A \cap B) = \partial A \cap \partial B$. Para un contraejemplo, tomamos $A = [0, 1]$ y $B = (1, 2]$:
+
+$A \cap B = \emptyset$, asi $\partial(A \cap B) = \emptyset$, pero $\partial A \cap \partial B = \{1\}$. $\blacksquare$
+
+### Solucion 13
+
+$A$ es denso si y solo si $\overline{A} = X$ si y solo si $X \setminus \text{int}(X \setminus A) = X$ si y solo si $\text{int}(X \setminus A) = \emptyset$.
+
+$\partial A = \overline{A} \cap \overline{X \setminus A} = X \cap \overline{X \setminus A} = \overline{X \setminus A}$.
+
+Por tanto $A$ denso $\iff \partial A = \overline{X \setminus A}$. $\blacksquare$
+
+### Solucion 14
+
+Sea $A = \mathbb{Q} \cap [0, 1]$. Entonces $\partial A = [0, 1]$, que tiene interior no vacio $(0, 1)$. $\blacksquare$
+
+### Solucion 15
+
+$\overline{A} = A \cup \{x : \forall r > 0, B(x,r) \cap A \neq \emptyset\} = A \cup \partial A$ (los puntos de $\overline{A} \setminus A$ son exactamente los puntos de $\partial A$).
+
+Como $\text{int}(A) \cap \partial A = \emptyset$ (definicion de $\partial A$):
+
+$$
+\overline{A} = \text{int}(A) \cup (\partial A \setminus \text{int}(A)) = \text{int}(A) \cup \partial A.
+$$
+
+La union es disjunta. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Simmons, G.F. (1963). *Introduction to Topology and Modern Analysis*. McGraw-Hill.
+4. Dugundji, J. (1966). *Topology*. Allyn and Bacon.

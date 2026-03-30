@@ -556,3 +556,11 @@ $$
 $$
 
 Esto implica que $\|\sum_{k=n+1}^m f_k\|_\infty < \varepsilon$, luego las sumas parciales son de Cauchy uniforme.
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+2. Apostol, T.M. (1974). *Mathematical Analysis*. Addison-Wesley.
+3. Bartle, R.G.; Sherbert, D.R. (2000). *Introduction to Real Analysis*. Wiley.

@@ -377,3 +377,14 @@ $C$ es conexo si y solo si $A$ es intervalo. Si $A$ no es intervalo, existe sepa
 Alternativamente: si $f$ toma ambos valores, $f^{-1}(\{0\})$ y $f^{-1}(\{1\})$ son abiertos disjuntos no vacios que cubren $X$, contradiccion.
 
 **$\Leftarrow$:** Si $X$ no es conexo con separacion $U, V$, definimos $f(x) = 0$ si $x \in U$, $f(x) = 1$ si $x \in V$. Esta $f$ es continua y no constante.
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Willard, S. (2004). *General Topology*. Dover.
+4. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+5. Kelley, J.L. (1955). *General Topology*. Van Nostrand.
+6. Hocking, J.G. y Young, G.S. (1961). *Topology*. Dover.

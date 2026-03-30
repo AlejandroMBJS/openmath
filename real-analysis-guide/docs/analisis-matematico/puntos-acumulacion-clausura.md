@@ -727,3 +727,187 @@ En un espacio discreto, las bolas suficientemente pequenas son singletons. Por e
 ## Cierre
 
 Clausura y acumulacion son las primeras herramientas que permiten medir como un conjunto se distribuye localmente en el espacio. Con ellas ya no solo sabemos que puntos pertenecen a un conjunto, sino como el conjunto se acerca, se concentra y deja huella en su entorno.
+
+## Ejercicios
+
+### Ejercicio 1
+
+Demuestre que $A \subseteq \overline{A}$ para todo $A \subseteq X$.
+
+### Ejercicio 2
+
+Demuestre que $\overline{A}$ es cerrado para todo $A \subseteq X$.
+
+### Ejercicio 3
+
+Demuestre que $A$ es cerrado si y solo si $A = \overline{A}$.
+
+### Ejercicio 4
+
+Demuestre que $x \in \overline{A}$ si y solo si existe una sucesion $(a_n)$ en $A$ tal que $a_n \to x$.
+
+### Ejercicio 5
+
+Demuestre que $\overline{\overline{A}} = \overline{A}$.
+
+### Ejercicio 6
+
+Caracterice los puntos de acumulacion de $A = \{1/n : n \in \mathbb{N}\}$ en $\mathbb{R}$.
+
+### Ejercicio 7
+
+Demuestre que $\overline{A \cup B} = \overline{A} \cup \overline{B}$.
+
+### Ejercicio 8
+
+De un ejemplo donde $\overline{A \cap B} \neq \overline{A} \cap \overline{B}$.
+
+### Ejercicio 9
+
+Demuestre que si $A \subseteq B$, entonces $\overline{A} \subseteq \overline{B}$.
+
+### Ejercicio 10
+
+Demuestre que $A' \subseteq \overline{A}$, donde $A'$ denota los puntos de acumulacion de $A$.
+
+### Ejercicio 11
+
+Un punto $x$ es aislado de $A$ si existe $r > 0$ tal que $B(x,r) \cap A = \{x\}$. Demuestre que $\overline{A} = A \cup A'$ donde $A'$ son los puntos de acumulacion.
+
+### Ejercicio 12
+
+Demuestre que $\text{int}(A) = X \setminus \overline{X \setminus A}$.
+
+### Ejercicio 13
+
+En $\mathbb{R}$, calcule $\overline{\mathbb{Q}}$ y $\overline{\mathbb{R} \setminus \mathbb{Q}}$.
+
+### Ejercicio 14
+
+Demuestre que $A$ es denso en $X$ si y solo si $\overline{A} = X$.
+
+### Ejercicio 15
+
+Sea $A$ un conjunto infinito en un espacio metrico. Demuestre que $A$ tiene al menos un punto de acumulacion o es discreto.
+
+## Soluciones
+
+### Solucion 1
+
+Por definicion, $\overline{A}$ es el menor cerrado que contiene a $A$. Como $A \subseteq \overline{A}$ por construccion (todo punto de $A$ es adherente a $A$). $\blacksquare$
+
+### Solucion 2
+
+Sea $x \in X \setminus \overline{A}$. Entonces existe $r > 0$ tal que $B(x,r) \cap A = \emptyset$, lo que significa $B(x,r) \subseteq X \setminus \overline{A}$.
+
+Esto demuestra que $X \setminus \overline{A}$ es abierto, por tanto $\overline{A}$ es cerrado. $\blacksquare$
+
+### Solucion 3
+
+$\Rightarrow)$ Si $A$ es cerrado, entonces $A = \overline{A}$ porque $\overline{A}$ es el menor cerrado que contiene a $A$.
+
+$\Leftarrow)$ Si $A = \overline{A}$, entonces $A$ es cerrado porque $\overline{A}$ siempre es cerrado. $\blacksquare$
+
+### Solucion 4
+
+$\Rightarrow)$ Si $x \in \overline{A}$, entonces para todo $n \in \mathbb{N}$, $B(x, 1/n) \cap A \neq \emptyset$.
+
+Elegimos $a_n \in B(x, 1/n) \cap A$. Entonces $d(a_n, x) < 1/n$, asi $a_n \to x$.
+
+$\Leftarrow)$ Si existe $(a_n)$ en $A$ con $a_n \to x$, entonces para todo $r > 0$, existe $N$ con $a_N \in B(x,r)$, asi $B(x,r) \cap A \neq \emptyset$.
+
+Por tanto $x \in \overline{A}$. $\blacksquare$
+
+### Solucion 5
+
+Como $\overline{A}$ es cerrado, $\overline{\overline{A}} = \overline{A}$. $\blacksquare$
+
+### Solucion 6
+
+$A = \{1, 1/2, 1/3, \ldots\}$.
+
+- Cada punto $1/n$ es aislado: $B(1/n, 1/(2n(n+1))) \cap A = \{1/n\}$.
+- El punto $0$ es de acumulacion: cualquier bola alrededor de 0 contiene infinitos puntos de $A$.
+- No hay otros puntos de acumulacion.
+
+Por tanto $A' = \{0\}$. $\blacksquare$
+
+### Solucion 7
+
+$\overline{A} \cup \overline{B}$ es cerrado y contiene a $A \cup B$, asi $\overline{A \cup B} \subseteq \overline{A} \cup \overline{B}$.
+
+Inversamente, como $A \subseteq A \cup B \subseteq \overline{A \cup B}$ y $\overline{A}$ es el menor cerrado que contiene a $A$: $\overline{A} \subseteq \overline{A \cup B}$.
+
+Similar $\overline{B} \subseteq \overline{A \cup B}$. Por tanto $\overline{A} \cup \overline{B} \subseteq \overline{A \cup B}$. $\blacksquare$
+
+### Solucion 8
+
+En $\mathbb{R}$, sea $A = (0, 1)$ y $B = (1, 2)$.
+
+$\overline{A} = [0, 1]$, $\overline{B} = [1, 2]$, asi $\overline{A} \cap \overline{B} = \{1\}$.
+
+Pero $A \cap B = \emptyset$, asi $\overline{A \cap B} = \emptyset \neq \{1\}$. $\blacksquare$
+
+### Solucion 9
+
+Si $A \subseteq B$, todo cerrado que contiene a $B$ tambien contiene a $A$.
+
+Como $\overline{B}$ es cerrado y contiene a $B$, tambien contiene a $A$.
+
+Como $\overline{A}$ es el menor cerrado que contiene a $A$: $\overline{A} \subseteq \overline{B}$. $\blacksquare$
+
+### Solucion 10
+
+Si $x \in A'$, entonces para todo $r > 0$: $B(x,r) \cap (A \setminus \{x\}) \neq \emptyset$, asi $B(x,r) \cap A \neq \emptyset$.
+
+Por tanto $x$ es adherente a $A$, i.e., $x \in \overline{A}$. $\blacksquare$
+
+### Solucion 11
+
+$\overline{A}$ consiste de:
+- los puntos de $A$ (que pueden ser aislados o de acumulacion)
+- los puntos de acumulacion de $A$ (que pueden o no pertenecer a $A$)
+
+Si $x$ es de acumulacion de $A$, entonces $x \in A'$. Si $x \in A$ es aislado, entonces $x \notin A'$.
+
+Formalmente: $\overline{A} = A \cup A'$, y $A \cap A'$ son los puntos de acumulacion que pertenecen a $A$. $\blacksquare$
+
+### Solucion 12
+
+$\text{int}(A) = \{x : \exists r > 0, B(x,r) \subseteq A\} = \{x : \exists r > 0, B(x,r) \cap (X \setminus A) = \emptyset\}$.
+
+$X \setminus \overline{X \setminus A} = \{x : x \notin \overline{X \setminus A}\} = \{x : \exists r > 0, B(x,r) \cap (X \setminus A) = \emptyset\}$.
+
+Ambos conjuntos son iguales. $\blacksquare$
+
+### Solucion 13
+
+$\mathbb{Q}$ es denso en $\mathbb{R}$: todo real es limite de una sucesion de racionales. Por tanto $\overline{\mathbb{Q}} = \mathbb{R}$.
+
+Similar $\mathbb{R} \setminus \mathbb{Q}$ es denso en $\mathbb{R}$: todo real es limite de una sucesion de irracionales. Por tanto $\overline{\mathbb{R} \setminus \mathbb{Q}} = \mathbb{R}$. $\blacksquare$
+
+### Solucion 14
+
+Por definicion, $A$ es denso en $X$ si todo punto de $X$ es adherente a $A$, i.e., $\overline{A} = X$. $\blacksquare$
+
+### Solucion 15
+
+Si $A$ no tiene puntos de acumulacion, entonces todo punto de $A$ es aislado.
+
+Para cada $a \in A$, existe $r_a > 0$ tal que $B(a, r_a) \cap A = \{a\}$.
+
+Si existiera una sucesion $(a_n)$ de puntos distintos en $A$, alguno de los puntos $B(a_{n_k}, r_{a_{n_k}})$ deberia contener infinitos terminos, contradiccion.
+
+Por tanto $A$ es a lo sumo numerable, y cada punto es aislado: $A$ es discreto.
+
+Alternativamente: si $A$ es infinito y no tiene puntos de acumulacion, entonces $\overline{A} = A$ (es cerrado) y $A' = \emptyset$, asi cada punto de $A$ es aislado. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+4. Apostol, T.M. (1974). *Mathematical Analysis*. Addison-Wesley.
+5. Bartle, R.G.; Sherbert, D.R. (2000). *Introduction to Real Analysis*. Wiley.

@@ -550,3 +550,206 @@ es abierto en $\mathbb{R}$, aunque este formado por infinitas componentes disjun
 ## Cierre
 
 Los conjuntos abiertos son la puerta de entrada real a la topologia de espacios metricos. Una vez dominada esta nocion, las definiciones de interior, clausura, continuidad y compacidad dejan de ser una lista de formalismos y empiezan a verse como consecuencias naturales de la estructura local dada por las bolas.
+
+## Ejercicios
+
+### Ejercicio 1
+
+Demuestre que toda bola abierta $B(a,r)$ es un conjunto abierto.
+
+### Ejercicio 2
+
+Demuestre que la interseccion finita de abiertos es abierta.
+
+### Ejercicio 3
+
+Demuestre que la union arbitraria de abiertos es abierta.
+
+### Ejercicio 4
+
+De un ejemplo de una interseccion infinita de abiertos que no es abierta.
+
+### Ejercicio 5
+
+Sea $(X,d)$ un espacio metrico. Demuestre que $X$ y $\emptyset$ son abiertos.
+
+### Ejercicio 6
+
+En $\mathbb{R}$ con la metrica usual, determine si $(0,1]$ es abierto.
+
+### Ejercicio 7
+
+Sea $A \subseteq X$. Demuestre que $A$ es abierto si y solo si $A = \text{int}(A)$.
+
+### Ejercicio 8
+
+Demuestre que si $U$ es abierto y $x \in U$, entonces existe $r > 0$ tal que $B(x,r) \subseteq U$.
+
+### Ejercicio 9
+
+En un espacio metrico discreto, determine todos los abiertos.
+
+### Ejercicio 10
+
+Demuestre que todo subespacio abierto de un abierto es abierto.
+
+### Ejercicio 11
+
+Sea $(X,d)$ un espacio metrico y $x \in X$. Demuestre que $\{x\}$ es abierto si y solo si $x$ es un punto aislado.
+
+### Ejercicio 12
+
+Demuestre que si $A$ es abierto, entonces $A \cap B$ es abierto en el subespacio $B$ (con la metrica heredada).
+
+### Ejercicio 13
+
+En $\mathbb{R}^2$ con la metrica euclidea, demuestre que el semiplano $\{(x,y) : x > 0\}$ es abierto.
+
+### Ejercicio 14
+
+Demuestre que la frontera de un abierto es un cerrado con interior vacio.
+
+### Ejercicio 15
+
+Sea $U$ abierto y $F$ cerrado. Demuestre que $U \setminus F$ es abierto.
+
+## Soluciones
+
+### Solucion 1
+
+Sea $x \in B(a,r)$. Entonces $d(x,a) < r$. Definimos $\delta = r - d(x,a) > 0$.
+
+Si $y \in B(x,\delta)$, entonces $d(y,a) \leq d(y,x) + d(x,a) < \delta + (r - \delta) = r$.
+
+Por tanto $B(x,\delta) \subseteq B(a,r)$. Esto demuestra que $B(a,r)$ es abierto. $\blacksquare$
+
+### Solucion 2
+
+Sean $U_1, \ldots, U_n$ abiertos. Sea $x \in U_1 \cap \cdots \cap U_n$.
+
+Para cada $i$, existe $r_i > 0$ tal que $B(x, r_i) \subseteq U_i$.
+
+Tomamos $r = \min(r_1, \ldots, r_n) > 0$. Entonces $B(x, r) \subseteq B(x, r_i) \subseteq U_i$ para todo $i$.
+
+Por tanto $B(x,r) \subseteq U_1 \cap \cdots \cap U_n$. $\blacksquare$
+
+### Solucion 3
+
+Sea $\{U_i\}_{i \in I}$ una familia de abiertos y $x \in \bigcup_{i \in I} U_i$.
+
+Entonces existe $j \in I$ tal que $x \in U_j$. Como $U_j$ es abierto, existe $r > 0$ con $B(x,r) \subseteq U_j \subseteq \bigcup_{i \in I} U_i$.
+
+Por tanto la union es abierta. $\blacksquare$
+
+### Solucion 4
+
+En $\mathbb{R}$, consideramos $U_n = (-\frac{1}{n}, \frac{1}{n})$ para cada $n \in \mathbb{N}$.
+
+Cada $U_n$ es abierto. Sin embargo:
+
+$$
+\bigcap_{n=1}^\infty U_n = \{0\},
+$$
+
+que no es abierto (ninguna bola centrada en 0 puede estar contenida en $\{0\}$). $\blacksquare$
+
+### Solucion 5
+
+**$X$ es abierto:** Para todo $x \in X$ y todo $r > 0$, $B(x,r) \subseteq X$. Por tanto $X$ es abierto.
+
+**$\emptyset$ es abierto:** La condicion "$\forall x \in \emptyset, \exists r > 0$" se cumple vacuamente. $\blacksquare$
+
+### Solucion 6
+
+$(0,1]$ no es abierto. El punto $1$ pertenece al conjunto, pero ninguna bola $B(1,r)$ con $r > 0$ esta contenida en $(0,1]$.
+
+En efecto, $1 + r/2 \in B(1,r) \cap \mathbb{R} = (1-r, 1+r)$ para $r < 1$, pero $1 + r/2 > 1$, asi que $1 + r/2 \notin (0,1]$.
+
+Tampoco es cerrado (el punto $0$ es de acumulacion pero no pertenece). $\blacksquare$
+
+### Solucion 7
+
+$\Rightarrow)$ Si $A$ es abierto, para todo $x \in A$ existe $r > 0$ con $B(x,r) \subseteq A$. Por tanto $x \in \text{int}(A)$, asi $A \subseteq \text{int}(A)$. Como $\text{int}(A) \subseteq A$, tenemos $A = \text{int}(A)$.
+
+$\Leftarrow)$ Si $A = \text{int}(A)$, entonces $A$ es la union de bolas abiertas contenidas en $A$, asi que $A$ es abierto. $\blacksquare$
+
+### Solucion 8
+
+Esto es exactamente la definicion de abierto: $U$ es abierto si para todo $x \in U$ existe $r > 0$ tal que $B(x,r) \subseteq U$. $\blacksquare$
+
+### Solucion 9
+
+En un espacio discreto, $d(x,y) = 1$ si $x \neq y$ y $d(x,x) = 0$.
+
+Para cualquier $x \in X$, $B(x, 1) = \{x\}$. Por tanto todo singleton es abierto.
+
+Como los abiertos son estables bajo uniones arbitrarias, todo subconjunto de $X$ es abierto. $\blacksquare$
+
+### Solucion 10
+
+Sea $V$ abierto en $X$ y $U$ abierto en $V$ (con la metrica heredada).
+
+Por definicion de abierto en subespacio, $U = V \cap W$ para algun $W$ abierto en $X$.
+
+Entonces $U$ es interseccion de dos abiertos en $X$, asi que $U$ es abierto en $X$. $\blacksquare$
+
+### Solucion 11
+
+$\Rightarrow)$ Si $\{x\}$ es abierto, existe $r > 0$ tal que $B(x,r) = \{x\}$ (pues toda bola abierta que contiene a $x$ contiene necesariamente a $\{x\}$).
+
+Esto implica que para todo $y \neq x$, $d(x,y) \geq r > 0$. No existe ninguna sucesion en $X \setminus \{x\}$ que converge a $x$. Por tanto $x$ es aislado.
+
+$\Leftarrow)$ Si $x$ es aislado, existe $r > 0$ tal que $B(x,r) \cap X = \{x\}$. Por tanto $B(x,r) = \{x\}$, y $\{x\}$ es abierto. $\blacksquare$
+
+### Solucion 12
+
+Sea $A$ abierto en $X$ y $B \subseteq X$. El abierto de $B$ en el subespacio es $A \cap B$.
+
+Como $A$ es abierto en $X$, $A \cap B$ es abierto en $B$ por definicion de la topologia del subespacio. $\blacksquare$
+
+### Solucion 13
+
+Sea $H = \{(x,y) : x > 0\}$ y $(a,b) \in H$ con $a > 0$.
+
+Tomamos $r = a > 0$. Si $(x,y) \in B((a,b), r)$, entonces:
+
+$$
+\sqrt{(x-a)^2 + (y-b)^2} < r = a.
+$$
+
+En particular, $|x - a| < a$, asi $x > 0$.
+
+Por tanto $B((a,b), a) \subseteq H$, y $H$ es abierto. $\blacksquare$
+
+### Solucion 14
+
+Sea $U$ abierto. La frontera es $\partial U = \overline{U} \setminus \text{int}(U) = \overline{U} \setminus U$ (pues $int(U) = U$).
+
+Como $\overline{U}$ es cerrado y $\partial U$ es interseccion de $\overline{U}$ con el cerrado $X \setminus U$, tenemos que $\partial U$ es cerrado.
+
+Si existiera $x \in \text{int}(\partial U)$, existiria $r > 0$ con $B(x,r) \subseteq \partial U \subseteq X \setminus U$.
+
+Pero $x \in \overline{U}$, asi que $B(x,r) \cap U \neq \emptyset$, contradiccion.
+
+Por tanto $\text{int}(\partial U) = \emptyset$. $\blacksquare$
+
+### Solucion 15
+
+Sea $x \in U \setminus F = U \cap (X \setminus F)$.
+
+Como $x \in U$ y $U$ es abierto, existe $r_1 > 0$ con $B(x, r_1) \subseteq U$.
+
+Como $x \notin F$ y $F$ es cerrado, existe $r_2 > 0$ con $B(x, r_2) \cap F = \emptyset$, es decir, $B(x, r_2) \subseteq X \setminus F$.
+
+Tomando $r = \min(r_1, r_2) > 0$: $B(x,r) \subseteq U \cap (X \setminus F) = U \setminus F$.
+
+Por tanto $U \setminus F$ es abierto. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Willard, S. (2004). *General Topology*. Dover.
+4. Simmons, G.F. (1963). *Introduction to Topology and Modern Analysis*. McGraw-Hill.

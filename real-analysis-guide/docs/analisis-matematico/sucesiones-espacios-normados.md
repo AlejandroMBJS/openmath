@@ -500,3 +500,13 @@ La condicion $x_n\to 0$ es necesaria para que una serie converja, pero no sufici
 ## Cierre
 
 Las sucesiones en espacios normados son la puerta de entrada a casi todo el analisis funcional. La norma convierte preguntas abstractas sobre vectores en desigualdades cuantitativas. Desde ahi aparecen naturalmente Banach, series vectoriales, operadores continuos y las primeras diferencias serias entre dimension finita e infinita.
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+2. Kolmogorov, A.N. y Fomin, S.V. (1975). *Elementos de la teoria de funciones y del analisis funcional*. MIR.
+3. Conway, J.B. (1994). *A Course in Functional Analysis*. Springer.
+4. Yosida, K. (1980). *Functional Analysis*. Springer.
+5. Reed, M. y Simon, B. (1980). *Methods of Modern Mathematical Physics*. Academic Press.

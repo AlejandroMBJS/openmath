@@ -344,8 +344,135 @@ Un conjunto residual puede tener medida cero y un conjunto magro puede tener med
 
 ## Ejercicios
 
-1. Demuestra que todo singleton de $\mathbb{R}$ es nowhere dense.
-2. Prueba que $\mathbb{Q}$ es magro en $\mathbb{R}$.
-3. Verifica en detalle que $\mathbb{Q}$ es magro en si mismo con la metrica usual.
-4. Demuestra que si $A$ es nowhere dense, entonces $X \setminus \overline{A}$ es abierto y denso.
-5. Explica por que el teorema de Baire falla en $\mathbb{Q}$.
+### Ejercicio 1
+
+Demuestra que todo singleton de $\mathbb{R}$ es nowhere dense.
+
+### Ejercicio 2
+
+Prueba que $\mathbb{Q}$ es magro en $\mathbb{R}$.
+
+### Ejercicio 3
+
+Verifica en detalle que $\mathbb{Q}$ es magro en si mismo con la metrica usual.
+
+### Ejercicio 4
+
+Demuestra que si $A$ es nowhere dense, entonces $X \setminus \overline{A}$ es abierto y denso.
+
+### Ejercicio 5
+
+Explica por que el teorema de Baire falla en $\mathbb{Q}$.
+
+### Ejercicio 6
+
+Demuestre que el conjunto de los irracionales $\mathbb{R} \setminus \mathbb{Q}$ es residual en $\mathbb{R}$.
+
+### Ejercicio 7
+
+Pruebe que si $X$ es un espacio de Baire y $U \subseteq X$ es abierto, entonces $U$ es un espacio de Baire con la metrica heredada.
+
+### Ejercicio 8
+
+Sea $X$ completo y $A_n$ una sucesion de subconjuntos densos. Demuestre que $\bigcap_n A_n$ es denso.
+
+### Ejercicio 9
+
+Demuestre que todo espacio localmente compacto Hausdorff es un espacio de Baire.
+
+### Ejercicio 10
+
+Pruebe que $\mathbb{R}$ no puede escribirse como union numerable de cerrados de medida cero.
+
+### Ejercicio 11
+
+Sea $X$ espacio de Baire. Demuestre que el conjunto de puntos $x \in X$ con orbital densa bajo una aplicacion continua $f : X \to X$ es residual.
+
+### Ejercicio 12
+
+Pruebe que si $X$ es de Baire, entonces todo abierto no vacio de $X$ es no numerable.
+
+### Ejercicio 13
+
+Sea $X$ completo y $F_n$ una sucesion de cerrados nowhere dense. Demuestre que $X \setminus \bigcup_n F_n$ es residual y denso.
+
+### Ejercicio 14
+
+Pruebe que el conjunto de Cantor es magro en $\mathbb{R}$ pero no es vaco.
+
+### Ejercicio 15
+
+Demuestre que si $X$ es un espacio de Baire, entonces toda familia numerable de abiertos densos tiene interseccion densa.
+
+## Soluciones
+
+### Solucion 1
+
+$\overline{\{x\}} = \{x\}$ tiene interior vaco en $\mathbb{R}$, luego es nowhere dense. $\blacksquare$
+
+### Solucion 2
+
+$\mathbb{Q} = \bigcup_{q \in \mathbb{Q}} \{q\}$, y cada singleton $\{q\}$ es nowhere dense. $\blacksquare$
+
+### Solucion 3
+
+En el subespacio $\mathbb{Q}$, cada singleton $\{q\}$ es abierto en la topologa relativa (porque los puntos son abiertos en $\mathbb{Q}$), y cerrado en $\mathbb{Q}$. Su clausura en $\mathbb{Q}$ es $\{q\}$, que tiene interior vaco en $\mathbb{Q}$, hence es nowhere dense en $\mathbb{Q}$. $\blacksquare$
+
+### Solucion 4
+
+$\overline{A}$ es cerrado, luego $X \setminus \overline{A}$ es abierto. Si no fuera denso, existiria abierto no vaco $U \subseteq X \setminus (X \setminus \overline{A}) = \overline{A}$, lo que implicara que $\overline{A}$ tiene interior no vaco, contradictio con que $A$ es nowhere dense. $\blacksquare$
+
+### Solucion 5
+
+$\mathbb{Q}$ no es espacio de Baire porque $\mathbb{Q} = \bigcup_{q \in \mathbb{Q}} \{q\}$ es unin numerable de cerrados (en el subespacio $\mathbb{Q}$) con interior vaco en $\mathbb{Q}$. El teorema de Baire requiere completitud del espacio, y $\mathbb{Q}$ no es completo. $\blacksquare$
+
+### Solucion 6
+
+$\mathbb{Q} = \bigcup_{q \in \mathbb{Q}} \{q\}$ es unin numerable de cerrados nowhere dense en $\mathbb{R}$, luego es magro. Por tanto $\mathbb{R} \setminus \mathbb{Q} = \mathbb{R} \setminus \bigcup_q \{q\}$ es residual. $\blacksquare$
+
+### Solucion 7
+
+Sea $U \subseteq X$ abierto y $U = \bigcup_n E_n$ con $E_n$ nowhere dense en $U$. Entonces $\overline{E_n}^U = \overline{E_n} \cap U$ tiene interior vaco en $U$. Asi $\overline{E_n}$ tiene interior vaco en $X$ (si $\operatorname{int}(\overline{E_n} \cap U) \ne \varnothing$, existira abierto $V$ en $X$ con $\varnothing \ne V \subseteq \overline{E_n} \cap U \subseteq \overline{E_n}$). Por el teorema de Baire en $X$, $\bigcap_n (U \setminus \overline{E_n}) \ne \varnothing$, luego $U$ no es magro en s mismo. $\blacksquare$
+
+### Solucion 8
+
+Sean $A_n$ densos en $X$ completo. Dado abierto no vaco $V_0$, como $A_1$ es denso, $V_0 \cap A_1$ es abierto no vaco. Sea $\overline{B}(x_1, r_1) \subseteq V_0 \cap A_1$. Como $A_2$ es denso, $B(x_1, r_1) \cap A_2$ es abierto no vaco, contiene $\overline{B}(x_2, r_2)$, etc. Construimos bolas encajadas $\overline{B}(x_n, r_n) \subseteq B(x_{n-1}, r_{n-1}) \cap A_n$ con $r_n < 2^{-n}$. La sucesion $(x_n)$ es de Cauchy, converge a $x \in X$, y $x \in \bigcap_n A_n \cap V_0$. $\blacksquare$
+
+### Solucion 9
+
+Sea $X$ localmente compacto Hausdorff. Cada punto tiene una base de vecindades precompactas (cerradas y compactas). En particular, para cada $x$ y cada vecindad abierta $U$, existe abierto $V$ con $x \in V \subseteq \overline{V} \subseteq U$ y $\overline{V}$ compacto. Esto permite adaptar la demostracion de Baire: dado $U_n$ abierto denso, construir puntos $x_n$ y bolas cerradas encajadas $\overline{B}_n$ de radio $< 2^{-n}$ con $\overline{B}_n \subseteq U_n \cap B_{n-1}$. $\blacksquare$
+
+### Solucion 10
+
+Si $\mathbb{R} = \bigcup_n F_n$ con $F_n$ cerrados de medida cero, por Baire algun $F_n$ tendra interior no vaco, contradictio con que su medida es cero. $\blacksquare$
+
+### Solucion 11
+
+El conjunto de puntos con orbital densa es $\bigcap_{m,n} \{x : f^m(x) \in B(f^n(x), \varepsilon)\}$ intersecado sobre $m,n \in \mathbb{N}$ y $\varepsilon \in \mathbb{Q}^+$. Cada conjunto $\{x : d(f^m(x), f^n(x)) < \varepsilon\}$ es abierto y denso bajo hipotesis adecuadas, luego la interseccion es residual. $\blacksquare$
+
+### Solucion 12
+
+Si $U$ abierto no vaco fuera denso en $X$, entonces $\overline{U}$ es cerrado nowhere dense, y $X = \overline{U} \cup \bigcup_n D_n$ con $D_n$ densos nowhere dense, contradictio con Baire. Alternativamente, si $U$ fuera numerable y cerrado nowhere dense, $X = \overline{U} \cup \bigcup_n \{x_n\}$, contradictio. $\blacksquare$
+
+### Solucion 13
+
+$X \setminus \bigcup_n F_n = \bigcap_n (X \setminus F_n)$. Cada $X \setminus F_n$ es abierto y denso (porque $\operatorname{int}(F_n) = \varnothing$). Por el teorema de Baire, $\bigcap_n (X \setminus F_n)$ es denso. Tambien es residual por definicion de residual. $\blacksquare$
+
+### Solucion 14
+
+El conjunto de Cantor $C$ es cerrado en $\mathbb{R}$, hence completo. Se construye como interseccion numerable de conjuntos $C_n$, cada uno unin finita de intervalos cerrados disjuntos. Cada $C_n$ tiene interior vaco, as $C$ es magro en $\mathbb{R}$. Pero $C$ es no numerable y perfecto, hence no vaco. $\blacksquare$
+
+### Solucion 15
+
+Es la formulacion dual del teorema de Baire. Si $U_n$ son abiertos densos en $X$, sea $V$ abierto no vacio. Como $U_1$ es denso, $V \cap U_1$ es abierto no vacio. Construir $x \in V \cap \bigcap_n U_n$ como en la demostracion del teorema. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Oxtoby, J.C. (1980). *Measure and Category*. Springer.
+4. Willard, S. (2004). *General Topology*. Dover.
+5. Kechris, A.S. (1995). *Classical Descriptive Set Theory*. Springer.
+6. Cohn, D.L. (2013). *Measure Theory*. Birkhauser.

@@ -348,3 +348,13 @@ Para cada $n$, existen $x_1^{(n)}, \ldots, x_{k_n}^{(n)}$ con $K \subseteq \bigc
 $f$ es biyectiva y continua. Falta mostrar que $f^{-1}$ es continua.
 
 Por el ejercicio 4, $f$ manda abiertos a abiertos (en la imagen). Equivalentemente, $f^{-1}$ es continua.
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Willard, S. (2004). *General Topology*. Dover.
+4. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+5. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.

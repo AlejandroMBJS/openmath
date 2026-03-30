@@ -601,16 +601,137 @@ $$
 - Olvidar que la clausura de un convexo sigue siendo convexa.
 - Trabajar con segmentos en espacios complejos sin aclarar que la convexidad se considera sobre la estructura real subyacente.
 
-## Ejercicios propuestos
+## Ejercicios
 
-1. Probar que la interseccion de una familia cualquiera de convexos es convexa.
-2. Demostrar que la imagen de un convexo por una aplicacion lineal es convexa.
-3. Probar que la preimagen de un convexo por una aplicacion lineal es convexa.
-4. Mostrar que si $C$ es convexo, entonces $\alpha C+\beta C \subseteq (\alpha+\beta)C$ para $\alpha,\beta \ge 0$.
-5. Verificar que la norma $\|\cdot\|_2$ es estrictamente convexa en $\mathbb{R}^n$.
-6. Dar un ejemplo de conjunto cerrado no convexo y de conjunto convexo no cerrado.
-7. Calcular la envolvente convexa de los puntos $(0,0)$, $(1,0)$ y $(0,1)$.
+### Ejercicio 1
 
-## Cierre
+Probar que la interseccion de una familia cualquiera de convexos es convexa.
 
-La convexidad es la geometria basal de los espacios normados. Las bolas son convexas porque la norma es convexa; la topologia lineal interactua con la convexidad a traves de clausuras e interiores; y desde aqui se preparan ideas mas avanzadas como Hahn-Banach, dualidad, optimizacion y teoria variacional.
+### Ejercicio 2
+
+Demostrar que la imagen de un convexo por una aplicacion lineal es convexa.
+
+### Ejercicio 3
+
+Probar que la preimagen de un convexo por una aplicacion lineal es convexa.
+
+### Ejercicio 4
+
+Mostrar que si $C$ es convexo, entonces $\alpha C+\beta C \subseteq (\alpha+\beta)C$ para $\alpha,\beta \ge 0$.
+
+### Ejercicio 5
+
+Verificar que la norma $\|\cdot\|_2$ es estrictamente convexa en $\mathbb{R}^n$.
+
+### Ejercicio 6
+
+Dar un ejemplo de conjunto cerrado no convexo y de conjunto convexo no cerrado.
+
+### Ejercicio 7
+
+Calcular la envolvente convexa de los puntos $(0,0)$, $(1,0)$ y $(0,1)$.
+
+### Ejercicio 8
+
+Sea $C$ convexo en un espacio normado. Demuestre que para todo $x \in \operatorname{int}(C)$ y todo $y \in \overline{C}$, el segmento $[x,y)$ esta contenido en $\operatorname{int}(C)$.
+
+### Ejercicio 9
+
+Demuestre que todo subespacio vectorial de un espacio normado es convexo.
+
+### Ejercicio 10
+
+Sea $C$ convexo y $f : V \to \mathbb{R}$ una funcion convexa. Pruebe que el conjunto de subnivel $\{x : f(x) \le \alpha\}$ es convexo para todo $\alpha$.
+
+### Ejercicio 11
+
+Demuestre que si $C$ y $D$ son convexos, entonces $C \times D$ es convexo en el espacio producto.
+
+### Ejercicio 12
+
+Pruebe que la envolvente convexa de cualquier subconjunto $A \subseteq V$ es el conjunto de todas las combinaciones convexas finitas de puntos de $A$.
+
+### Ejercicio 13
+
+Demuestre que en un espacio normado, la bola abierta unitaria es la envolvente convexa de la esfera unitaria.
+
+### Ejercicio 14
+
+Sea $C$ convexo con interior no vacio. Pruebe que $\partial C$ (la frontera) no contiene segmentos rectilineos.
+
+### Ejercicio 15
+
+Demuestre que un espacio normado es estrictamente convexo si y solo si todo par de puntos distintos de la esfera unitaria determina un segmento de recta que no intersecta la esfera en puntos intermedios.
+
+## Soluciones
+
+### Solucion 1
+
+Sean $\{C_i\}_{i \in I}$ convexos y sea $x,y \in \bigcap_i C_i$. Para todo $i$, $x,y \in C_i$, y como $C_i$ es convexo, el segmento $[x,y] \subseteq C_i$. Esto vale para todo $i$, luego $[x,y] \subseteq \bigcap_i C_i$. $\blacksquare$
+
+### Solucion 2
+
+Sea $T : V \to W$ lineal y $C \subseteq V$ convexo. Si $x,y \in T(C)$, existen $u,v \in C$ con $x = T(u)$, $y = T(v)$. Para $t \in [0,1]$, $T(tu + (1-t)v) = tT(u) + (1-t)T(v) = tx + (1-t)y$. Como $C$ es convexo, $tu + (1-t)v \in C$, luego $tx + (1-t)y \in T(C)$. $\blacksquare$
+
+### Solucion 3
+
+Sea $T : V \to W$ lineal y $D \subseteq W$ convexo. Si $x,y \in T^{-1}(D)$, entonces $T(x), T(y) \in D$. Para $t \in [0,1]$, $T(tx + (1-t)y) = tT(x) + (1-t)T(y) \in D$ por convexidad de $D$. Luego $tx + (1-t)y \in T^{-1}(D)$. $\blacksquare$
+
+### Solucion 4
+
+Sea $z \in \alpha C + \beta C$. Entonces $z = \alpha u + \beta v$ con $u,v \in C$. Si $\alpha + \beta > 0$, entonces $z = (\alpha + \beta)(\frac{\alpha}{\alpha + \beta} u + \frac{\beta}{\alpha + \beta} v) \in (\alpha + \beta)C$ por convexidad de $C$. Si $\alpha = \beta = 0$, $z = 0 \in (\alpha + \beta)C$. $\blacksquare$
+
+### Solucion 5
+
+Si $\|x\|_2 = \|y\|_2 = 1$ y $x \ne y$, y $t \in (0,1)$, entonces $\|tx + (1-t)y\|_2 < 1$. En efecto, $\|\cdot\|_2^2$ es estrictamente convexa: $\|tx + (1-t)y\|_2^2 = t^2 + (1-t)^2 + 2t(1-t)\langle x,y \rangle < t^2 + (1-t)^2 + 2t(1-t) = 1$ porque $\langle x,y \rangle < 1$ para $x \ne y$ en la esfera unitaria. $\blacksquare$
+
+### Solucion 6
+
+Cerrado no convexo: $\mathbb{R} \setminus \{0\}$ en $\mathbb{R}$. Convexo no cerrado: $(0,1)$ en $\mathbb{R}$. $\blacksquare$
+
+### Solucion 7
+
+$\operatorname{co}\{(0,0),(1,0),(0,1)\} = \{\lambda_1(0,0) + \lambda_2(1,0) + \lambda_3(0,1) : \lambda_i \ge 0, \sum \lambda_i = 1\} = \{(t, s) : t,s \ge 0, t+s \le 1\}$, es decir, el triangulo solido con esos vertices. $\blacksquare$
+
+### Solucion 8
+
+Sea $x \in \operatorname{int}(C)$ e $y \in \overline{C}$. Para $t \in (0,1)$, consideremos $z = tx + (1-t)y$. Como $x$ es interior, existe $r > 0$ con $B(x,r) \subseteq C$. Si $\|u - z\| < tr$, existe $v = x + (u-z)/t$ con $\|v - x\| < r$, luego $v \in C$. Ademas existe sucesion $y_n \in C$ con $y_n \to y$, y para $n$ grande, $u_n = tv + (1-t)y_n \in C$ converge a $u$. Alternativamente, por un argumento directo con $B(z, tr) \subseteq C$. $\blacksquare$
+
+### Solucion 9
+
+Un subespacio vectorial $W$ satisface: si $x,y \in W$ y $t \in [0,1]$, entonces $tx + (1-t)y \in W$ porque $W$ es cerrado bajo combinaciones lineales (en particular convexas). $\blacksquare$
+
+### Solucion 10
+
+Sean $x,y \in \{f \le \alpha\}$ y $t \in [0,1]$. Por convexidad de $f$: $f(tx + (1-t)y) \le tf(x) + (1-t)f(y) \le t\alpha + (1-t)\alpha = \alpha$. $\blacksquare$
+
+### Solucion 11
+
+Si $(x_1,y_1), (x_2,y_2) \in C \times D$ y $t \in [0,1]$, entonces $t(x_1,y_1) + (1-t)(x_2,y_2) = (tx_1 + (1-t)x_2, ty_1 + (1-t)y_2) \in C \times D$ porque $C$ y $D$ son convexos. $\blacksquare$
+
+### Solucion 12
+
+Sea $E$ el conjunto de combinaciones convexas finitas de puntos de $A$. Ya demostramos en la Proposicion 7 que $E$ es convexo y contiene a $A$. Si $B$ es convexo y $A \subseteq B$, toda combinacion convexa finita de puntos de $A$ pertenece a $B$ por convexidad iterada. Asi $E \subseteq B$. Como $\operatorname{co}(A)$ es la interseccion de todos los convexos que contienen $A$, $\operatorname{co}(A) \subseteq E$. Luego $E = \operatorname{co}(A)$. $\blacksquare$
+
+### Solucion 13
+
+La esfera unitaria $S = \{x : \|x\| = 1\}$ esta contenida en la bola abierta unitaria $B = \{x : \|x\| < 1\}$, y $B$ es convexo, luego $\operatorname{co}(S) \subseteq B$. Recprocamente, si $x \in B$, sea $t = \|x\| \in (0,1)$. Entonces $x = t \cdot (x/t) + (1-t) \cdot 0$, donde $x/t \in S$ y $0 \in S$. Asi $x$ es combinacion convexa de puntos de $S$, luego $B \subseteq \operatorname{co}(S)$. $\blacksquare$
+
+### Solucion 14
+
+Supongamos que $\partial C$ contiene un segmento $[a,b]$ con $a \ne b$. Como $a \in \partial C$, existen puntos de $C$ y de $X \setminus C$ arbitrariamente cercanos a $a$. Pero si el segmento entero esta en la frontera, puntos interiores cercanos a $a$ en direccion de $b$ estarian fuera de $C$, contradiciendo que el interior es no vacio y abierto. Alternativamente, por la propiedad del Ejercicio 8, si $x \in \operatorname{int}(C)$ y $y \in \overline{C}$, entonces $(x,y) \subseteq \operatorname{int}(C)$, asi la frontera no puede contener ningun segmento no degenerado. $\blacksquare$
+
+### Solucion 15
+
+$\Rightarrow$: Si la norma es estrictamente convexa y $x,y \in S$ con $x \ne y$, para $t \in (0,1)$, $\|\frac{1}{2}x + \frac{1}{2}y\| < 1$, asi el segmento no intersecta la esfera en puntos intermedios. $\Leftarrow$: Si la norma no es estrictamente convexa, existen $x,y \in S$ con $x \ne y$ y $\|tx + (1-t)y\| = 1$ para algn $t \in (0,1)$, lo que contradice la propiedad. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+2. Kolmogorov, A.N. y Fomin, S.V. (1975). *Elementos de la teoria de funciones y del analisis funcional*. MIR.
+3. Conway, J.B. (1994). *A Course in Functional Analysis*. Springer.
+4. Yosida, K. (1980). *Functional Analysis*. Springer.
+5. Schaefer, H.H. y Wolff, M.P. (1999). *Topological Vector Spaces*. Springer.
+6. Holmes, R.B. (1975). *Geometric Functional Analysis and its Applications*. Springer.

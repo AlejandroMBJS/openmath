@@ -51,3 +51,4 @@ Cada item del listado es un subtema del syllabus pendiente de desarrollo exhaust
 - <a id="el-tensor-de-ricci"></a> El tensor de Ricci
 - <a id="la-metrica-euclidea-y-curvatura-de-ricci"></a> La metrica euclidea y curvatura de Ricci
 - <a id="el-tensor-de-einstein"></a> El tensor de Einstein
+- [Tensores de Energía y Conservación](/calculo-tensorial/tensores-de-energia-y-conservacion)

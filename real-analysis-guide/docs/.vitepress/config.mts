@@ -104,6 +104,7 @@ const mathematicalAnalysisItems = [
   { text: "Espacios normados", link: "/analisis-matematico/espacios-normados" },
   { text: "Sucesiones en normados", link: "/analisis-matematico/sucesiones-espacios-normados" },
   { text: "Convexidad en normados", link: "/analisis-matematico/convexidad-espacios-normados" },
+  { text: "Operadores no acotados", link: "/analisis-matematico/operadores-no-acotados" },
   { text: "Bolzano-Weierstrass en metricos", link: "/analisis-matematico/bolzano-weierstrass-metricos" },
   { text: "Heine-Borel en metricos", link: "/analisis-matematico/heine-borel-metrico" },
   { text: "Borel-Lebesgue completo", link: "/analisis-matematico/borel-lebesgue-completo" }
@@ -475,7 +476,9 @@ const differentialGeometryTopics: Array<[string, string]> = [
   ["Curvatura gaussiana", "curvatura-gaussiana"],
   ["Ecuaciones de Weingarten", "ecuaciones-de-weingarten"],
   ["Coeficientes de Christoffel", "coeficientes-de-christoffel"],
-  ["El teorema egregio de Gauss", "el-teorema-egregio-de-gauss"]
+  ["El teorema egregio de Gauss", "el-teorema-egregio-de-gauss"],
+  ["Formas Diferenciales", "formas-diferenciales-y-derivada-exterior"],
+  ["Cohomologia de de Rham", "cohomologia-de-rham"]
 ];
 
 const mathematicalMethodsPhysicsTopics: Array<[string, string]> = [
@@ -548,7 +551,8 @@ const tensorCalculusTopics: Array<[string, string]> = [
   ["Curvatura de Riemann", "curvatura-de-riemann"],
   ["El tensor de Ricci", "el-tensor-de-ricci"],
   ["La metrica euclidea y curvatura de Ricci", "la-metrica-euclidea-y-curvatura-de-ricci"],
-  ["El tensor de Einstein", "el-tensor-de-einstein"]
+  ["El tensor de Einstein", "el-tensor-de-einstein"],
+  ["Tensores de Energía y Conservación", "tensores-de-energia-y-conservacion"]
 ];
 
 const vectorCalculusItems = [
@@ -773,10 +777,32 @@ const mathematicalMethodsPhysicsRouteOverrides: Record<string, string> = {
   "funcion-gamma-con-senos-y-cosenos": "/metodos-matematicos-para-la-fisica/funcion-gamma-con-senos-y-cosenos",
   "funcion-gamma-representaciones": "/metodos-matematicos-para-la-fisica/funcion-gamma-representaciones",
   "notacion-factorial-de-la-funcion-gamma": "/metodos-matematicos-para-la-fisica/notacion-factorial-de-la-funcion-gamma",
-  "representacion-integral-funcion-gamma": "/metodos-matematicos-para-la-fisica/representacion-integral-funcion-gamma"
+  "representacion-integral-funcion-gamma": "/metodos-matematicos-para-la-fisica/representacion-integral-funcion-gamma",
+  "funciones-de-green-1d": "/metodos-matematicos-para-la-fisica/funciones-de-green-1d",
+  "funciones-de-green-multidimensionales": "/metodos-matematicos-para-la-fisica/funciones-de-green-multidimensionales",
+  "metodo-de-frobenius-logaritmico": "/metodos-matematicos-para-la-fisica/metodo-de-frobenius-logaritmico",
+  "tablas-de-caracteres": "/metodos-matematicos-para-la-fisica/tablas-de-caracteres",
+  "algebras-de-lie-y-cartan": "/metodos-matematicos-para-la-fisica/algebras-de-lie-y-cartan",
+  "teorema-de-wigner-eckart": "/metodos-matematicos-para-la-fisica/teorema-de-wigner-eckart",
+  "algebra-operadores-avanzada": "/metodos-matematicos-para-la-fisica/algebra-operadores-avanzada",
+  "ecuacion-hipergeometrica": "/metodos-matematicos-para-la-fisica/ecuacion-hipergeometrica",
+  "calculo-de-variaciones": "/metodos-matematicos-para-la-fisica/calculo-de-variaciones",
+  "ecuaciones-integrales": "/metodos-matematicos-para-la-fisica/ecuaciones-integrales",
+  "expansiones-asintoticas": "/metodos-matematicos-para-la-fisica/expansiones-asintoticas"
 };
 const mathematicalMethodsPhysicsItems = [
   { text: "Mapa del bloque", link: "/metodos-matematicos-para-la-fisica/" },
+  { text: "Funciones de Green en 1D", link: "/metodos-matematicos-para-la-fisica/funciones-de-green-1d" },
+  { text: "Funciones de Green Multidimensionales", link: "/metodos-matematicos-para-la-fisica/funciones-de-green-multidimensionales" },
+  { text: "Metodo de Frobenius Logaritmico", link: "/metodos-matematicos-para-la-fisica/metodo-de-frobenius-logaritmico" },
+  { text: "Álgebra de Operadores (BCH)", link: "/metodos-matematicos-para-la-fisica/algebra-operadores-avanzada" },
+  { text: "Ecuación Hipergeométrica", link: "/metodos-matematicos-para-la-fisica/ecuacion-hipergeometrica" },
+  { text: "Cálculo de Variaciones", link: "/metodos-matematicos-para-la-fisica/calculo-de-variaciones" },
+  { text: "Ecuaciones Integrales", link: "/metodos-matematicos-para-la-fisica/ecuaciones-integrales" },
+  { text: "Expansiones Asintóticas", link: "/metodos-matematicos-para-la-fisica/expansiones-asintoticas" },
+  { text: "Construcción de Tablas de Caracteres", link: "/metodos-matematicos-para-la-fisica/tablas-de-caracteres" },
+  { text: "Álgebras de Lie y Cartan", link: "/metodos-matematicos-para-la-fisica/algebras-de-lie-y-cartan" },
+  { text: "Teorema de Wigner-Eckart", link: "/metodos-matematicos-para-la-fisica/teorema-de-wigner-eckart" },
   ...mathematicalMethodsPhysicsTopics.map(([text, hash]) => ({
     text,
     link: mathematicalMethodsPhysicsRouteOverrides[hash] ?? "/metodos-matematicos-para-la-fisica/#" + hash
@@ -880,6 +906,7 @@ export default defineConfig({
       {
         text: "Fisica matematica",
         items: [
+          { text: "Mathematical Physics", link: "/mathematical-physics" },
           { text: "Metodos matematicos para la fisica", link: "/metodos-matematicos-para-la-fisica/" },
           { text: "Calculo tensorial", link: "/calculo-tensorial/" }
         ]
@@ -890,7 +917,8 @@ export default defineConfig({
         text: "Guia",
         items: [
           { text: "Mapa del programa", link: "/mapa" },
-          { text: "Metodologia", link: "/metodologia" }
+          { text: "Metodologia", link: "/metodologia" },
+          { text: "Mathematical Physics (Hassani)", link: "/mathematical-physics" }
         ]
       },
       {

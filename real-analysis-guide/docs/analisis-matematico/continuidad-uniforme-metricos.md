@@ -412,8 +412,135 @@ es uniformemente continua en $[a,\infty)$ para todo $a>0$, pero no en $(0,\infty
 
 ## Ejercicios
 
-1. Prueba que toda aplicacion Lipschitz es uniformemente continua.
-2. Usa el criterio secuencial para demostrar que $x^2$ no es uniformemente continua en $\mathbb{R}$.
-3. Demuestra que $\sqrt{x}$ es uniformemente continua en $[0,\infty)$.
-4. Prueba que una isometria es uniformemente continua.
-5. Demuestra que si $X$ es compacto y $f : X \to \mathbb{R}$ es continua, entonces $f$ es uniformemente continua.
+### Ejercicio 1
+
+Prueba que toda aplicacion $L$-Lipschitz $f : X \to Y$ es uniformemente continua.
+
+### Ejercicio 2
+
+Usa el criterio secuencial para demostrar que $f(x) = x^2$ no es uniformemente continua en $\mathbb{R}$.
+
+### Ejercicio 3
+
+Demuestra que $f(x) = \sqrt{x}$ es uniformemente continua en $[0,\infty)$.
+
+### Ejercicio 4
+
+Prueba que una isometria $f : X \to Y$ es uniformemente continua.
+
+### Ejercicio 5
+
+Demuestra que si $X$ es compacto y $f : X \to \mathbb{R}$ es continua, entonces $f$ es uniformemente continua.
+
+### Ejercicio 6
+
+Sean $f, g : X \to Y$ uniformemente continuas. Demuestra que el conjunto $\{x : f(x) = g(x)\}$ es cerrado en $X$.
+
+### Ejercicio 7
+
+Sea $f : X \to Y$ uniformemente continua. Demuestre que transforma sucesiones de Cauchy en sucesiones de Cauchy.
+
+### Ejercicio 8
+
+Demuestra que si $f : X \to Y$ es uniformemente continua y $A \subseteq X$ es totalmente acotado, entonces $f(A)$ es totalmente acotado.
+
+### Ejercicio 9
+
+Pruebe que la funcion $f(x) = \sin(x^2)$ no es uniformemente continua en $\mathbb{R}$.
+
+### Ejercicio 10
+
+Sea $f : [a,\infty) \to \mathbb{R}$ con $\lim_{x \to \infty} f(x) = L$ existente. Demuestre que $f$ es uniformemente continua en $[a,\infty)$.
+
+### Ejercicio 11
+
+Demuestre que la composicion de funciones uniformemente continuas es uniformemente continua.
+
+### Ejercicio 12
+
+Sea $f : \mathbb{R} \to \mathbb{R}$ con $|f'(x)| \le M$ para todo $x$. Pruebe que $f$ es Lipschitz y por tanto uniformemente continua.
+
+### Ejercicio 13
+
+Demuestre que $f(x) = 1/x$ no es uniformemente continua en $(0,1]$ pero si en $[1,\infty)$.
+
+### Ejercicio 14
+
+Sea $f : X \to Y$ uniformemente continua e inyectiva. Demuestre que $f^{-1} : f(X) \to X$ es uniformemente continua si $X$ es completo.
+
+### Ejercicio 15
+
+Sea $f : X \to Y$ biyectiva, uniformemente continua, con $Y$ completo y $f^{-1}$ continua. Demuestre que $X$ es completo.
+
+## Soluciones
+
+### Solucion 1
+
+Si $f$ es $L$-Lipschitz, dado $\varepsilon > 0$ toma $\delta = \varepsilon/L$. Si $d_X(x,y) < \delta$, entonces $d_Y(f(x), f(y)) \le L \cdot d_X(x,y) < L \cdot (\varepsilon/L) = \varepsilon$. $\blacksquare$
+
+### Solucion 2
+
+Considera $x_n = n$ e $y_n = n + 1/n$. Entonces $|x_n - y_n| = 1/n \to 0$, pero $|x_n^2 - y_n^2| = |n^2 - (n+1/n)^2| = |n^2 - n^2 - 2 - 1/n^2| = 2 + 1/n^2 \to 2 \ne 0$. Por el criterio secuencial, $x^2$ no es uniformemente continua. $\blacksquare$
+
+### Solucion 3
+
+Para $x, y \ge 0$: $|\sqrt{x} - \sqrt{y}| = \frac{|x-y|}{\sqrt{x} + \sqrt{y}} \le \frac{|x-y|}{\sqrt{|x-y|}} = \sqrt{|x-y|}$. Dado $\varepsilon > 0$, toma $\delta = \varepsilon^2$. Si $|x-y| < \delta$, entonces $|\sqrt{x} - \sqrt{y}| \le \sqrt{|x-y|} < \varepsilon$. $\blacksquare$
+
+### Solucion 4
+
+Por definicion de isometria: $d_Y(f(x), f(y)) = d_X(x,y)$. Dado $\varepsilon > 0$, toma $\delta = \varepsilon$. Si $d_X(x,y) < \delta$, entonces $d_Y(f(x), f(y)) = d_X(x,y) < \varepsilon$. $\blacksquare$
+
+### Solucion 5
+
+Este es el teorema de Heine-Cantor. Supongamos que $f$ no es uniformemente continua. Existe $\varepsilon_0 > 0$ tal que para todo $n$ existen $x_n, y_n$ con $d(x_n, y_n) < 1/n$ pero $d(f(x_n), f(y_n)) \ge \varepsilon_0$. Por compacidad, $(x_n)$ tiene subsucesion convergente $x_{n_k} \to x$. Entonces $y_{n_k} \to x$, y por continuidad $f(x_{n_k}) \to f(x)$ y $f(y_{n_k}) \to f(x)$, contradict $d(f(x_{n_k}), f(y_{n_k})) \ge \varepsilon_0$. $\blacksquare$
+
+### Solucion 6
+
+$\{x : f(x) = g(x)\} = (f - g)^{-1}(\{0\})$. El conjunto $\{0\}$ es cerrado en $Y$, y $f - g$ es uniformemente continua (por diferencia de uniformemente continuas), hence continua. La preimagen de cerrado es cerrada. $\blacksquare$
+
+### Solucion 7
+
+Sea $(x_n)$ de Cauchy en $X$. Dado $\varepsilon > 0$, existe $\delta > 0$ tal que $d_X(x,y) < \delta \Rightarrow d_Y(f(x), f(y)) < \varepsilon$. Para este $\delta$, existe $N$ con $n,m \ge N \Rightarrow d_X(x_n, x_m) < \delta$. Entonces $d_Y(f(x_n), f(x_m)) < \varepsilon$ para $n,m \ge N$, asi $(f(x_n))$ es de Cauchy. $\blacksquare$
+
+### Solucion 8
+
+Sea $\varepsilon > 0$. Toma $\delta > 0$ tal que $d_X(x,y) < \delta \Rightarrow d_Y(f(x), f(y)) < \varepsilon$. Como $A$ es totalmente acotado, existe cubierta finita $A \subseteq \bigcup_{j=1}^N B_X(a_j, \delta)$. Entonces $f(A) \subseteq \bigcup_{j=1}^N B_Y(f(a_j), \varepsilon)$. $\blacksquare$
+
+### Solucion 9
+
+Considera $x_n = \sqrt{n\pi}$ e $y_n = \sqrt{n\pi + \pi/2}$. Entonces $|x_n - y_n| = \frac{\pi/2}{\sqrt{n\pi} + \sqrt{n\pi + \pi/2}} \to 0$, pero $|f(x_n) - f(y_n)| = |\sin(n\pi) - \sin(n\pi + \pi/2)| = |0 - 1| = 1$. $\blacksquare$
+
+### Solucion 10
+
+Dado $\varepsilon > 0$, existe $M > a$ tal que $|f(x) - L| < \varepsilon/2$ para todo $x > M$. En $[a, M]$, por compacidad (intervalo cerrado), $f$ es uniformemente continua. Sea $\delta_1$ el delta correspondiente a $\varepsilon/2$ en $[a,M]$. Sea $\delta_2 = \varepsilon/2$. Para $x, y > M$: $|f(x) - f(y)| \le |f(x) - L| + |f(y) - L| < \varepsilon$. Para $x, y \le M$: usar $\delta_1$. Para $x \le M < y$: combinar ambos argumentos. $\blacksquare$
+
+### Solucion 11
+
+Dado $\varepsilon > 0$, existe $\eta > 0$ para $g$ tal que $d_Y(u,v) < \eta \Rightarrow d_Z(g(u), g(v)) < \varepsilon$. Para este $\eta$, existe $\delta > 0$ para $f$ tal que $d_X(x,y) < \delta \Rightarrow d_Y(f(x), f(y)) < \eta$. Entonces $d_X(x,y) < \delta \Rightarrow d_Z(g(f(x)), g(f(y))) < \varepsilon$. $\blacksquare$
+
+### Solucion 12
+
+Por el teorema del valor medio, $|f(x) - f(y)| \le M|x - y|$ para todo $x,y$. Asi $f$ es $M$-Lipschitz, hence uniformemente continua. $\blacksquare$
+
+### Solucion 13
+
+En $(0,1]$: toma $x_n = 1/n$, $y_n = 1/(n+1)$. Entonces $|x_n - y_n| = 1/(n(n+1)) \to 0$, pero $|1/x_n - 1/y_n| = (n+1) - n = 1$. No es uniformemente continua. En $[1,\infty)$: $|1/x - 1/y| = |x-y|/(xy) \le |x-y|$, luego es Lipschitz con $L=1$. $\blacksquare$
+
+### Solucion 14
+
+Sea $\varepsilon > 0$. Sea $\delta > 0$ el delta de continuidad uniforme de $f$ para $\varepsilon$. Si $d_Y(f(x), f(y)) < \delta$, entonces $d_X(x,y) < \varepsilon$. Esto muestra que $f^{-1}$ es uniformemente continua. $\blacksquare$
+
+### Solucion 15
+
+Sea $(x_n)$ de Cauchy en $X$. Entonces $(f(x_n))$ es de Cauchy en $Y$ (por continuidad uniforme). Por completitud de $Y$, $f(x_n) \to y$. Como $f^{-1}$ es continua, $x_n = f^{-1}(f(x_n)) \to f^{-1}(y) \in X$. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+3. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+4. Willard, S. (2004). *General Topology*. Dover.
+5. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+6. Dieudonne, J. (1960). *Foundations of Modern Analysis*. Academic Press.

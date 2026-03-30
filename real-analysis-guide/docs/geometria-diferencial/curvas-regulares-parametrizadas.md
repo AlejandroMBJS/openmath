@@ -155,3 +155,127 @@ ya esta a rapidez constante y muestra que en el espacio la teoria necesitara, ad
 ## Cierre
 
 Las curvas regulares parametrizadas son el objeto basico de la teoria local de curvas. La regularidad garantiza existencia de tangente, estabilidad frente a cambios de parametro y la posibilidad de pasar al parametro de longitud de arco, que sera el marco natural para introducir curvatura y marcos moviles.
+
+## Ejercicios
+
+### Ejercicio 1
+
+Verificar si $\gamma(t) = (t^2, t^3)$ es regular en $t = 0$.
+
+### Ejercicio 2
+
+Encontrar la derivada de la curva $\gamma(t) = (e^t, \ln t, t)$ en $t = 1$.
+
+### Ejercicio 3
+
+Reparametrizar la circunsencia unitaria por longitud de arco.
+
+### Ejercicio 4
+
+Calcular la rapidez de $\gamma(t) = (3t, 4t, 5t)$.
+
+### Ejercicio 5
+
+Determinar si $\gamma(t) = (\cos t, \sin t)$ es una curva simple.
+
+### Ejercicio 6
+
+Encontrar el vector tangente unitario de la helice $\gamma(t) = (a\cos t, a\sin t, bt)$ en $t = \pi/2$.
+
+### Ejercicio 7
+
+Reparametrizar $\gamma(t) = (t, t^2)$ por longitud de arco desde $t = 0$.
+
+### Ejercicio 8
+
+Verificar que $\gamma(t) = (\cosh t, \sinh t)$ tiene derivada no nula para todo $t$.
+
+### Ejercicio 9
+
+Calcular la longitud de $\gamma(t) = (t, t^2)$ desde $t = 0$ hasta $t = 1$.
+
+### Ejercicio 10
+
+Determinar la orientacion de la reparametrizacion $\phi(s) = 2s$ de la curva $\gamma$.
+
+### Ejercicio 11
+
+Encontrar una parametrizacion regular de la parabola $y = x^2$ en el origen.
+
+### Ejercicio 12
+
+Verificar que $\gamma(t) = (t, |t|)$ no es regular en $t = 0$.
+
+### Ejercicio 13
+
+Calcular la rapidez de la curva $\gamma(t) = (t\cos t, t\sin t)$.
+
+### Ejercicio 14
+
+Determinar si $\gamma(t) = (t^3, t^2)$ es regular en $t = 0$.
+
+### Ejercicio 15
+
+Encontrar el vector tangente de $\gamma(t) = (e^{2t}, e^{-t})$ en $t = 0$.
+
+## Soluciones
+
+### Solucion 1
+
+$\gamma'(t) = (2t, 3t^2)$, luego $\gamma'(0) = (0, 0)$. No es regular en $t = 0$.
+
+### Solucion 2
+
+$\gamma'(t) = (e^t, 1/t, 1)$, luego $\gamma'(1) = (e, 1, 1)$.
+
+### Solucion 3
+
+$\gamma(t) = (\cos t, \sin t)$ tiene rapidez $1$, ya esta parametrizada por longitud de arco.
+
+### Solucion 4
+
+$\gamma'(t) = (3, 4, 5)$, luego $\|\gamma'(t)\| = \sqrt{9 + 16 + 25} = \sqrt{50} = 5\sqrt{2}$.
+
+### Solucion 5
+
+La curva $\gamma(t) = (\cos t, \sin t)$ no es simple porque $\gamma(0) = \gamma(2\pi)$.
+
+### Solucion 6
+
+$\gamma'(t) = (-a\sin t, a\cos t, b)$, luego en $t = \pi/2$: $(-a, 0, b)$. Vector unitario: $\frac{1}{\sqrt{a^2 + b^2}}(-a, 0, b)$.
+
+### Solucion 7
+
+$s(t) = \int_0^t \sqrt{1 + 4u^2}\,du$. La integral no tiene forma elemental simple, pero la reparametrizacion existe implicitamente.
+
+### Solucion 8
+
+$\gamma'(t) = (\sinh t, \cosh t)$, $\|\gamma'(t)\| = \sqrt{\sinh^2 t + \cosh^2 t} = \sqrt{2\cosh^2 t - 1} > 0$ para todo $t$.
+
+### Solucion 9
+
+$L = \int_0^1 \sqrt{1 + 4t^2}\,dt = \frac{1}{4}(\sqrt{5}\mathrm{arcsinh}(2) + 2\sqrt{5})$.
+
+### Solucion 10
+
+$\phi'(s) = 2 > 0$, luego preserva orientacion.
+
+### Solucion 11
+
+$\gamma(t) = (t, t^2)$ tiene $\gamma'(0) = (1, 0) \neq 0$, luego es regular en el origen.
+
+### Solucion 12
+
+$\gamma'(t) = (1, \mathrm{sgn}(t))$ para $t \neq 0$, pero en $t = 0$ no es derivable, luego no es regular en $t = 0$.
+
+### Solucion 13
+
+$\gamma'(t) = (\cos t - t\sin t, \sin t + t\cos t)$, luego $\|\gamma'(t)\| = \sqrt{1 + t^2}$.
+
+### Solucion 14
+
+$\gamma'(t) = (3t^2, 2t)$, luego $\gamma'(0) = (0, 0)$. No es regular en $t = 0$.
+
+### Solucion 15
+
+$\gamma'(t) = (2e^{2t}, -e^{-t})$, luego $\gamma'(0) = (2, -1)$. El vector tangente es $(2, -1)$.

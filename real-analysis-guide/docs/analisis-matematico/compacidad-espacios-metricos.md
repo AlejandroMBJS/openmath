@@ -784,3 +784,223 @@ El criterio "cerrado y acotado" es especial de $\mathbb{R}^n$. En un metrico gen
 ## Cierre
 
 La compacidad es la forma mas potente de control global en espacios metricos. Une lenguaje topologico y lenguaje metrico en una sola nocion y prepara el terreno para su traduccion secuencial en el teorema de Bolzano-Weierstrass metrico.
+
+## Ejercicios
+
+### Ejercicio 1
+
+Demuestre que todo compacto metrico es completo y totalmente acotado.
+
+### Ejercicio 2
+
+Demuestre que la union finita de compactos es compacta.
+
+### Ejercicio 3
+
+Sea $(X,d)$ un espacio metrico compacto y $f\colon X \to Y$ una funcion continua. Demuestre que $f(X)$ es compacto.
+
+### Ejercicio 4
+
+Demuestre que toda sucesion en un compacto metrico tiene subsucesion convergente.
+
+### Ejercicio 5
+
+En $\mathbb{R}^n$, demuestre que un conjunto es compacto si y solo si es cerrado y acotado.
+
+### Ejercicio 6
+
+De un ejemplo de un subconjunto de $\ell^2$ que sea cerrado y acotado pero no compacto.
+
+### Ejercicio 7
+
+Demuestre que si $K_1 \supseteq K_2 \supseteq \cdots$ es una sucesion decreciente de compactos no vacios, entonces $\bigcap_{n=1}^\infty K_n \neq \emptyset$.
+
+### Ejercicio 8
+
+Sea $X$ un espacio metrico compacto y $f\colon X \to X$ una isometria. Demuestre que $f$ es sobreyectiva.
+
+### Ejercicio 9
+
+Demuestre que el producto de dos espacios metricos compactos es compacto.
+
+### Ejercicio 10
+
+Sea $K$ un compacto metrico. Demuestre que $K$ es separable.
+
+### Ejercicio 11
+
+Demuestre que si $X$ es compacto y $f\colon X \to \mathbb{R}$ es continua, entonces $f$ alcanza maximo y minimo.
+
+### Ejercicio 12
+
+En $C[0,1]$ con la metrica del supremo, demuestre que el conjunto $\{f \in C[0,1] : \|f\|_\infty \leq 1\}$ no es compacto.
+
+### Ejercicio 13
+
+Sea $X$ un espacio metrico. Demuestre que si todo recubrimiento abierto por bolas tiene subrecubrimiento finito, entonces $X$ es compacto.
+
+### Ejercicio 14
+
+Demuestre que la interseccion de un compacto y un cerrado es compacta.
+
+### Ejercicio 15
+
+Sea $K$ un compacto metrico. Demuestre que toda funcion continua $f\colon K \to \mathbb{R}$ es uniformemente continua.
+
+## Soluciones
+
+### Solucion 1
+
+Sea $K$ compacto metrico.
+
+**Completo:** Sea $(x_n)$ una sucesion de Cauchy en $K$. Como $K$ es compacto, existe subsucesion $(x_{n_k})$ que converge a $x \in K$. Una sucesion de Cauchy con una subsucesion convergente converge al mismo limite. Por tanto $(x_n) \to x$ con $x \in K$, y $K$ es completo.
+
+**Totalmente acotado:** Supongamos que $K$ no es totalmente acotado. Entonces existe $\varepsilon > 0$ tal que ninguna familia finita de bolas de radio $\varepsilon$ cubre a $K$. Construimos una sucesion $(x_n)$ con $d(x_n, x_m) \geq \varepsilon$ para $n \neq m$.
+
+Esta sucesion no tiene subsucesion de Cauchy, y por tanto ninguna subsucesion convergente, contradiciendo la compacidad secuencial. $\blacksquare$
+
+### Solucion 2
+
+Sean $K_1, \ldots, K_n$ compactos. Sea $\{U_\alpha\}$ un recubrimiento abierto de $K_1 \cup \cdots \cup K_n$.
+
+Para cada $i$, $\{U_\alpha\}$ recubre a $K_i$. Como $K_i$ es compacto, existe subrecubrimiento finito $\{U_{\alpha_1^{(i)}}, \ldots, U_{\alpha_{k_i}^{(i)}}\}$.
+
+La union de todos estos subrecubrimientos finitos es un subrecubrimiento finito de la union. $\blacksquare$
+
+### Solucion 3
+
+Sea $\{V_\alpha\}$ un recubrimiento abierto de $f(X)$. Entonces $\{f^{-1}(V_\alpha)\}$ es un recubrimiento abierto de $X$ (por continuidad de $f$).
+
+Como $X$ es compacto, existe subrecubrimiento finito $\{f^{-1}(V_{\alpha_1}), \ldots, f^{-1}(V_{\alpha_n})\}$.
+
+Entonces $\{V_{\alpha_1}, \ldots, V_{\alpha_n}\}$ recubre a $f(X)$. $\blacksquare$
+
+### Solucion 4
+
+Por la caracterizacion de compacidad en metricos, $K$ es completo y totalmente acotado.
+
+Dada una sucesion $(x_n)$ en $K$, como $K$ es totalmente acotado, podemos construir una subsucesion de Cauchy $(x_{n_k})$ mediante extraccion diagonal.
+
+Como $K$ es completo, $(x_{n_k})$ converge a algun punto de $K$. $\blacksquare$
+
+### Solucion 5
+
+$\Rightarrow)$ Si $K$ es compacto, es cerrado (complemento de abierto en Hausdorff) y acotado (totalmente acotado implica acotado).
+
+$\Leftarrow)$ Si $K$ es cerrado y acotado en $\mathbb{R}^n$, existe una bola $B(0,R)$ con $K \subseteq B(0,R)$. Como $B(0,R)$ es compacto (Heine-Borel) y $K$ es cerrado en compacto, $K$ es compacto. $\blacksquare$
+
+### Solucion 6
+
+En $\ell^2$, el conjunto $K = \{e_n : n \in \mathbb{N}\}$ donde $e_n$ es el vector canonico.
+
+- Es cerrado: la unica sucesion convergente en $K$ es la eventualmente constante.
+- Es acotado: $\|e_n\|_2 = 1$ para todo $n$.
+- No es compacto: $(e_n)$ no tiene subsucesion convergente porque $\|e_n - e_m\|_2 = \sqrt{2}$ para $n \neq m$. $\blacksquare$
+
+### Solucion 7
+
+Elegimos $x_n \in K_n$ para cada $n$. Como $x_n \in K_1$ y $K_1$ es compacto, existe subsucesion $(x_{n_k})$ que converge a $x \in K_1$.
+
+Para cada $m$, existe $k_0$ tal que $n_k \geq m$ para $k \geq k_0$. Entonces $x_{n_k} \in K_m$ para $k \geq k_0$.
+
+Como $K_m$ es cerrado y $(x_{n_k})$ converge a $x$, tenemos $x \in K_m$ para todo $m$.
+
+Por tanto $x \in \bigcap_{n=1}^\infty K_n$. $\blacksquare$
+
+### Solucion 8
+
+Como $f$ es isometria, $f$ es inyectiva y continua. El conjunto $f(X)$ es compacto (imagen continua de compacto).
+
+Supongamos por contradiccion que $f$ no es sobreyectiva. Existe $y_0 \in X \setminus f(X)$.
+
+Como $f(X)$ es cerrado (compacto en Hausdorff), existe $\varepsilon > 0$ tal que $B(y_0, \varepsilon) \cap f(X) = \emptyset$.
+
+Consideramos la sucesion definida por $x_0 = y_0$ y $x_{n+1} = f(x_n)$. Entonces $\{x_n : n \geq 1\} \subseteq f(X)$ y tiene $x_0$ a distancia al menos $\varepsilon$.
+
+Por compacidad, $(x_n)$ tiene subsucesion convergente, lo que lleva a contradiccion con la isometria. $\blacksquare$
+
+### Solucion 9
+
+Sean $X, Y$ compactos. El producto $X \times Y$ con la metrica producto es compacto.
+
+Sea $(x_n, y_n)$ una sucesion en $X \times Y$. Como $X$ es compacto, existe subsucesion $(x_{n_k})$ que converge a $x \in X$.
+
+Como $Y$ es compacto, existe sub-subsucesion $(y_{n_{k_j}})$ que converge a $y \in Y$.
+
+Entonces $(x_{n_{k_j}}, y_{n_{k_j}}) \to (x, y)$ en el producto. $\blacksquare$
+
+### Solucion 10
+
+Para cada $n$, cubrimos $K$ con bolas de radio $1/n$. Como $K$ es compacto, existe subrecubrimiento finito:
+
+$$
+K \subseteq B(x_1^{(n)}, 1/n) \cup \cdots \cup B(x_{k_n}^{(n)}, 1/n).
+$$
+
+El conjunto $D = \{x_i^{(n)} : n \in \mathbb{N}, 1 \leq i \leq k_n\}$ es numerable.
+
+Para todo $x \in K$ y $\varepsilon > 0$, existe $n > 1/\varepsilon$ y existe $i$ con $x \in B(x_i^{(n)}, 1/n)$. Entonces $d(x, x_i^{(n)}) < 1/n < \varepsilon$.
+
+Por tanto $D$ es denso en $K$. $\blacksquare$
+
+### Solucion 11
+
+Como $X$ es compacto, $f(X)$ es compacto en $\mathbb{R}$. Todo compacto en $\mathbb{R}$ es cerrado y acotado.
+
+Por el teorema del supremo, $M = \sup f(X)$ existe y es finito. Como $f(X)$ es cerrado, $M \in f(X)$. Similar para el minimo. $\blacksquare$
+
+### Solucion 12
+
+Consideramos la sucesion $f_n(x) = x^n$. Cada $f_n$ satisface $\|f_n\|_\infty = 1$.
+
+Si el conjunto fuera compacto, $(f_n)$ tendria subsucesion convergente en $C[0,1]$.
+
+Pero $f_n \to f$ puntoalmente donde $f(x) = 0$ para $x \in [0,1)$ y $f(1) = 1$.
+
+Esta funcion no es continua, asi que ninguna subsucesion puede converger uniformemente a una funcion continua. $\blacksquare$
+
+### Solucion 13
+
+El enunciado dice que si todo recubrimiento por bolas tiene subrecubrimiento finito, entonces $X$ es compacto.
+
+Sea $\{U_\alpha\}$ un recubrimiento abierto arbitrario. Para cada $x \in X$, existe $\alpha$ con $x \in U_\alpha$. Como $U_\alpha$ es abierto, existe $r_x > 0$ con $B(x, r_x) \subseteq U_\alpha$.
+
+La familia $\{B(x, r_x/2) : x \in X\}$ es un recubrimiento por bolas. Por hipotesis, tiene subrecubrimiento finito $\{B(x_i, r_{x_i}/2)\}$.
+
+Entonces $\{B(x_i, r_{x_i})\}$ es un subrecubrimiento finito de $X$, y cada $B(x_i, r_{x_i})$ esta contenido en algun $U_{\alpha_i}$.
+
+La familia finita $\{U_{\alpha_i}\}$ recubre a $X$. $\blacksquare$
+
+### Solucion 14
+
+Sea $K$ compacto y $C$ cerrado. Sea $\{U_\alpha\}$ un recubrimiento abierto de $K \cap C$.
+
+Entonces $\{U_\alpha\} \cup \{X \setminus C\}$ es un recubrimiento abierto de $K$.
+
+Como $K$ es compacto, existe subrecubrimiento finito. Si este subrecubrimiento incluye $X \setminus C$, lo eliminamos; el resultado sigue recubriendo $K \cap C$ (pues $K \cap C$ no intersecta $X \setminus C$).
+
+Asi $K \cap C$ tiene subrecubrimiento finito. $\blacksquare$
+
+### Solucion 15
+
+Dado $\varepsilon > 0$, para cada $x \in K$ existe $\delta_x > 0$ tal que $d(y, x) < \delta_x$ implica $|f(y) - f(x)| < \varepsilon/2$.
+
+Las bolas $\{B(x, \delta_x/2) : x \in K\}$ forman un recubrimiento abierto de $K$. Por compacidad, existe subrecubrimiento finito $\{B(x_1, \delta_1/2), \ldots, B(x_n, \delta_n/2)\}$.
+
+Tomamos $\delta = \min(\delta_1/2, \ldots, \delta_n/2) > 0$.
+
+Si $d(y, z) < \delta$ con $y, z \in K$, existe $i$ tal que $y \in B(x_i, \delta_i/2)$.
+
+Entonces $d(z, x_i) \leq d(z, y) + d(y, x_i) < \delta + \delta_i/2 \leq \delta_i$.
+
+Por tanto $|f(y) - f(z)| \leq |f(y) - f(x_i)| + |f(x_i) - f(z)| < \varepsilon/2 + \varepsilon/2 = \varepsilon$. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Willard, S. (2004). *General Topology*. Dover.
+4. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+5. Kelley, J.L. (1955). *General Topology*. Van Nostrand.

@@ -320,8 +320,135 @@ En muchos argumentos de medibilidad y compacidad secuencial, la separabilidad pe
 
 ## Ejercicios
 
-1. Demuestra que $\mathbb{Q}^n$ es denso en $\mathbb{R}^n$.
-2. Prueba que un espacio discreto es separable si y solo si es numerable.
-3. Demuestra que $\ell^2$ es separable mediante sucesiones de soporte finito racional.
-4. Completa la prueba de no separabilidad de $\ell^\infty$ usando el conjunto $\{0,1\}^{\mathbb{N}}$.
-5. Prueba que un subespacio metrico de un separable es separable.
+### Ejercicio 1
+
+Demuestra que $\mathbb{Q}^n$ es denso en $\mathbb{R}^n$.
+
+### Ejercicio 2
+
+Prueba que un espacio discreto es separable si y solo si es numerable.
+
+### Ejercicio 3
+
+Demuestra que $\ell^2$ es separable mediante sucesiones de soporte finito racional.
+
+### Ejercicio 4
+
+Completa la prueba de no separabilidad de $\ell^\infty$ usando el conjunto $\{0,1\}^{\mathbb{N}}$.
+
+### Ejercicio 5
+
+Prueba que un subespacio metrico de un separable es separable.
+
+### Ejercicio 6
+
+Demuestra que todo espacio metrico compacto es separable.
+
+### Ejercicio 7
+
+Pruebe que si $X$ es separable, entonces toda familia de abiertos disjuntos dos a dos es a lo sumo numerable.
+
+### Ejercicio 8
+
+Demuestra que $C([0,1])$ con la norma del supremo es separable.
+
+### Ejercicio 9
+
+Prueba que todo espacio metrico Lindelof es separable.
+
+### Ejercicio 10
+
+Sea $X$ separable metrico. Demuestre que la familia de todos los abiertos de $X$ tiene cardinal a lo sumo $2^{\aleph_0}$.
+
+### Ejercicio 11
+
+Prueba que $\ell^1$ es separable.
+
+### Ejercicio 12
+
+Demuestra que $\mathbb{R}$ con la metrica $d(x,y) = \min\{1, |x-y|\}$ es separable.
+
+### Ejercicio 13
+
+Pruebe que la union numerable de conjuntos separables es separable.
+
+### Ejercicio 14
+
+Sea $X$ separable y $f : X \to Y$ continua y sobreyectiva. Demuestre que $Y$ es separable.
+
+### Ejercicio 15
+
+Demuestra que el producto numerable de espacios separables es separable.
+
+## Soluciones
+
+### Solucion 1
+
+Dado $x \in \mathbb{R}^n$ y $\varepsilon > 0$, para cada coordenada $x_i$ existe $q_i \in \mathbb{Q}$ con $|x_i - q_i| < \varepsilon/\sqrt{n}$. Entonces $q = (q_1, \ldots, q_n) \in \mathbb{Q}^n$ y $\|x - q\|_2 = \sqrt{\sum (x_i - q_i)^2} < \varepsilon$. $\blacksquare$
+
+### Solucion 2
+
+Si $X$ es discreto separable, existe $D$ denso numerable. Como todo punto es abierto, $D$ debe contener a todos los puntos, asi $X \subseteq \overline{D} = D$, luego $X$ es numerable. Recprocamente, si $X$ es numerable, $D = X$ es denso numerable. $\blacksquare$
+
+### Solucion 3
+
+Las sucesiones de soporte finito con coordenadas racionales forman un conjunto numerable $D$. Sea $x \in \ell^2$. Dado $\varepsilon > 0$, existe $N$ tal que $\sum_{k=N+1}^\infty |x_k|^2 < \varepsilon^2/2$. Para cada $k \le N$, elige $q_k \in \mathbb{Q}$ con $|x_k - q_k| < \varepsilon/(2\sqrt{N})$. Define $y \in D$ como $y_k = q_k$ para $k \le N$ e $y_k = 0$ para $k > N$. Entonces $\|x - y\|_2^2 = \sum_{k=1}^N |x_k - q_k|^2 + \sum_{k=N+1}^\infty |x_k|^2 < N \cdot (\varepsilon^2/(4N)) + \varepsilon^2/2 = \varepsilon^2$. $\blacksquare$
+
+### Solucion 4
+
+El conjunto $\{0,1\}^{\mathbb{N}}$ (todas las sucesiones binarias) se embede isometricamente en $\ell^\infty$ como subconjunto de la esfera unitaria. Este conjunto tiene cardinal $2^{\aleph_0}$, y puntos distintosestan a distancia $1$ entre s. Si $\ell^\infty$ fuera separable, existiria un denso numerable $D$. Pero la bola de radio $1/3$ alrededor de cada punto de $\{0,1\}^{\mathbb{N}}$ contiene un unico punto de $D$ (porque las bolas de radio $1/3$ alrededor de puntos distintos son disjuntas). Esto dara una inyeccion de $\{0,1\}^{\mathbb{N}}$ en $D$, contradictio con que $D$ es numerable y $\{0,1\}^{\mathbb{N}}$ no lo es. $\blacksquare$
+
+### Solucion 5
+
+Sea $D$ denso numerable en $X$. Para cada $B(x, 1/n)$ no vacia con $x \in X$ y $n \in \mathbb{N}$, elige $d_{x,n} \in D \cap B(x, 1/n)$. El conjunto $E = \{d_{x,n} : x \in X, n \in \mathbb{N}\}$ es numerable. Dado $y \in Y$ y $\varepsilon > 0$, existe $x \in X$ con $d(x,y) < \varepsilon/2$. Toma $n$ tal que $1/n < \varepsilon/2$. Existe $d_{x,n} \in D \cap B(x, 1/n)$. Luego $d(d_{x,n}, y) \le d(d_{x,n}, x) + d(x,y) < 1/n + \varepsilon/2 < \varepsilon$. $\blacksquare$
+
+### Solucion 6
+
+Para cada $n$, existe $F_n$ finito con $K \subseteq \bigcup_{x \in F_n} B(x, 1/n)$. El conjunto $D = \bigcup_n F_n$ es numerable y denso en $K$ (argumento estandar de total acotacion). $\blacksquare$
+
+### Solucion 7
+
+Sea $\{U_i\}$ familia de abiertos disjuntos. Por separabilidad, existe base numerable $\{B_n\}$. Cada $U_i$ contiene algun $B_{n(i)}$, y si $i \ne j$, entonces $U_i \cap U_j = \varnothing$ implica $B_{n(i)} \ne B_{n(j)}$. Asi la familia $\{U_i\}$ es inyectiva en la base numerable, luego es a lo sumo numerable. $\blacksquare$
+
+### Solucion 8
+
+Los polinomios con coeficientes racionales forman un conjunto numerable $P$. Por el teorema de Stone-Weierstrass, $P$ es denso en $C([0,1])$ con $\|\cdot\|_\infty$. $\blacksquare$
+
+### Solucion 9
+
+Un espacio Lindelof metrico tiene base numerable (por equivalencia). Una base numerable contiene un subconjunto denso numerable, hence el espacio es separable. $\blacksquare$
+
+### Solucion 10
+
+Por segunda numerabilidad (equivalente a separabilidad en metricos), existe base numerable $\mathcal{B}$. Cada abierto $U$ es unin de elementos de $\mathcal{B}$, y hay $2^{\aleph_0}$ subconjuntos de $\mathbb{N}$, asiel cardinal de la familia de abiertos es a lo sumo $2^{\aleph_0}$. $\blacksquare$
+
+### Solucion 11
+
+Igual que $\ell^2$: las sucesiones de soporte finito con coordenadas racionales forman un denso numerable en $\ell^1$. $\blacksquare$
+
+### Solucion 12
+
+La metrica $d(x,y) = \min\{1, |x-y|\}$ induce la misma topologa que la usual en $\mathbb{R}$ (son Lipschitz-equivalentes). Como $\mathbb{R}$ con la usual es separable ($\mathbb{Q}$ es denso), el espacio con la metrica transformada es separable. $\blacksquare$
+
+### Solucion 13
+
+Sean $X_n$ separables con denso numerable $D_n$. Sea $D = \bigcup_n D_n \times \{n\}$, embedido en $\bigcup_n X_n$ como $\bigcup_n \{(d, n) : d \in D_n\}$. En el espacio union disjunta, $D$ es numerable y denso. $\blacksquare$
+
+### Solucion 14
+
+Sea $D$ denso en $X$. Entonces $\overline{f(D)} = f(\overline{D}) = f(X) = Y$ (por continuidad de $f$). Asi $f(D)$ es denso en $Y$. Como $X$ es separable, existe base numerable; su imagen por $f$ (preimagenes de abiertos) es numerable. $\blacksquare$
+
+### Solucion 15
+
+Sea $X_n$ separable con denso numerable $D_n$. El producto $\prod_n X_n$ tiene base de la topologa producto formada por productos de abiertos basicos. El conjunto de productos de elementos de los $D_n$ con soporte finito es numerable y denso en el producto. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Willard, S. (2004). *General Topology*. Dover.
+4. Kelley, J.L. (1955). *General Topology*. Van Nostrand.
+5. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+6. Oxtoby, J.C. (1980). *Measure and Category*. Springer.

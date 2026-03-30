@@ -434,20 +434,134 @@ $$
 
 ## Ejercicios
 
-1. Prueba directamente con la definicion que toda funcion constante es continua.
-2. Demuestra la continuidad de la funcion
+### Ejercicio 1
 
-$$
-x \mapsto d_X(x,a)
-$$
+Prueba directamente con la definicion que toda funcion constante $f(x) = c$ es continua en todo punto de $X$.
 
-para un punto fijo $a \in X$.
-3. Prueba el criterio por cerrados a partir del criterio por abiertos.
-4. Sea $A \subseteq X$ no vacio. Demuestra que
+### Ejercicio 2
 
-$$
-x \mapsto d(x,A)
-$$
+Sea $(X,d)$ un espacio metrico y $a \in X$ un punto fijo. Demuestra que la funcion $x \mapsto d_X(x,a)$ es continua.
 
-es continua.
-5. Demuestra que si $f$ es continua y $D \subseteq X$ es denso, entonces $f$ queda determinada unicamente por sus valores en $D$ siempre que el codominio sea Hausdorff.
+### Ejercicio 3
+
+Prueba el criterio por cerrados a partir del criterio por abiertos: si $f^{-1}(F)$ es cerrado para todo cerrado $F$ de $Y$, entonces $f$ es continua.
+
+### Ejercicio 4
+
+Sea $A \subseteq X$ no vacio. Demuestra que la funcion distancia al conjunto $x \mapsto d(x,A)$ es continua.
+
+### Ejercicio 5
+
+Demuestra que si $f$ es continua, $D \subseteq X$ es denso y $Y$ es Hausdorff, entonces $f$ queda determinada unicamente por sus valores en $D$: si $f|_D = g|_D$, entonces $f = g$.
+
+### Ejercicio 6
+
+Sea $f : X \to Y$ continua y sea $(x_n)$ sucesion con $x_n \to a$. Demuestra que $f(x_n) \to f(a)$.
+
+### Ejercicio 7
+
+Demuestra que si $f : X \to Y$ es continua e inyectiva con $X$ compacto e $Y$ Hausdorff, entonces $f^{-1} : f(X) \to X$ es continua.
+
+### Ejercicio 8
+
+Sea $f : X \to \mathbb{R}$ continua con $X$ conexo. Demuestra que $f(X)$ es un intervalo.
+
+### Ejercicio 9
+
+Sean $f, g : X \to \mathbb{R}$ continuas. Demuestra que el conjunto $\{x : f(x) = g(x)\}$ es cerrado en $X$.
+
+### Ejercicio 10
+
+Sea $f : X \to Y$ continua y $A \subseteq X$. Demuestra que $f(\overline{A}) \subseteq \overline{f(A)}$.
+
+### Ejercicio 11
+
+Demuestre que la composicion de funciones continuas es continua.
+
+### Ejercicio 12
+
+Sea $f : X \to Y$ continua e inyectiva. Demuestre que $f$ es homeomorfismo sobre su imagen si y solo si $f^{-1}$ es continua en $f(X)$.
+
+### Ejercicio 13
+
+Sea $A \subseteq X$ no vacio. Demuestre que $x \mapsto d(x,A)$ satisface $|d(x,A) - d(y,A)| \le d(x,y)$ para todo $x,y \in X$.
+
+### Ejercicio 14
+
+Sea $f : X \to Y$ continua con $Y = \mathbb{R}$. Si existe $x_0 \in X$ tal que $f(x_0) > 0$, demuestre que existe un abierto $U$ con $x_0 \in U$ y $f(x) > 0$ para todo $x \in U$.
+
+### Ejercicio 15
+
+Sea $f : X \to Y$ continua. Demuestre que para todo subconjunto $B \subseteq Y$, se cumple $f^{-1}(Y \setminus B) = X \setminus f^{-1}(B)$.
+
+## Soluciones
+
+### Solucion 1
+
+Sea $f(x) = c$ constante. Dado $\varepsilon > 0$ y $a \in X$, elige cualquier $\delta > 0$. Si $d_X(x,a) < \delta$, entonces $d_Y(f(x), f(a)) = d_Y(c,c) = 0 < \varepsilon$. $\blacksquare$
+
+### Solucion 2
+
+Dados $a, x \in X$, por la desigualdad triangular: $d(x,a) \le d(x,y) + d(y,a)$, luego $d(x,a) - d(y,a) \le d(x,y)$. Intercambiando roles: $|d(x,a) - d(y,a)| \le d(x,y)$. $\blacksquare$
+
+### Solucion 3
+
+Si $f^{-1}(F)$ es cerrado para todo cerrado $F$, y $U$ es abierto en $Y$, entonces $Y \setminus U$ es cerrado, luego $f^{-1}(Y \setminus U) = X \setminus f^{-1}(U)$ es cerrado, asi $f^{-1}(U)$ es abierto. Por el criterio por abiertos, $f$ es continua. $\blacksquare$
+
+### Solucion 4
+
+Para todo $x, y$ y todo $a \in A$: $d(x,A) \le d(x,a) \le d(x,y) + d(y,a)$. Tomando infimo en $a$: $d(x,A) \le d(x,y) + d(y,A)$, asi $d(x,A) - d(y,A) \le d(x,y)$. Intercambiando: $|d(x,A) - d(y,A)| \le d(x,y)$. $\blacksquare$
+
+### Solucion 5
+
+Si $f|_D = g|_D$ y $Y$ es Hausdorff, el conjunto $\{x : f(x) \ne g(x)\} = f^{-1}(\{y : f(y) \ne g(y)\})$ es abierto. Si no fuera vacio, existiria $x$ con $f(x) \ne g(x)$. Por densidad de $D$, existe sucesion $(d_n)$ en $D$ convergiendo a $x$. Entonces $f(d_n) = g(d_n) \to f(x)$ y $\to g(x)$, contradiciendo Hausdorff. $\blacksquare$
+
+### Solucion 6
+
+Es la caracterizacion secuencial de la continuidad. Dado $\varepsilon > 0$, por continuidad existe $\delta > 0$ tal que $d_X(x,a) < \delta \Rightarrow d_Y(f(x), f(a)) < \varepsilon$. Como $x_n \to a$, existe $N$ con $d_X(x_n, a) < \delta$ para $n \ge N$, luego $d_Y(f(x_n), f(a)) < \varepsilon$ para $n \ge N$. $\blacksquare$
+
+### Solucion 7
+
+Sea $V$ abierto en $X$. Como $f$ es inyectiva, $X \setminus V = f^{-1}(f(X \setminus V))$. El conjunto $X \setminus V$ es cerrado en $X$, luego compacto. Su imagen $f(X \setminus V)$ es compacta en $Y$, hence cerrada en $Y$. Luego $f(X \setminus V)$ es cerrado en $f(X)$, y $X \setminus V = f^{-1}(f(X \setminus V))$ es abierto en $f(X)$. $\blacksquare$
+
+### Solucion 8
+
+$X$ conexo $\Rightarrow f(X)$ conexo en $\mathbb{R}$ $\Rightarrow f(X)$ es intervalo (caracterizacion de intervalos por conexidad). $\blacksquare$
+
+### Solucion 9
+
+$\{x : f(x) = g(x)\} = (f - g)^{-1}(\{0\})$. El conjunto $\{0\}$ es cerrado en $\mathbb{R}$, y $f - g$ es continua, luego la preimagen es cerrada. $\blacksquare$
+
+### Solucion 10
+
+Sea $y \in f(\overline{A})$, asi $y = f(x)$ con $x \in \overline{A}$. Si $y \notin \overline{f(A)}$, existe abierto $U$ con $y \in U$ y $U \cap f(A) = \varnothing$. Como $f$ es continua, $f^{-1}(U)$ es abierto y contiene a $x$, luego corta a $A$. Entonces $f(f^{-1}(U)) \cap f(A) \subseteq U \cap f(A) = \varnothing$, contradiccion. $\blacksquare$
+
+### Solucion 11
+
+Sean $f : X \to Y$ y $g : Y \to Z$ continuas. Dado $\varepsilon > 0$, existe $\delta > 0$ tal que $d_Y(u,v) < \delta \Rightarrow d_Z(g(u), g(v)) < \varepsilon$. Para este $\delta$, existe $\eta > 0$ tal que $d_X(x,y) < \eta \Rightarrow d_Y(f(x), f(y)) < \delta$. Encadenando: $d_X(x,y) < \eta \Rightarrow d_Z(g(f(x)), g(f(y))) < \varepsilon$. $\blacksquare$
+
+### Solucion 12
+
+$\Rightarrow$: Si $f$ es homeomorfismo sobre su imagen, $f^{-1}$ es continua como restriccion de $(f^{-1}) : Y \to X$ que es continua en $f(X)$. $\Leftarrow$: Si $f^{-1}$ es continua en $f(X)$, entonces $f$ es continua y biyectiva con inversa continua, luego homeomorfismo sobre la imagen. $\blacksquare$
+
+### Solucion 13
+
+Para todo $a \in A$: $d(x,A) \le d(x,a) \le d(x,y) + d(y,a)$. Tomando infimo en $a$: $d(x,A) \le d(x,y) + d(y,A)$, asi $d(x,A) - d(y,A) \le d(x,y)$. Intercambiando roles: $|d(x,A) - d(y,A)| \le d(x,y)$. $\blacksquare$
+
+### Solucion 14
+
+Como $f(x_0) > 0$, existe $\varepsilon = f(x_0)/2 > 0$ tal que $B(f(x_0), \varepsilon) \subseteq (0, \infty)$. Por continuidad, existe $\delta > 0$ con $d_X(x, x_0) < \delta \Rightarrow d_Y(f(x), f(x_0)) < \varepsilon$, es decir, $|f(x) - f(x_0)| < f(x_0)/2$. Asi $f(x) > f(x_0)/2 > 0$. $\blacksquare$
+
+### Solucion 15
+
+$x \in f^{-1}(Y \setminus B) \iff f(x) \in Y \setminus B \iff f(x) \notin B \iff x \notin f^{-1}(B) \iff x \in X \setminus f^{-1}(B)$. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+4. Willard, S. (2004). *General Topology*. Dover.
+5. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.

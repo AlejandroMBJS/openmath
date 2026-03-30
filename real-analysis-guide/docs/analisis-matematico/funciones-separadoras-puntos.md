@@ -601,3 +601,14 @@ En topologia general, cada una de estas propiedades requiere definiciones separa
 ## Cierre
 
 Las funciones separadoras muestran de manera muy concreta por que los espacios metricos tienen una topologia tan manejable. La distancia genera continuidad, la continuidad separa conjuntos y esa separacion permite reconstruir mucha de la estructura topologica del espacio a partir de funciones reales simples.
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Willard, S. (2004). *General Topology*. Dover.
+4. Kelley, J.L. (1955). *General Topology*. Van Nostrand.
+5. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+6. Gillman, L. y Jerison, M. (1976). *Rings of Continuous Functions*. Springer.

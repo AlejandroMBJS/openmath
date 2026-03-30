@@ -48,3 +48,8 @@ Este bloque organiza el estudio diferencial de curvas y superficies, desde la te
 - [Ecuaciones de Weingarten](/geometria-diferencial/ecuaciones-de-weingarten)
 - [Coeficientes de Christoffel](/geometria-diferencial/coeficientes-de-christoffel)
 - [El teorema egregio de Gauss](/geometria-diferencial/el-teorema-egregio-de-gauss)
+
+## Variedades y Formas Diferenciales
+
+- [Formas Diferenciales y Derivada Exterior](/geometria-diferencial/formas-diferenciales-y-derivada-exterior)
+- [Cohomología de de Rham](/geometria-diferencial/cohomologia-de-rham)

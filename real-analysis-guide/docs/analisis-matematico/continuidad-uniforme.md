@@ -463,3 +463,11 @@ Es Lipschitz con constante $L = 1$.
 $f(x) = x^2$ es continua en $\mathbb{R}$ pero no uniformemente continua en $[n, n+1]$ para $n$ grande (verificar con pendiente $2n$).
 
 Alternativa: $f(x) = \sin(x^2)$ no es uniformemente continua en dominios no acotados.
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+2. Apostol, T.M. (1974). *Mathematical Analysis*. Addison-Wesley.
+3. Munkres, J.R. (2000). *Topology*. Prentice Hall.

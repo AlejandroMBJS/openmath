@@ -465,3 +465,14 @@ Un espacio discreto infinito no puede ser isometrico a un intervalo real, porque
 ## Cierre
 
 Homeomorfismos e isometrias comparan espacios a dos niveles distintos de fidelidad. El homeomorfismo conserva la forma topologica global; la isometria conserva la geometria cuantitativa exacta. En analisis es crucial distinguir ambas nociones para no confundir propiedades topologicas con propiedades metricas genuinas.
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Willard, S. (2004). *General Topology*. Dover.
+4. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+5. Rudin, W. (1976). *Principles of Mathematical Analysis*. McGraw-Hill.
+6. Dieudonne, J. (1960). *Foundations of Modern Analysis*. Academic Press.

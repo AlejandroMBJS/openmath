@@ -358,3 +358,13 @@ Si $y \in B(x, \delta)$:
 - $d(y, b) \leq d(y, x) + d(x, b) < \delta + d(x, b) \leq r_2$, así que $y \in B(b, r_2)$.
 
 Luego $B(x, \delta) \subseteq B(a, r_1) \cap B(b, r_2)$, y la intersección es abierta. $\qquad \blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Willard, S. (2004). *General Topology*. Dover.
+4. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+5. Kelley, J.L. (1955). *General Topology*. Van Nostrand.

@@ -439,3 +439,155 @@ El interior depende del espacio en el que se este trabajando.
 ## Cierre
 
 La topologia de un espacio metrico es el lenguaje estable en el que despues se escriben continuidad, clausura, compacidad y convergencia secuencial. Entender que partes de la metrica sobreviven a ese paso y cuales no es una de las ideas conceptuales decisivas del bloque.
+
+## Ejercicios
+
+### Ejercicio 1
+
+Demuestre que la topologia inducida por una metrica siempre contiene a la metrica misma (es decir, toda bola abierta es un abierto).
+
+### Ejercicio 2
+
+Demuestre que dos metricas son equivalentes si y solo si generan los mismos abiertos.
+
+### Ejercicio 3
+
+Sea $d_1$ y $d_2$ metricas en $X$. Demuestre que si $d_1 \leq C d_2$ para alguna constante $C > 0$, entonces toda sucesion convergente en $(X, d_2)$ converge en $(X, d_1)$.
+
+### Ejercicio 4
+
+Demuestre que la metrica discreta genera la topologia discreta.
+
+### Ejercicio 5
+
+En $\mathbb{R}^2$, demuestre que las metricas $d_1$, $d_2$ y $d_\infty$ generan la misma topologia.
+
+### Ejercicio 6
+
+Sea $X$ un espacio metrico. Demuestre que la topologia induceda por $d$ es la unica topologia en $X$ que hace continuas a todas las bolas abiertas.
+
+### Ejercicio 7
+
+Demuestre que si una familia de metricas genera la misma topologia, entonces la identidad es un homeomorfismo entre los espacios metricos.
+
+### Ejercicio 8
+
+Sea $X$ un espacio con la metrica usual de $\mathbb{R}$. Determine si la topologia generada por $d(x,y) = |x-y|$ coincide con la topologia usual de intervalo.
+
+### Ejercicio 9
+
+Demuestre que la topologia cofinita en un conjunto infinito no es metrizable.
+
+### Ejercicio 10
+
+Sea $(X,d)$ un espacio metrico y $A \subseteq X$. Demuestre que la topologia del subespacio en $A$ es inducida por la metrica restringida $d|_{A \times A}$.
+
+### Ejercicio 11
+
+Demuestre que todo espacio metrico es Hausdorff.
+
+### Ejercicio 12
+
+Sea $f\colon X \to Y$ una aplicacion entre espacios metricos. Demuestre que $f$ es continua si y solo si $f^{-1}(U)$ es abierto en $X$ para todo abierto $U$ de $Y$.
+
+### Ejercicio 13
+
+Demuestre que la topologia producto en $X \times Y$ (con metricas $d_1 + d_2$ o $\max(d_1, d_2)$) coincide con la topologia producto usual.
+
+### Ejercicio 14
+
+Sea $d(x,y) = \min\{1, |x-y|\}$ en $\mathbb{R}$. Determine si genera la misma topologia que la metrica usual.
+
+### Ejercicio 15
+
+Demuestre que si $d_1$ y $d_2$ son metricas Lipschitz-equivalentes, entonces tienen los mismos conjuntos compactos.
+
+## Soluciones
+
+### Solucion 1
+
+Por definicion, la topologia inducida por $d$ consiste de todas las uniones arbitrarias de bolas abiertas. Cada bola abierta es el nombre "abierto basico", y por tanto pertenece a la topologia. $\blacksquare$
+
+### Solucion 2
+
+$\Rightarrow)$ Si $d_1$ y $d_2$ son equivalentes, existe $c, C > 0$ tales que $c d_1 \leq d_2 \leq C d_1$.
+
+Para $U$ abierto en $(X, d_1)$: $U = \bigcup_{x \in U} B_{d_1}(x, r_x)$ para ciertos radios. Cada $B_{d_1}(x, r_x)$ contiene $B_{d_2}(x, c r_x)$, asi $U$ es union de bolas $d_2$-abiertas, hence $U$ es $d_2$-abierto. Analogamente para la otra direccion.
+
+$\Leftarrow)$ Si generan los mismos abiertos, en particular para cada $x$ y cada $r > 0$, la bola $B_{d_1}(x,r)$ es $d_2$-abierta, luego existe $s > 0$ con $B_{d_2}(x,s) \subseteq B_{d_1}(x,r)$.
+
+Esto da control mutuo entre las metricas. $\blacksquare$
+
+### Solucion 3
+
+Si $d_1 \leq C d_2$, entonces $d_1(x_n, x) \leq C d_2(x_n, x)$. Si $d_2(x_n, x) \to 0$, entonces $d_1(x_n, x) \to 0$. $\blacksquare$
+
+### Solucion 4
+
+En la metrica discreta, para cada $x \in X$: $B(x, 1) = \{x\}$, que es abierto. Todo subconjunto $A \subseteq X$ es union de singletons $\{a\}$ con $a \in A$, hence abierto. La topologia generada es la discreta. $\blacksquare$
+
+### Solucion 5
+
+Para todo $x \in \mathbb{R}^2$ y todo $r > 0$:
+- $B_{d_\infty}(x, r) \subseteq B_{d_2}(x, r) \subseteq B_{d_1}(x, r\sqrt{2})$.
+- $B_{d_1}(x, r) \subseteq B_{d_2}(x, r) \subseteq B_{d_\infty}(x, r)$.
+
+Cada bola de una metrica contiene una bola de radio menor en otra metrica y viceversa. Esto implica que los abiertos coinciden. $\blacksquare$
+
+### Solucion 6
+
+La topologia induceda por $d$ hace que cada bola $B(x,r)$ sea abierta, y toda bola es entorno de su centro. Es la minima topologia con esta propiedad por construccion. $\blacksquare$
+
+### Solucion 7
+
+La identidad $\text{id}\colon (X, \tau_1) \to (X, \tau_2)$ es continua porque $U$ abierto en $\tau_2$ implica $U = \text{id}^{-1}(U)$ abierto en $\tau_1$ (y viceversa). Ademas $\text{id}^{-1} = \text{id}$ es continua. $\blacksquare$
+
+### Solucion 8
+
+Si, la topologia usual de intervalo en $\mathbb{R}$ coincide con la topologia generada por $d(x,y) = |x-y|$.
+
+Cada intervalo abierto $(a,b)$ es union de bolas abiertas: $(a,b) = \bigcup_{x \in (a,b)} B(x, \min(x-a, b-x)/2)$. $\blacksquare$
+
+### Solucion 9
+
+En la topologia cofinita, todo subconjunto finito es cerrado. Si existiera una metrica que genera esta topologia, todo punto $x$ tendria un entorno basic $B(x,r)$ con infinitos complementarios (pues el complementario de un abierto finito debe ser finito), pero esto contradice la estructura de bolas en metricas. $\blacksquare$
+
+### Solucion 10
+
+Por definicion, los abiertos del subespacio $A$ son exactamente $A \cap U$ donde $U$ es abierto en $X$. Pero $U = \bigcup_{x \in U} B(x, r_x)$, y $A \cap U = \bigcup_{x \in U} (A \cap B(x, r_x))$. Cada $A \cap B(x, r_x)$ es una bola abierta en $(A, d|_{A \times A})$. $\blacksquare$
+
+### Solucion 11
+
+Sean $x \neq y$ en $X$. Sea $r = d(x,y)/2 > 0$. Entonces $B(x,r)$ y $B(y,r)$ son disjuntos (si $z \in B(x,r) \cap B(y,r)$, entonces $d(x,y) \leq d(x,z) + d(z,y) < r + r = d(x,y)$, contradiccion). $\blacksquare$
+
+### Solucion 12
+
+$\Rightarrow)$ Si $f$ es continua y $U$ es abierto en $Y$, por definicion $f^{-1}(U)$ es abierto en $X$.
+
+$\Leftarrow)$ Si $f^{-1}(U)$ es abierto para todo $U$ abierto, entonces para todo $x$ y todo $\varepsilon > 0$, existe $\delta > 0$ con $B(f(x), \varepsilon)$ abierto en $Y$, hence $f^{-1}(B(f(x), \varepsilon))$ abierto en $X$, hence existe $\delta$ con $B(x, \delta) \subseteq f^{-1}(B(f(x), \varepsilon))$, i.e., $d_Y(f(x), f(y)) < \varepsilon$ si $d_X(x,y) < \delta$. $\blacksquare$
+
+### Solucion 13
+
+Sea $x = (x_1, x_2)$ e $y = (y_1, y_2)$ en $X \times Y$. La metrica producto $d((x_1,x_2),(y_1,y_2)) = d_X(x_1,y_1) + d_Y(x_2,y_2)$ genera la topologia producto: las bolas producto $B_X(x_1, r) \times B_Y(x_2, r)$ son una base. $\blacksquare$
+
+### Solucion 14
+
+Si, pues $d'(x,y) = \min(1, |x-y|)$ genera la misma topologia que la metrica usual.
+
+Para todo $x$ y todo $r \leq 1$: $B_{d'}(x,r) = (x-r, x+r)$. Para $r > 1$: $B_{d'}(x,r) = \mathbb{R}$.
+
+Asi los entornos basicos son los mismos que los de la topologia usual. $\blacksquare$
+
+### Solucion 15
+
+Si $d_1 \leq C d_2$, entonces toda sucesion de Cauchy en $(X, d_1)$ es de Cauchy en $(X, d_2)$. Por tanto los espacios completos coinciden. Ademas $A$ es totally acotado en $d_1$ implica totally acotado en $d_2$ y viceversa. Por tanto $A$ es compacto en $d_1$ iff completo + totally acotado en $d_1$ iff completo + totally acotado en $d_2$ iff compacto en $d_2$. $\blacksquare$
+
+---
+
+## Referencias y lecturas adicionales
+
+1. Munkres, J.R. (2000). *Topology*. Prentice Hall.
+2. Engelking, R. (1989). *General Topology*. Heldermann Verlag.
+3. Willard, S. (2004). *General Topology*. Dover.
+4. Bourbaki, N. (1989). *General Topology*, Chapters 1-4. Springer.
+5. Kelley, J.L. (1955). *General Topology*. Van Nostrand.
